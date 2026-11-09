@@ -39,6 +39,13 @@ Son especialmente relevantes:
 La exportación LaTeX usa `-no-shell-escape`, pero el motor LaTeX puede leer
 archivos locales. No compiles documentos de terceros sin revisarlos.
 
+## Dependencias transitivas conocidas
+
+- `glib 0.18` en Linux (cadena Tauri/GTK): aviso `GHSA-wrw7-89jp-8q8g`
+  sobre `glib::VariantStrIter`. IngeCalc no usa ese tipo directamente. Se
+  actualizará cuando Tauri migre a `glib 0.20`; mientras tanto, la alerta queda
+  documentada y revisada.
+
 ## Buenas prácticas
 
 - Mantén Rust, Node.js, Tauri y WebView2 actualizados.

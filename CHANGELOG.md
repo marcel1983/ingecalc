@@ -23,6 +23,13 @@ Todas las versiones relevantes de IngeCalc se documentan aquí.
 - Identidad visual multidisciplinar con nodos de civil, eléctrica, mecánica e
   hidráulica.
 - Documentación de uso, arquitectura, publicación y contribución.
+- Dependabot configurado con actualizaciones agrupadas.
+
+### Fixed
+
+- Actualizado `zip` a 9.5.0 para corregir vulnerabilidades de extracción y
+  autenticación.
+- Documentada la dependencia transitiva `glib 0.18` de Tauri/GTK.
 
 ### Removed
 
