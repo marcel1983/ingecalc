@@ -12,4 +12,4 @@ math-eval = { path = "../math-eval" }
 math-parse = { path = "../math-parse" }
 serde.workspace = true
 thiserror.workspace = true
-zip = { version = "2", default-features = false, features = ["deflate"] }
+zip = { version = "9", default-features = false, features = ["deflate"] }
