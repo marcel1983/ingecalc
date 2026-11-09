@@ -1,0 +1,233 @@
+{
+  "format": "ingecalc-json",
+  "version": 1,
+  "metadata": {
+    "title": "Unidades, conversiones y unidades propias",
+    "author": "IngeCalc",
+    "language": "es"
+  },
+  "settings": {
+    "units": "metric",
+    "precision": 4,
+    "fractions": "auto",
+    "page": {
+      "marginTop": 48,
+      "marginRight": 48,
+      "marginBottom": 48,
+      "marginLeft": 48,
+      "header": "",
+      "footer": "Página {page}"
+    }
+  },
+  "pages": [
+    {
+      "id": "page-1",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "heading-1",
+          "type": "text",
+          "x": 60,
+          "y": 44,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Conversión automática</strong></p>"
+        },
+        {
+          "id": "note-2",
+          "type": "text",
+          "x": 60,
+          "y": 84,
+          "w": 720,
+          "h": 40,
+          "html": "<p>La suma convierte el operando derecho a la unidad del izquierdo.</p>"
+        },
+        {
+          "id": "math-3",
+          "type": "math",
+          "x": 60,
+          "y": 128,
+          "w": 720,
+          "h": 54,
+          "source": "d := 2\\,\\text{m}+30\\,\\text{cm}",
+          "ascii": "d := 2\"m\" + 30\"cm\""
+        },
+        {
+          "id": "math-4",
+          "type": "math",
+          "x": 60,
+          "y": 186,
+          "w": 720,
+          "h": 54,
+          "source": "t := 2\\,\\text{s}",
+          "ascii": "t := 2\"s\""
+        },
+        {
+          "id": "math-5",
+          "type": "math",
+          "x": 60,
+          "y": 244,
+          "w": 720,
+          "h": 72,
+          "source": "v := \\frac{d}{t}",
+          "ascii": "v := d/t"
+        },
+        {
+          "id": "math-6",
+          "type": "math",
+          "x": 60,
+          "y": 320,
+          "w": 720,
+          "h": 54,
+          "source": "x := v\\cdot t",
+          "ascii": "x := v*t"
+        },
+        {
+          "id": "math-7",
+          "type": "math",
+          "x": 60,
+          "y": 378,
+          "w": 720,
+          "h": 54,
+          "source": "T := 20\\,\\text{°C}+5\\,\\text{K}",
+          "ascii": "T := 20\"°C\" + 5\"K\""
+        },
+        {
+          "id": "heading-8",
+          "type": "text",
+          "x": 60,
+          "y": 436,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Unidades localizadas</strong></p>"
+        },
+        {
+          "id": "math-9",
+          "type": "math",
+          "x": 60,
+          "y": 476,
+          "w": 720,
+          "h": 54,
+          "source": "2\\,\\text{metro}",
+          "ascii": "2\"metro\""
+        },
+        {
+          "id": "math-10",
+          "type": "math",
+          "x": 60,
+          "y": 534,
+          "w": 720,
+          "h": 54,
+          "source": "1\\,\\text{pulgada}",
+          "ascii": "1\"pulgada\""
+        },
+        {
+          "id": "math-11",
+          "type": "math",
+          "x": 60,
+          "y": 592,
+          "w": 720,
+          "h": 54,
+          "source": "1\\,\\text{grado Celsius}",
+          "ascii": "1\"grado Celsius\""
+        }
+      ]
+    },
+    {
+      "id": "page-2",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "heading-12",
+          "type": "text",
+          "x": 60,
+          "y": 44,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Unidades propias</strong></p>"
+        },
+        {
+          "id": "note-13",
+          "type": "text",
+          "x": 60,
+          "y": 84,
+          "w": 720,
+          "h": 40,
+          "html": "<p>Una unidad propia se define como múltiplo de otra unidad.</p>"
+        },
+        {
+          "id": "math-14",
+          "type": "math",
+          "x": 60,
+          "y": 128,
+          "w": 720,
+          "h": 54,
+          "source": "\\mathrm{unit}(\\text{mi_pulgada}) := 2.54\\,\\text{cm}",
+          "ascii": "unit(\"mi_pulgada\") := 2.54 cm"
+        },
+        {
+          "id": "math-15",
+          "type": "math",
+          "x": 60,
+          "y": 186,
+          "w": 720,
+          "h": 54,
+          "source": "2\\,\\text{mi_pulgada}",
+          "ascii": "2\"mi_pulgada\""
+        },
+        {
+          "id": "math-16",
+          "type": "math",
+          "x": 60,
+          "y": 244,
+          "w": 720,
+          "h": 54,
+          "source": "2\\,\\text{mi_pulgada}+2.54\\,\\text{cm}",
+          "ascii": "2\"mi_pulgada\" + 2.54 cm"
+        },
+        {
+          "id": "math-17",
+          "type": "math",
+          "x": 60,
+          "y": 302,
+          "w": 720,
+          "h": 54,
+          "source": "\\mathrm{unit}(\\text{mi_pie}) := 12\\,\\text{mi_pulgada}",
+          "ascii": "unit(\"mi_pie\") := 12 mi_pulgada"
+        },
+        {
+          "id": "math-18",
+          "type": "math",
+          "x": 60,
+          "y": 360,
+          "w": 720,
+          "h": 54,
+          "source": "1\\,\\text{mi_pie}",
+          "ascii": "1\"mi_pie\""
+        },
+        {
+          "id": "math-19",
+          "type": "math",
+          "x": 60,
+          "y": 418,
+          "w": 720,
+          "h": 54,
+          "source": "1\\,\\text{mi_pie}+2\\,\\text{mi_pulgada}",
+          "ascii": "1\"mi_pie\" + 2 mi_pulgada"
+        },
+        {
+          "id": "math-20",
+          "type": "math",
+          "x": 60,
+          "y": 476,
+          "w": 720,
+          "h": 54,
+          "source": "0\\,\\text{cm}+1\\,\\text{mi_pie}",
+          "ascii": "0\"cm\" + 1\"mi_pie\""
+        }
+      ]
+    }
+  ]
+}

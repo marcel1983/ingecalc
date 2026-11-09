@@ -1,0 +1,26 @@
+[package]
+name = "ingecalc-desktop"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+name = "ingecalc_desktop_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+base64 = "0.22"
+serde.workspace = true
+serde_json.workspace = true
+doc-core = { path = "../../../crates/doc-core" }
+doc-json = { path = "../../../crates/doc-json" }
+export = { path = "../../../crates/export" }
+math-ast = { path = "../../../crates/math-ast" }
+math-eval = { path = "../../../crates/math-eval" }
+math-numeric = { path = "../../../crates/math-numeric" }
+math-parse = { path = "../../../crates/math-parse" }

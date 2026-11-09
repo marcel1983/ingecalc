@@ -1,0 +1,143 @@
+{
+  "format": "ingecalc-json",
+  "version": 1,
+  "metadata": {
+    "title": "Cálculo simbólico y resolución",
+    "author": "IngeCalc",
+    "language": "es"
+  },
+  "settings": {
+    "units": "original",
+    "unitOverrides": {},
+    "customConstants": [],
+    "personalDictionary": [],
+    "precision": 4,
+    "fractions": "auto",
+    "notation": "auto",
+    "trimZeros": true,
+    "page": {
+      "marginTop": 48,
+      "marginRight": 48,
+      "marginBottom": 48,
+      "marginLeft": 48,
+      "header": "",
+      "footer": "IngeCalc — {page}"
+    }
+  },
+  "pages": [
+    {
+      "id": "page-1",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "st",
+          "type": "text",
+          "x": 60,
+          "y": 45,
+          "w": 730,
+          "h": 42,
+          "html": "<p><strong style=\"font-size: 22px\">CÁLCULO SIMBÓLICO Y RESOLUCIÓN</strong></p>"
+        },
+        {
+          "id": "sn",
+          "type": "text",
+          "x": 60,
+          "y": 105,
+          "w": 730,
+          "h": 42,
+          "html": "<p>Simplificación, expansión, factorización, derivadas, integrales y raíces.</p>"
+        },
+        {
+          "id": "s1",
+          "type": "math",
+          "x": 60,
+          "y": 170,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{simplify}\\left(x+0+x\\right)",
+          "ascii": "simplify(x + 0 + x)"
+        },
+        {
+          "id": "s2",
+          "type": "math",
+          "x": 60,
+          "y": 240,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{expand}\\left(\\left(x+1\\right)^{2}\\right)",
+          "ascii": "expand((x+1)^2)"
+        },
+        {
+          "id": "s3",
+          "type": "math",
+          "x": 60,
+          "y": 310,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{factor}\\left(x^{2}-4\\right)",
+          "ascii": "factor(x^2 - 4)"
+        },
+        {
+          "id": "s4",
+          "type": "math",
+          "x": 60,
+          "y": 380,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{diff}\\left(x^{3}+2x,x\\right)",
+          "ascii": "diff(x^3 + 2*x, x)"
+        },
+        {
+          "id": "s5",
+          "type": "math",
+          "x": 60,
+          "y": 450,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{integrate}\\left(x^{2},x\\right)",
+          "ascii": "integrate(x^2, x)"
+        },
+        {
+          "id": "s6",
+          "type": "math",
+          "x": 60,
+          "y": 520,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{integral}\\left(\\sin\\left(x\\right),x,0,\\pi\\right)",
+          "ascii": "integral(sin(x), x, 0, pi)"
+        },
+        {
+          "id": "s7",
+          "type": "math",
+          "x": 60,
+          "y": 590,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{solve}\\left(x^{2}-5x+6,x\\right)",
+          "ascii": "solve(x^2 - 5*x + 6, x)"
+        },
+        {
+          "id": "s8",
+          "type": "math",
+          "x": 60,
+          "y": 660,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{polyroots}\\left(\\left[1,0,1\\right]\\right)",
+          "ascii": "polyroots([1, 0, 1])"
+        },
+        {
+          "id": "s9",
+          "type": "text",
+          "x": 60,
+          "y": 735,
+          "w": 730,
+          "h": 66,
+          "html": "<p>Las funciones simbólicas devuelven expresiones legibles. <strong>integral</strong> calcula integrales definidas numéricamente; <strong>solve</strong> y <strong>polyroots</strong> incluyen raíces complejas cuando existen.</p>"
+        }
+      ]
+    }
+  ]
+}

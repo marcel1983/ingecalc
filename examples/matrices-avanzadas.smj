@@ -1,0 +1,153 @@
+{
+  "format": "ingecalc-json",
+  "version": 1,
+  "metadata": {
+    "title": "Matrices y vectores avanzados",
+    "author": "IngeCalc",
+    "language": "es"
+  },
+  "settings": {
+    "units": "original",
+    "unitOverrides": {},
+    "customConstants": [],
+    "personalDictionary": [],
+    "precision": 4,
+    "fractions": "auto",
+    "notation": "auto",
+    "trimZeros": true,
+    "page": {
+      "marginTop": 48,
+      "marginRight": 48,
+      "marginBottom": 48,
+      "marginLeft": 48,
+      "header": "",
+      "footer": "IngeCalc — {page}"
+    }
+  },
+  "pages": [
+    {
+      "id": "page-1",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "mt",
+          "type": "text",
+          "x": 60,
+          "y": 45,
+          "w": 730,
+          "h": 42,
+          "html": "<p><strong style=\"font-size: 22px\">MATRICES Y VECTORES AVANZADOS</strong></p>"
+        },
+        {
+          "id": "mn",
+          "type": "text",
+          "x": 60,
+          "y": 105,
+          "w": 730,
+          "h": 42,
+          "html": "<p>LU, QR, autovalores, rango, vectores y utilidades de matrices.</p>"
+        },
+        {
+          "id": "m1",
+          "type": "math",
+          "x": 60,
+          "y": 170,
+          "w": 730,
+          "h": 55,
+          "source": "A\\coloneq\\left[4,3;6,3\\right]",
+          "ascii": "A := [4,3;6,3]"
+        },
+        {
+          "id": "m2",
+          "type": "math",
+          "x": 60,
+          "y": 240,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{lu}\\left(A\\right)",
+          "ascii": "lu(A)"
+        },
+        {
+          "id": "m3",
+          "type": "math",
+          "x": 60,
+          "y": 310,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{qr}\\left(\\left[1,2;3,4\\right]\\right)",
+          "ascii": "qr([1,2;3,4])"
+        },
+        {
+          "id": "m4",
+          "type": "math",
+          "x": 60,
+          "y": 380,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{eigenvalues}\\left(\\left[2,1;1,2\\right]\\right)",
+          "ascii": "eigenvalues([2,1;1,2])"
+        },
+        {
+          "id": "m5",
+          "type": "math",
+          "x": 60,
+          "y": 450,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{rank}\\left(\\left[1,2;3,4\\right]\\right)",
+          "ascii": "rank([1,2;3,4])"
+        },
+        {
+          "id": "m6",
+          "type": "math",
+          "x": 60,
+          "y": 520,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{range}\\left(1,5\\right)",
+          "ascii": "range(1,5)"
+        },
+        {
+          "id": "m7",
+          "type": "math",
+          "x": 60,
+          "y": 590,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{dot}\\left(\\left[1,2,3\\right],\\left[4,5,6\\right]\\right)",
+          "ascii": "dot([1,2,3],[4,5,6])"
+        },
+        {
+          "id": "m8",
+          "type": "math",
+          "x": 60,
+          "y": 660,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{cross}\\left(\\left[1,0,0\\right],\\left[0,1,0\\right]\\right)",
+          "ascii": "cross([1,0,0],[0,1,0])"
+        },
+        {
+          "id": "m9",
+          "type": "math",
+          "x": 60,
+          "y": 730,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{norm}\\left(\\left[3,4\\right]\\right)",
+          "ascii": "norm([3,4])"
+        },
+        {
+          "id": "m10",
+          "type": "text",
+          "x": 60,
+          "y": 805,
+          "w": 730,
+          "h": 66,
+          "html": "<p><strong>lu</strong> devuelve L, U y P; <strong>qr</strong> devuelve Q y R. <strong>eigenvalues</strong> trabaja con matrices simétricas.</p>"
+        }
+      ]
+    }
+  ]
+}

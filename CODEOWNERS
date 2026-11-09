@@ -1,0 +1,33 @@
+# Revisores por ruta
+# Actualizar los equipos si cambia la organización de GitHub.
+
+*                           @ingecalc/maintainers
+
+# Núcleo matemático y documento
+/crates/math-*/             @ingecalc/core
+/crates/doc-*/              @ingecalc/core
+/crates/export/             @ingecalc/core
+/crates/plugin-*/           @ingecalc/core
+/schemas/                   @ingecalc/core
+
+# Escritorio y CLI
+/apps/desktop/src/          @ingecalc/gui
+/apps/desktop/src-tauri/    @ingecalc/core
+/apps/cli/                  @ingecalc/core
+
+# Validación y ejemplos
+/examples/                  @ingecalc/engineering
+
+# Documentación
+/docs/                      @ingecalc/docs
+/README.md                  @ingecalc/docs @ingecalc/maintainers
+/CONTRIBUTING.md            @ingecalc/docs
+/SECURITY.md                @ingecalc/maintainers
+/CODE_OF_CONDUCT.md         @ingecalc/maintainers
+/GOVERNANCE.md              @ingecalc/maintainers
+/CHANGELOG.md               @ingecalc/maintainers
+
+# Infraestructura
+/.github/                   @ingecalc/maintainers
+/Cargo.toml                 @ingecalc/core
+/package.json               @ingecalc/maintainers

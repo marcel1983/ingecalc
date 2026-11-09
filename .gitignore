@@ -1,0 +1,28 @@
+# Rust
+/target
+**/*.rs.bk
+
+# Node
+node_modules
+dist
+.vite
+
+# Tauri
+apps/desktop/src-tauri/target
+apps/desktop/src-tauri/gen
+
+# Generated MathLive font copies
+apps/desktop/public/fonts
+
+# Generated example exports
+examples/*.tex
+examples/*.odt
+examples/*.pdf
+examples/*.fodt
+
+# Editors / OS
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+

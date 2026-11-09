@@ -1,0 +1,297 @@
+{
+  "format": "ingecalc-json",
+  "version": 1,
+  "metadata": {
+    "title": "Ecuaciones y sistemas lineales",
+    "author": "IngeCalc",
+    "language": "es"
+  },
+  "settings": {
+    "units": "metric",
+    "precision": 4,
+    "fractions": "auto",
+    "page": {
+      "marginTop": 48,
+      "marginRight": 48,
+      "marginBottom": 48,
+      "marginLeft": 48,
+      "header": "",
+      "footer": "Página {page}"
+    }
+  },
+  "pages": [
+    {
+      "id": "page-1",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "heading-1",
+          "type": "text",
+          "x": 60,
+          "y": 44,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Sistema lineal 2×2</strong></p>"
+        },
+        {
+          "id": "note-2",
+          "type": "text",
+          "x": 60,
+          "y": 84,
+          "w": 720,
+          "h": 40,
+          "html": "<p>Se resuelve con la inversa: x = A⁻¹ b.</p>"
+        },
+        {
+          "id": "math-3",
+          "type": "math",
+          "x": 60,
+          "y": 128,
+          "w": 720,
+          "h": 72,
+          "source": "A := \\begin{pmatrix}2&1\\\\1&3\\end{pmatrix}",
+          "ascii": "A := [2,1;1,3]"
+        },
+        {
+          "id": "math-4",
+          "type": "math",
+          "x": 60,
+          "y": 204,
+          "w": 720,
+          "h": 72,
+          "source": "b := \\begin{pmatrix}1\\\\2\\end{pmatrix}",
+          "ascii": "b := [1;2]"
+        },
+        {
+          "id": "math-5",
+          "type": "math",
+          "x": 60,
+          "y": 280,
+          "w": 720,
+          "h": 54,
+          "source": "\\mathrm{solve}(A,b)",
+          "ascii": "solve(A,b)"
+        },
+        {
+          "id": "heading-6",
+          "type": "text",
+          "x": 60,
+          "y": 338,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Sistema lineal 3×3</strong></p>"
+        },
+        {
+          "id": "note-7",
+          "type": "text",
+          "x": 60,
+          "y": 378,
+          "w": 720,
+          "h": 40,
+          "html": "<p>Un sistema con solución única: (0.5, 0, 1.5).</p>"
+        },
+        {
+          "id": "math-8",
+          "type": "math",
+          "x": 60,
+          "y": 422,
+          "w": 720,
+          "h": 96,
+          "source": "M := \\begin{pmatrix}2&1&0\\\\1&3&1\\\\0&1&2\\end{pmatrix}",
+          "ascii": "M := [2,1,0;1,3,1;0,1,2]"
+        },
+        {
+          "id": "math-9",
+          "type": "math",
+          "x": 60,
+          "y": 522,
+          "w": 720,
+          "h": 96,
+          "source": "v := \\begin{pmatrix}1\\\\2\\\\3\\end{pmatrix}",
+          "ascii": "v := [1;2;3]"
+        },
+        {
+          "id": "math-10",
+          "type": "math",
+          "x": 60,
+          "y": 622,
+          "w": 720,
+          "h": 54,
+          "source": "\\mathrm{solve}(M,v)",
+          "ascii": "solve(M,v)"
+        }
+      ]
+    },
+    {
+      "id": "page-2",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "heading-11",
+          "type": "text",
+          "x": 60,
+          "y": 44,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Ecuación cuadrática</strong></p>"
+        },
+        {
+          "id": "note-12",
+          "type": "text",
+          "x": 60,
+          "y": 84,
+          "w": 720,
+          "h": 40,
+          "html": "<p>Fórmula general para ax² + bx + c = 0.</p>"
+        },
+        {
+          "id": "math-13",
+          "type": "math",
+          "x": 60,
+          "y": 128,
+          "w": 720,
+          "h": 54,
+          "source": "qa := 1",
+          "ascii": "qa := 1"
+        },
+        {
+          "id": "math-14",
+          "type": "math",
+          "x": 60,
+          "y": 186,
+          "w": 720,
+          "h": 54,
+          "source": "qb := -3",
+          "ascii": "qb := -3"
+        },
+        {
+          "id": "math-15",
+          "type": "math",
+          "x": 60,
+          "y": 244,
+          "w": 720,
+          "h": 54,
+          "source": "qc := 2",
+          "ascii": "qc := 2"
+        },
+        {
+          "id": "math-16",
+          "type": "math",
+          "x": 60,
+          "y": 302,
+          "w": 720,
+          "h": 54,
+          "source": "D := q_b^2-4q_aq_c",
+          "ascii": "D := qb^2 - 4*qa*qc"
+        },
+        {
+          "id": "math-17",
+          "type": "math",
+          "x": 60,
+          "y": 360,
+          "w": 720,
+          "h": 72,
+          "source": "x_1 := \\frac{-q_b+\\sqrt{D}}{2q_a}",
+          "ascii": "x1 := (-qb + sqrt(D))/(2*qa)"
+        },
+        {
+          "id": "math-18",
+          "type": "math",
+          "x": 60,
+          "y": 436,
+          "w": 720,
+          "h": 72,
+          "source": "x_2 := \\frac{-q_b-\\sqrt{D}}{2q_a}",
+          "ascii": "x2 := (-qb - sqrt(D))/(2*qa)"
+        }
+      ]
+    },
+    {
+      "id": "page-3",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "heading-19",
+          "type": "text",
+          "x": 60,
+          "y": 44,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Raíces complejas</strong></p>"
+        },
+        {
+          "id": "note-20",
+          "type": "text",
+          "x": 60,
+          "y": 84,
+          "w": 720,
+          "h": 40,
+          "html": "<p>Cuando el discriminante es negativo, las raíces son conjugadas.</p>"
+        },
+        {
+          "id": "math-21",
+          "type": "math",
+          "x": 60,
+          "y": 128,
+          "w": 720,
+          "h": 54,
+          "source": "ra := 1",
+          "ascii": "ra := 1"
+        },
+        {
+          "id": "math-22",
+          "type": "math",
+          "x": 60,
+          "y": 186,
+          "w": 720,
+          "h": 54,
+          "source": "rb := 0",
+          "ascii": "rb := 0"
+        },
+        {
+          "id": "math-23",
+          "type": "math",
+          "x": 60,
+          "y": 244,
+          "w": 720,
+          "h": 54,
+          "source": "rc := 1",
+          "ascii": "rc := 1"
+        },
+        {
+          "id": "math-24",
+          "type": "math",
+          "x": 60,
+          "y": 302,
+          "w": 720,
+          "h": 54,
+          "source": "D_c := r_b^2-4r_ar_c",
+          "ascii": "Dc := rb^2 - 4*ra*rc"
+        },
+        {
+          "id": "math-25",
+          "type": "math",
+          "x": 60,
+          "y": 360,
+          "w": 720,
+          "h": 72,
+          "source": "z_1 := \\frac{-r_b+\\sqrt{D_c}}{2r_a}",
+          "ascii": "z1 := (-rb + sqrt(Dc))/(2*ra)"
+        },
+        {
+          "id": "math-26",
+          "type": "math",
+          "x": 60,
+          "y": 436,
+          "w": 720,
+          "h": 72,
+          "source": "z_2 := \\frac{-r_b-\\sqrt{D_c}}{2r_a}",
+          "ascii": "z2 := (-rb - sqrt(Dc))/(2*ra)"
+        }
+      ]
+    }
+  ]
+}

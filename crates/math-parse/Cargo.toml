@@ -1,0 +1,10 @@
+[package]
+name = "math-parse"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+math-ast = { path = "../math-ast" }
+math-units = { path = "../math-units" }
+thiserror.workspace = true

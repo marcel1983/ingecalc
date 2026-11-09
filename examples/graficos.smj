@@ -1,0 +1,252 @@
+{
+  "format": "ingecalc-json",
+  "version": 1,
+  "metadata": {
+    "title": "Gráficos 2D",
+    "author": "IngeCalc",
+    "language": "es"
+  },
+  "settings": {
+    "units": "metric",
+    "precision": 4,
+    "fractions": "auto",
+    "page": {
+      "marginTop": 48,
+      "marginRight": 48,
+      "marginBottom": 48,
+      "marginLeft": 48,
+      "header": "",
+      "footer": "Página {page}"
+    }
+  },
+  "pages": [
+    {
+      "id": "page-1",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "heading-1",
+          "type": "text",
+          "x": 60,
+          "y": 44,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Funciones explícitas</strong></p>"
+        },
+        {
+          "id": "note-2",
+          "type": "text",
+          "x": 60,
+          "y": 84,
+          "w": 720,
+          "h": 40,
+          "html": "<p>Dos series sobre el mismo eje: seno y coseno.</p>"
+        },
+        {
+          "id": "plot-3",
+          "type": "plot",
+          "x": 60,
+          "y": 128,
+          "w": 720,
+          "h": 240,
+          "series": [
+            {
+              "expression": "sin(x)",
+              "expression2": "",
+              "kind": "explicit",
+              "parameterMin": -10,
+              "parameterMax": 10,
+              "color": "#2563eb",
+              "visible": true
+            },
+            {
+              "expression": "cos(x)",
+              "expression2": "",
+              "kind": "explicit",
+              "parameterMin": -10,
+              "parameterMax": 10,
+              "color": "#dc2626",
+              "visible": true
+            }
+          ],
+          "xMin": -6.283185307179586,
+          "xMax": 6.283185307179586,
+          "yMin": null,
+          "yMax": null
+        },
+        {
+          "id": "heading-4",
+          "type": "text",
+          "x": 60,
+          "y": 380,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Curva paramétrica</strong></p>"
+        },
+        {
+          "id": "note-5",
+          "type": "text",
+          "x": 60,
+          "y": 420,
+          "w": 720,
+          "h": 40,
+          "html": "<p>Una circunferencia: x(t)=cos(t), y(t)=sin(t).</p>"
+        },
+        {
+          "id": "plot-6",
+          "type": "plot",
+          "x": 60,
+          "y": 464,
+          "w": 720,
+          "h": 240,
+          "series": [
+            {
+              "expression": "cos(t)",
+              "expression2": "sin(t)",
+              "kind": "parametric",
+              "parameterMin": 0,
+              "parameterMax": 6.283185307179586,
+              "color": "#7c3aed",
+              "visible": true
+            }
+          ],
+          "xMin": -1.5,
+          "xMax": 1.5,
+          "yMin": -1.5,
+          "yMax": 1.5
+        },
+        {
+          "id": "heading-7",
+          "type": "text",
+          "x": 60,
+          "y": 716,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Curva de Lissajous</strong></p>"
+        },
+        {
+          "id": "note-8",
+          "type": "text",
+          "x": 60,
+          "y": 756,
+          "w": 720,
+          "h": 40,
+          "html": "<p>Figura de Lissajous 3:2: x(t)=sin(3t), y(t)=sin(2t).</p>"
+        },
+        {
+          "id": "plot-9",
+          "type": "plot",
+          "x": 60,
+          "y": 800,
+          "w": 720,
+          "h": 240,
+          "series": [
+            {
+              "expression": "sin(3*t)",
+              "expression2": "sin(2*t)",
+              "kind": "parametric",
+              "parameterMin": 0,
+              "parameterMax": 6.283185307179586,
+              "color": "#ea580c",
+              "visible": true
+            }
+          ],
+          "xMin": -1.2,
+          "xMax": 1.2,
+          "yMin": -1.2,
+          "yMax": 1.2
+        }
+      ]
+    },
+    {
+      "id": "page-2",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "heading-10",
+          "type": "text",
+          "x": 60,
+          "y": 44,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Ecuación implícita</strong></p>"
+        },
+        {
+          "id": "note-11",
+          "type": "text",
+          "x": 60,
+          "y": 84,
+          "w": 720,
+          "h": 40,
+          "html": "<p>Circunferencia x² + y² = 4.</p>"
+        },
+        {
+          "id": "plot-12",
+          "type": "plot",
+          "x": 60,
+          "y": 128,
+          "w": 720,
+          "h": 240,
+          "series": [
+            {
+              "expression": "x^2+y^2-4",
+              "expression2": "",
+              "kind": "implicit",
+              "parameterMin": -1,
+              "parameterMax": 1,
+              "color": "#059669",
+              "visible": true
+            }
+          ],
+          "xMin": -3,
+          "xMax": 3,
+          "yMin": -3,
+          "yMax": 3
+        },
+        {
+          "id": "heading-13",
+          "type": "text",
+          "x": 60,
+          "y": 380,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Corazón implícito</strong></p>"
+        },
+        {
+          "id": "note-14",
+          "type": "text",
+          "x": 60,
+          "y": 420,
+          "w": 720,
+          "h": 40,
+          "html": "<p>Una curva algebraica con forma de corazón.</p>"
+        },
+        {
+          "id": "plot-15",
+          "type": "plot",
+          "x": 60,
+          "y": 464,
+          "w": 720,
+          "h": 240,
+          "series": [
+            {
+              "expression": "(x^2+y^2-1)^3-x^2*y^3",
+              "expression2": "",
+              "kind": "implicit",
+              "parameterMin": -1,
+              "parameterMax": 1,
+              "color": "#db2777",
+              "visible": true
+            }
+          ],
+          "xMin": -1.5,
+          "xMax": 1.5,
+          "yMin": -1.5,
+          "yMax": 1.5
+        }
+      ]
+    }
+  ]
+}

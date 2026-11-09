@@ -1,0 +1,109 @@
+{
+  "format": "ingecalc-json",
+  "version": 1,
+  "metadata": {
+    "title": "Gráficos 3D y unidades",
+    "author": "IngeCalc",
+    "language": "es"
+  },
+  "settings": {
+    "units": "original",
+    "unitOverrides": {},
+    "customConstants": [],
+    "personalDictionary": [],
+    "precision": 4,
+    "fractions": "auto",
+    "notation": "auto",
+    "trimZeros": true,
+    "page": {
+      "marginTop": 48,
+      "marginRight": 48,
+      "marginBottom": 48,
+      "marginLeft": 48,
+      "header": "",
+      "footer": "IngeCalc — {page}"
+    }
+  },
+  "pages": [
+    {
+      "id": "page-1",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "gt",
+          "type": "text",
+          "x": 60,
+          "y": 45,
+          "w": 730,
+          "h": 42,
+          "html": "<p><strong style=\"font-size: 22px\">GRÁFICOS 3D Y UNIDADES</strong></p>"
+        },
+        {
+          "id": "surface",
+          "type": "plot",
+          "x": 60,
+          "y": 105,
+          "w": 730,
+          "h": 520,
+          "series": [
+            {
+              "expression": "sin(x)*cos(y)",
+              "expression2": "",
+              "kind": "surface",
+              "parameterMin": -10,
+              "parameterMax": 10,
+              "color": "#2563eb",
+              "visible": true
+            }
+          ],
+          "xMin": -3,
+          "xMax": 3,
+          "yMin": -3,
+          "yMax": 3
+        },
+        {
+          "id": "gn",
+          "type": "text",
+          "x": 60,
+          "y": 655,
+          "w": 730,
+          "h": 42,
+          "html": "<p>Superficie z = sen(x)·cos(y). Arrastra para rotar y usa la rueda para zoom.</p>"
+        },
+        {
+          "id": "units-plot",
+          "type": "plot",
+          "x": 60,
+          "y": 715,
+          "w": 500,
+          "h": 275,
+          "series": [
+            {
+              "expression": "x * 1 m",
+              "expression2": "",
+              "kind": "explicit",
+              "parameterMin": -10,
+              "parameterMax": 10,
+              "color": "#dc2626",
+              "visible": true
+            }
+          ],
+          "xMin": 0,
+          "xMax": 3,
+          "yMin": null,
+          "yMax": null
+        },
+        {
+          "id": "gu",
+          "type": "text",
+          "x": 60,
+          "y": 1002,
+          "w": 730,
+          "h": 42,
+          "html": "<p>La serie y = x·1 m conserva la unidad en el eje Y.</p>"
+        }
+      ]
+    }
+  ]
+}

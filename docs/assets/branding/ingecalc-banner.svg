@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.55" stop-color="#081627"/>
+      <stop offset="1" stop-color="#0a1b30"/>
+    </linearGradient>
+    <radialGradient id="glowBlue" cx="0.2" cy="0.28" r="0.55">
+      <stop offset="0" stop-color="#2f7dff" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#2f7dff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowAmber" cx="0.82" cy="0.78" r="0.45">
+      <stop offset="0" stop-color="#ffb24a" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#ffb24a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="calc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7ce7ff"/>
+      <stop offset="1" stop-color="#2f7dff"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f7dff" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#2f7dff" stop-opacity="0.10"/>
+    </linearGradient>
+    <clipPath id="panelClip">
+      <rect x="0" y="0" width="300" height="215" rx="20"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect width="1280" height="640" fill="url(#glowBlue)"/>
+  <rect width="1280" height="640" fill="url(#glowAmber)"/>
+
+  <g stroke="#5aa7ff" stroke-width="1" opacity="0.08">
+    <path d="M0 80H1280M0 160H1280M0 240H1280M0 320H1280M0 400H1280M0 480H1280M0 560H1280"/>
+    <path d="M80 0V640M160 0V640M240 0V640M320 0V640M400 0V640M480 0V640M560 0V640M640 0V640M720 0V640M800 0V640M880 0V640M960 0V640M1040 0V640M1120 0V640M1200 0V640"/>
+  </g>
+  <g stroke="#5aa7ff" stroke-width="1" opacity="0.14">
+    <path d="M0 160H1280M0 480H1280M240 0V640M800 0V640"/>
+  </g>
+
+  <text x="64" y="98" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="12" fill="#5aa7ff" letter-spacing="3">INGENIERÍA · CÁLCULO · DOCUMENTO</text>
+
+  <g>
+    <ellipse cx="314" cy="242" rx="254" ry="96" fill="none" stroke="#5aa7ff" stroke-width="1.6" stroke-dasharray="5 12" opacity="0.28" transform="rotate(-4 314 242)"/>
+
+    <text x="314" y="286" text-anchor="middle" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="104" font-weight="700" letter-spacing="2">
+      <tspan fill="#f8fbff">Inge</tspan><tspan fill="url(#calc)">Calc</tspan>
+    </text>
+
+    <circle cx="82" cy="174" r="21" fill="#0c1c31" stroke="#ffb24a" stroke-width="3"/>
+    <path d="M70 181H94M74 181V172M90 181V172M74 172H90" fill="none" stroke="#ffb24a" stroke-width="2" stroke-linecap="round"/>
+
+    <circle cx="546" cy="174" r="21" fill="#0c1c31" stroke="#facc15" stroke-width="3"/>
+    <path d="M549 162L540 177H546L543 187L556 171H549L553 162Z" fill="#facc15"/>
+
+    <circle cx="546" cy="310" r="21" fill="#0c1c31" stroke="#47d7ff" stroke-width="3"/>
+    <circle cx="546" cy="310" r="7" fill="none" stroke="#47d7ff" stroke-width="2"/>
+    <path d="M546 299V303M546 317V321M535 310H539M553 310H557M538 302L541 305M551 315L554 318M554 302L551 305M541 315L538 318" stroke="#47d7ff" stroke-width="2" stroke-linecap="round"/>
+
+    <circle cx="82" cy="310" r="21" fill="#0c1c31" stroke="#2f7dff" stroke-width="3"/>
+    <path d="M82 298C82 298 74 308 74 314C74 319 77.5 323 82 323C86.5 323 90 319 90 314C90 308 82 298 82 298Z" fill="#2f7dff"/>
+  </g>
+
+  <text x="66" y="372" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="28" font-weight="400" fill="#dbeafe">Cálculo para todas las ingenierías.</text>
+  <g font-family="Bahnschrift, Segoe UI, sans-serif" font-size="13" letter-spacing="1.2">
+    <circle cx="70" cy="408" r="4" fill="#ffb24a"/>
+    <text x="84" y="413" fill="#b7c6da">CIVIL</text>
+    <circle cx="154" cy="408" r="4" fill="#facc15"/>
+    <text x="168" y="413" fill="#b7c6da">ELÉCTRICA</text>
+    <circle cx="274" cy="408" r="4" fill="#47d7ff"/>
+    <text x="288" y="413" fill="#b7c6da">MECÁNICA</text>
+    <circle cx="398" cy="408" r="4" fill="#2f7dff"/>
+    <text x="412" y="413" fill="#b7c6da">HIDRÁULICA</text>
+  </g>
+
+  <g transform="translate(66 462)">
+    <rect width="288" height="42" rx="21" fill="#0c1c31" stroke="#24466e"/>
+    <circle cx="23" cy="21" r="5" fill="#4ade80"/>
+    <text x="38" y="27" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="16" fill="#dbeafe" letter-spacing="0.3">Open source</text>
+    <path d="M136 12V30" stroke="#2b4b70" stroke-width="1.5"/>
+    <text x="152" y="27" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="16" fill="#8fa6c2" letter-spacing="0.3">Rust + Tauri</text>
+  </g>
+
+  <path d="M602 96V544" stroke="#1d3b5d" stroke-width="1"/>
+
+  <g transform="translate(620 100)">
+    <rect width="300" height="215" rx="20" fill="#0c1c31" stroke="#24466e" stroke-width="1.4"/>
+    <rect x="22" y="18" width="34" height="4" rx="2" fill="#ffb24a"/>
+    <text x="66" y="25" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="13" fill="#ffb24a" letter-spacing="1.8">CIVIL</text>
+    <text x="22" y="48" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="10" fill="#6f87a5" letter-spacing="1.5">ESTRUCTURAS</text>
+    <g fill="none" stroke="#ffb24a" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M40 130H260" stroke-width="4"/>
+      <path d="M100 82V130M200 82V130" stroke-width="3.5"/>
+      <path d="M100 82L40 130M100 82L160 130M200 82L140 130M200 82L260 130" stroke-width="1.5" opacity="0.8"/>
+      <path d="M92 130L100 146L108 130M192 130L200 146L208 130" stroke-width="2"/>
+      <path d="M34 176C46 170 58 182 70 176C82 170 94 182 106 176C118 170 130 182 142 176C154 170 166 182 178 176C190 170 202 182 214 176C226 170 238 182 250 176C258 172 264 174 270 176" stroke-width="1.5" opacity="0.45"/>
+    </g>
+    <text x="150" y="198" text-anchor="middle" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="10" fill="#6f87a5" letter-spacing="1.2">L = 24,0 m</text>
+  </g>
+
+  <g transform="translate(940 100)">
+    <rect width="300" height="215" rx="20" fill="#0c1c31" stroke="#24466e" stroke-width="1.4"/>
+    <rect x="22" y="18" width="34" height="4" rx="2" fill="#facc15"/>
+    <text x="66" y="25" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="13" fill="#facc15" letter-spacing="1.8">ELÉCTRICA</text>
+    <text x="22" y="48" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="10" fill="#6f87a5" letter-spacing="1.5">CIRCUITOS</text>
+    <g fill="none" stroke="#facc15" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M62 112V88H104M198 88H238V112M238 138V164H198M104 164H62V138"/>
+      <circle cx="62" cy="125" r="14"/>
+      <path d="M55 125C58 119 62 119 65 125C68 131 72 131 75 125" stroke-width="1.7"/>
+      <path d="M104 88L110 78L118 98L126 78L134 98L142 78L150 98L158 78L166 98L172 88" stroke-width="2"/>
+      <path d="M238 112V138M230 112V138" stroke-width="3"/>
+      <path d="M116 164C116 155 122 155 122 164C122 155 128 155 128 164C128 155 134 155 134 164C134 155 140 155 140 164" stroke-width="1.8"/>
+      <path d="M198 164H238" stroke-width="2.2"/>
+    </g>
+    <text x="45" y="130" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="11" fill="#6f87a5">V</text>
+    <text x="132" y="73" text-anchor="middle" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="11" fill="#6f87a5">R</text>
+    <text x="226" y="130" text-anchor="middle" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="11" fill="#6f87a5">C</text>
+    <text x="132" y="184" text-anchor="middle" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="11" fill="#6f87a5">L</text>
+    <text x="150" y="198" text-anchor="middle" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="10" fill="#6f87a5" letter-spacing="1.2">f = 50 Hz</text>
+  </g>
+
+  <g transform="translate(620 335)">
+    <rect width="300" height="215" rx="20" fill="#0c1c31" stroke="#24466e" stroke-width="1.4"/>
+    <rect x="22" y="18" width="34" height="4" rx="2" fill="#47d7ff"/>
+    <text x="66" y="25" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="13" fill="#47d7ff" letter-spacing="1.8">MECÁNICA</text>
+    <text x="22" y="48" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="10" fill="#6f87a5" letter-spacing="1.5">MÁQUINAS</text>
+    <g fill="none" stroke="#47d7ff" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="121" cy="128" r="31" stroke-width="2.4"/>
+      <circle cx="121" cy="128" r="11" stroke-width="2.4"/>
+      <path d="M121 90V97M121 159V166M83 128H90M152 128H159M94 101L99 106M143 150L148 155M148 101L143 106M99 150L94 155" stroke-width="2.4"/>
+      <circle cx="192" cy="145" r="22" stroke-width="2.2"/>
+      <circle cx="192" cy="145" r="8" stroke-width="2.2"/>
+      <path d="M192 118V123M192 167V172M165 145H170M214 145H219M173 126L177 130M207 160L211 164M211 126L207 130M177 160L173 164" stroke-width="2"/>
+      <path d="M40 128H84M158 152H190" stroke-width="2.2"/>
+      <path d="M48 128L42 124M48 128L42 132M198 152L204 148M198 152L204 156" stroke-width="2"/>
+    </g>
+    <text x="104" y="188" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="10" fill="#6f87a5" letter-spacing="1.2">M = 1,2 kN·m</text>
+  </g>
+
+  <g transform="translate(940 335)">
+    <rect width="300" height="215" rx="20" fill="#0c1c31" stroke="#24466e" stroke-width="1.4"/>
+    <rect x="22" y="18" width="34" height="4" rx="2" fill="#2f7dff"/>
+    <text x="66" y="25" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="13" fill="#2f7dff" letter-spacing="1.8">HIDRÁULICA</text>
+    <text x="22" y="48" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="10" fill="#6f87a5" letter-spacing="1.5">FLUIDOS</text>
+    <g fill="none" stroke="#2f7dff" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="44" y="80" width="76" height="76" rx="4" stroke-width="2.2"/>
+      <path d="M44 112H120V156H44Z" fill="url(#water)" stroke="none"/>
+      <path d="M44 112H120" stroke-width="1.6" opacity="0.8"/>
+      <path d="M120 132H172" stroke-width="2.4"/>
+      <circle cx="190" cy="132" r="18" stroke-width="2.4"/>
+      <path d="M184 123L198 132L184 141Z" fill="#2f7dff" stroke="none"/>
+      <path d="M208 132H242V98H264" stroke-width="2.4"/>
+      <path d="M242 98L235 94M242 98L235 102" stroke-width="1.8"/>
+      <path d="M228 90L236 98L228 106L220 98Z" stroke-width="1.8"/>
+      <path d="M50 122H70M126 122H142" stroke-width="1.6" opacity="0.65"/>
+      <path d="M148 122L154 118M148 122L154 126" stroke-width="1.8"/>
+    </g>
+    <text x="60" y="106" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="10" fill="#6f87a5">H</text>
+    <text x="190" y="108" text-anchor="middle" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="10" fill="#6f87a5">P</text>
+    <text x="150" y="198" text-anchor="middle" font-family="Bahnschrift, Segoe UI, sans-serif" font-size="10" fill="#6f87a5" letter-spacing="1.2">Q = 18,0 L/s</text>
+  </g>
+</svg>

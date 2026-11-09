@@ -1,0 +1,22 @@
+{
+  "name": "ingecalc",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Open-source engineering calculation worksheet for Linux and Windows",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ingecalc/ingecalc.git"
+  },
+  "workspaces": [
+    "apps/desktop"
+  ],
+  "scripts": {
+    "postinstall": "node scripts/copy-mathlive-fonts.mjs",
+    "dev": "npm --workspace @ingecalc/desktop run dev",
+    "build": "npm --workspace @ingecalc/desktop run build",
+    "tauri": "npm --workspace @ingecalc/desktop run tauri",
+    "check": "npm --workspace @ingecalc/desktop run check",
+    "test": "npm --workspace @ingecalc/desktop run test"
+  }
+}

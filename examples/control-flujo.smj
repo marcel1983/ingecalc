@@ -1,0 +1,172 @@
+{
+  "format": "ingecalc-json",
+  "version": 1,
+  "metadata": {
+    "title": "Control de flujo y bucles",
+    "author": "IngeCalc",
+    "language": "es"
+  },
+  "settings": {
+    "units": "metric",
+    "unitOverrides": {},
+    "customConstants": [],
+    "personalDictionary": [],
+    "precision": 4,
+    "fractions": "auto",
+    "notation": "auto",
+    "trimZeros": true,
+    "page": {
+      "marginTop": 48,
+      "marginRight": 48,
+      "marginBottom": 48,
+      "marginLeft": 48,
+      "header": "",
+      "footer": "Control de flujo y bucles — {page}"
+    }
+  },
+  "pages": [
+    {
+      "id": "page-1",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "text-title",
+          "type": "text",
+          "x": 60,
+          "y": 45,
+          "w": 730,
+          "h": 42,
+          "html": "<p><strong style=\"font-size: 22px\">CONTROL DE FLUJO Y BUCLES</strong></p>"
+        },
+        {
+          "id": "text-note-1",
+          "type": "text",
+          "x": 60,
+          "y": 105,
+          "w": 730,
+          "h": 42,
+          "html": "<p>Condicionales y bucles funcionales. El rango de los bucles es inclusivo.</p>"
+        },
+        {
+          "id": "math-if",
+          "type": "math",
+          "x": 60,
+          "y": 170,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{if}\\left(2<3,10,20\\right)",
+          "ascii": "if(2 < 3, 10, 20)"
+        },
+        {
+          "id": "math-n",
+          "type": "math",
+          "x": 60,
+          "y": 240,
+          "w": 730,
+          "h": 55,
+          "source": "n\\coloneq5",
+          "ascii": "n := 5"
+        },
+        {
+          "id": "math-if-n",
+          "type": "math",
+          "x": 60,
+          "y": 310,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{if}\\left(n>3,100,0\\right)",
+          "ascii": "if(n > 3, 100, 0)"
+        },
+        {
+          "id": "math-for",
+          "type": "math",
+          "x": 60,
+          "y": 380,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{for}\\left(i,1,5,i^{2}\\right)",
+          "ascii": "for(i, 1, 5, i^2)"
+        },
+        {
+          "id": "math-sum",
+          "type": "math",
+          "x": 60,
+          "y": 450,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{sum}\\left(i,1,n,i^{2}\\right)",
+          "ascii": "sum(i, 1, n, i^2)"
+        },
+        {
+          "id": "math-product",
+          "type": "math",
+          "x": 60,
+          "y": 520,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{product}\\left(i,1,5,i\\right)",
+          "ascii": "product(i, 1, 5, i)"
+        },
+        {
+          "id": "text-note-2",
+          "type": "text",
+          "x": 60,
+          "y": 595,
+          "w": 730,
+          "h": 42,
+          "html": "<p>La variable <strong>i</strong> es local al bucle y no modifica una variable con el mismo nombre fuera de él.</p>"
+        },
+        {
+          "id": "math-if-inside",
+          "type": "math",
+          "x": 60,
+          "y": 660,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{sum}\\left(i,1,10,\\text{if}\\left(i>5,i,0\\right)\\right)",
+          "ascii": "sum(i, 1, 10, if(i > 5, i, 0))"
+        },
+        {
+          "id": "text-note-3",
+          "type": "text",
+          "x": 60,
+          "y": 735,
+          "w": 730,
+          "h": 42,
+          "html": "<p><strong>if</strong> evalúa solo la rama elegida. Los bucles están limitados a 100.000 iteraciones.</p>"
+        },
+        {
+          "id": "math-line",
+          "type": "math",
+          "x": 60,
+          "y": 800,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{line}\\left(x\\coloneq0,\\text{while}\\left(x<5,x\\coloneq x+1\\right),x\\right)",
+          "ascii": "line(x := 0, while(x < 5, x := x + 1), x)"
+        },
+        {
+          "id": "math-for-matrix",
+          "type": "math",
+          "x": 60,
+          "y": 870,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{for}\\left(v,\\left[1,2,3\\right],v^{2}\\right)",
+          "ascii": "for(v, [1,2,3], v^2)"
+        },
+        {
+          "id": "math-sum-matrix",
+          "type": "math",
+          "x": 60,
+          "y": 940,
+          "w": 730,
+          "h": 55,
+          "source": "\\text{sum}\\left(v,\\left[1,2,3\\right],v\\right)",
+          "ascii": "sum(v, [1,2,3], v)"
+        }
+      ]
+    }
+  ]
+}

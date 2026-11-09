@@ -1,0 +1,11 @@
+[package]
+name = "math-symbolic"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+math-ast = { path = "../math-ast" }
+
+[dev-dependencies]
+math-parse = { path = "../math-parse" }

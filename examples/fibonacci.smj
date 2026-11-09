@@ -1,0 +1,252 @@
+{
+  "format": "ingecalc-json",
+  "version": 1,
+  "metadata": {
+    "title": "Fibonacci y el número áureo",
+    "author": "IngeCalc",
+    "language": "es"
+  },
+  "settings": {
+    "units": "metric",
+    "precision": 4,
+    "fractions": "auto",
+    "page": {
+      "marginTop": 48,
+      "marginRight": 48,
+      "marginBottom": 48,
+      "marginLeft": 48,
+      "header": "",
+      "footer": "Página {page}"
+    }
+  },
+  "pages": [
+    {
+      "id": "page-1",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "heading-1",
+          "type": "text",
+          "x": 60,
+          "y": 44,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>La sucesión de Fibonacci</strong></p>"
+        },
+        {
+          "id": "note-2",
+          "type": "text",
+          "x": 60,
+          "y": 84,
+          "w": 720,
+          "h": 40,
+          "html": "<p>Cada término es la suma de los dos anteriores: 1, 1, 2, 3, 5, 8, 13, …</p>"
+        },
+        {
+          "id": "math-3",
+          "type": "math",
+          "x": 60,
+          "y": 128,
+          "w": 720,
+          "h": 72,
+          "source": "\\varphi := \\frac{1+\\sqrt{5}}{2}",
+          "ascii": "phi := (1+sqrt(5))/2"
+        },
+        {
+          "id": "math-4",
+          "type": "math",
+          "x": 60,
+          "y": 204,
+          "w": 720,
+          "h": 72,
+          "source": "\\psi := \\frac{1-\\sqrt{5}}{2}",
+          "ascii": "psi := (1-sqrt(5))/2"
+        },
+        {
+          "id": "math-5",
+          "type": "math",
+          "x": 60,
+          "y": 280,
+          "w": 720,
+          "h": 72,
+          "source": "\\mathrm{fib}(n) := \\mathrm{round}\\left(\\frac{\\varphi^n-\\psi^n}{\\sqrt{5}}\\right)",
+          "ascii": "fib(n) := round((phi^n - psi^n)/sqrt(5))"
+        },
+        {
+          "id": "heading-6",
+          "type": "text",
+          "x": 60,
+          "y": 356,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Términos de la sucesión</strong></p>"
+        },
+        {
+          "id": "math-7",
+          "type": "math",
+          "x": 60,
+          "y": 396,
+          "w": 720,
+          "h": 54,
+          "source": "\\mathrm{fib}(1)",
+          "ascii": "fib(1)"
+        },
+        {
+          "id": "math-8",
+          "type": "math",
+          "x": 60,
+          "y": 454,
+          "w": 720,
+          "h": 54,
+          "source": "\\mathrm{fib}(5)",
+          "ascii": "fib(5)"
+        },
+        {
+          "id": "math-9",
+          "type": "math",
+          "x": 60,
+          "y": 512,
+          "w": 720,
+          "h": 54,
+          "source": "\\mathrm{fib}(10)",
+          "ascii": "fib(10)"
+        },
+        {
+          "id": "math-10",
+          "type": "math",
+          "x": 60,
+          "y": 570,
+          "w": 720,
+          "h": 54,
+          "source": "\\mathrm{fib}(20)",
+          "ascii": "fib(20)"
+        },
+        {
+          "id": "math-11",
+          "type": "math",
+          "x": 60,
+          "y": 628,
+          "w": 720,
+          "h": 54,
+          "source": "\\mathrm{fib}(30)",
+          "ascii": "fib(30)"
+        },
+        {
+          "id": "math-12",
+          "type": "math",
+          "x": 60,
+          "y": 686,
+          "w": 720,
+          "h": 54,
+          "source": "\\mathrm{fib}(40)",
+          "ascii": "fib(40)"
+        },
+        {
+          "id": "math-13",
+          "type": "math",
+          "x": 60,
+          "y": 744,
+          "w": 720,
+          "h": 54,
+          "source": "\\mathrm{fib}(50)",
+          "ascii": "fib(50)"
+        },
+        {
+          "id": "heading-14",
+          "type": "text",
+          "x": 60,
+          "y": 802,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Identidad de Cassini</strong></p>"
+        },
+        {
+          "id": "note-15",
+          "type": "text",
+          "x": 60,
+          "y": 842,
+          "w": 720,
+          "h": 40,
+          "html": "<p>La diferencia alterna entre −1 y 1 según el índice.</p>"
+        },
+        {
+          "id": "math-16",
+          "type": "math",
+          "x": 60,
+          "y": 886,
+          "w": 720,
+          "h": 54,
+          "source": "\\mathrm{fib}(10)^2-\\mathrm{fib}(9)\\cdot\\mathrm{fib}(11)",
+          "ascii": "fib(10)^2 - fib(9)*fib(11)"
+        },
+        {
+          "id": "math-17",
+          "type": "math",
+          "x": 60,
+          "y": 944,
+          "w": 720,
+          "h": 54,
+          "source": "\\mathrm{fib}(11)^2-\\mathrm{fib}(10)\\cdot\\mathrm{fib}(12)",
+          "ascii": "fib(11)^2 - fib(10)*fib(12)"
+        }
+      ]
+    },
+    {
+      "id": "page-2",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "heading-18",
+          "type": "text",
+          "x": 60,
+          "y": 44,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Convergencia al número áureo</strong></p>"
+        },
+        {
+          "id": "math-19",
+          "type": "math",
+          "x": 60,
+          "y": 84,
+          "w": 720,
+          "h": 72,
+          "source": "\\frac{\\mathrm{fib}(21)}{\\mathrm{fib}(20)}",
+          "ascii": "fib(21)/fib(20)"
+        },
+        {
+          "id": "math-20",
+          "type": "math",
+          "x": 60,
+          "y": 160,
+          "w": 720,
+          "h": 72,
+          "source": "\\frac{\\mathrm{fib}(21)}{\\mathrm{fib}(20)}-\\varphi",
+          "ascii": "fib(21)/fib(20) - phi"
+        },
+        {
+          "id": "math-21",
+          "type": "math",
+          "x": 60,
+          "y": 236,
+          "w": 720,
+          "h": 54,
+          "source": "\\varphi^2-\\varphi-1",
+          "ascii": "phi^2 - phi - 1"
+        },
+        {
+          "id": "math-22",
+          "type": "math",
+          "x": 60,
+          "y": 294,
+          "w": 720,
+          "h": 72,
+          "source": "\\frac{1}{\\varphi}",
+          "ascii": "1/phi"
+        }
+      ]
+    }
+  ]
+}

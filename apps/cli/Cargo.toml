@@ -1,0 +1,19 @@
+[package]
+name = "ingecalc-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "ingecalc"
+path = "src/main.rs"
+
+[dependencies]
+clap.workspace = true
+serde_json.workspace = true
+doc-core = { path = "../../crates/doc-core" }
+doc-json = { path = "../../crates/doc-json" }
+export = { path = "../../crates/export" }
+math-eval = { path = "../../crates/math-eval" }
+math-json = { path = "../../crates/math-json" }
+math-parse = { path = "../../crates/math-parse" }

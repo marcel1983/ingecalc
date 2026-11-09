@@ -1,0 +1,75 @@
+name: Reportar un error
+description: Informa de un fallo reproducible en IngeCalc.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por ayudar a mejorar IngeCalc. Antes de enviar el informe,
+        comprueba que no exista una incidencia abierta con el mismo problema.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción
+      description: ¿Qué ocurre y qué esperabas que ocurriera?
+      placeholder: Describe el fallo de forma concreta.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducirlo
+      description: Incluye el documento o una captura si es posible.
+      placeholder: |
+        1. Abrir IngeCalc
+        2. Crear una región matemática
+        3. Escribir ...
+        4. Ver el error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Resultado esperado
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Resultado actual
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Versión o commit
+      placeholder: "0.1.0, main@abc1234"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Sistema operativo
+      options:
+        - Linux
+        - Windows
+        - macOS
+        - Otro
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs o información adicional
+      description: Pega errores de consola, del backend o del exportador.
+      render: shell
+    validations:
+      required: false

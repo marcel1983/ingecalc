@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Guía de uso
+    url: https://github.com/ingecalc/ingecalc/blob/main/docs/manual.md
+    about: Consulta la sintaxis, las unidades, los gráficos y la exportación.
+  - name: Guía de desarrollo
+    url: https://github.com/ingecalc/ingecalc/blob/main/docs/guia-desarrollo.md
+    about: Arquitectura, entorno, pruebas, CI y proceso de release.
+  - name: Seguridad
+    url: https://github.com/ingecalc/ingecalc/security/policy
+    about: No publiques vulnerabilidades en una incidencia; usa el aviso privado.
+  - name: Contribuir
+    url: https://github.com/ingecalc/ingecalc/blob/main/CONTRIBUTING.md
+    about: Entorno de desarrollo, tests y criterios para pull requests.

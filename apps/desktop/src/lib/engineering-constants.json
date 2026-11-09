@@ -1,0 +1,194 @@
+[
+  {
+    "name": "gn",
+    "value": 9.80665,
+    "unit": "m/s²",
+    "dimension": [1, 0, -2, 0, 0, 0, 0],
+    "description": "Gravedad estándar",
+    "category": "Mecánica"
+  },
+  {
+    "name": "Grav",
+    "value": 6.6743e-11,
+    "unit": "m³/(kg·s²)",
+    "dimension": [3, -1, -2, 0, 0, 0, 0],
+    "description": "Constante de gravitación universal",
+    "category": "Física"
+  },
+  {
+    "name": "clight",
+    "value": 299792458,
+    "unit": "m/s",
+    "dimension": [1, 0, -1, 0, 0, 0, 0],
+    "description": "Velocidad de la luz en el vacío",
+    "category": "Física"
+  },
+  {
+    "name": "hplanck",
+    "value": 6.62607015e-34,
+    "unit": "J·s",
+    "dimension": [2, 1, -1, 0, 0, 0, 0],
+    "description": "Constante de Planck",
+    "category": "Física"
+  },
+  {
+    "name": "hbar",
+    "value": 1.054571817e-34,
+    "unit": "J·s",
+    "dimension": [2, 1, -1, 0, 0, 0, 0],
+    "description": "Constante de Planck reducida",
+    "category": "Física"
+  },
+  {
+    "name": "kboltz",
+    "value": 1.380649e-23,
+    "unit": "J/K",
+    "dimension": [2, 1, -2, 0, -1, 0, 0],
+    "description": "Constante de Boltzmann",
+    "category": "Física"
+  },
+  {
+    "name": "Navog",
+    "value": 6.02214076e23,
+    "unit": "1/mol",
+    "dimension": [0, 0, 0, 0, 0, -1, 0],
+    "description": "Número de Avogadro",
+    "category": "Química"
+  },
+  {
+    "name": "Rgas",
+    "value": 8.314462618,
+    "unit": "J/(mol·K)",
+    "dimension": [2, 1, -2, 0, -1, -1, 0],
+    "description": "Constante universal de los gases",
+    "category": "Termodinámica"
+  },
+  {
+    "name": "epsilon",
+    "value": 8.8541878128e-12,
+    "unit": "F/m",
+    "dimension": [-3, -1, 4, 2, 0, 0, 0],
+    "description": "Permitividad del vacío",
+    "category": "Electromagnetismo"
+  },
+  {
+    "name": "muvac",
+    "value": 1.25663706212e-6,
+    "unit": "H/m",
+    "dimension": [1, 1, -2, -2, 0, 0, 0],
+    "description": "Permeabilidad del vacío",
+    "category": "Electromagnetismo"
+  },
+  {
+    "name": "sigmaSB",
+    "value": 5.670374419e-8,
+    "unit": "W/(m²·K⁴)",
+    "dimension": [0, 1, -3, 0, -4, 0, 0],
+    "description": "Constante de Stefan-Boltzmann",
+    "category": "Termodinámica"
+  },
+  {
+    "name": "kcoul",
+    "value": 8.9875517923e9,
+    "unit": "N·m²/C²",
+    "dimension": [3, 1, -4, -2, 0, 0, 0],
+    "description": "Constante de Coulomb",
+    "category": "Electromagnetismo"
+  },
+  {
+    "name": "rhowater",
+    "value": 997,
+    "unit": "kg/m³",
+    "dimension": [-3, 1, 0, 0, 0, 0, 0],
+    "description": "Densidad del agua a 25 °C",
+    "category": "Materiales"
+  },
+  {
+    "name": "rhosteel",
+    "value": 7850,
+    "unit": "kg/m³",
+    "dimension": [-3, 1, 0, 0, 0, 0, 0],
+    "description": "Densidad del acero",
+    "category": "Materiales"
+  },
+  {
+    "name": "Esteel",
+    "value": 200000000000,
+    "unit": "Pa",
+    "dimension": [-1, 1, -2, 0, 0, 0, 0],
+    "description": "Módulo de elasticidad del acero",
+    "category": "Materiales"
+  },
+  {
+    "name": "nusteel",
+    "value": 0.3,
+    "unit": "",
+    "dimension": [0, 0, 0, 0, 0, 0, 0],
+    "description": "Coeficiente de Poisson del acero",
+    "category": "Materiales"
+  },
+  {
+    "name": "alphasteel",
+    "value": 0.000012,
+    "unit": "1/K",
+    "dimension": [0, 0, 0, 0, -1, 0, 0],
+    "description": "Dilatación térmica del acero",
+    "category": "Materiales"
+  },
+  {
+    "name": "rhoaluminium",
+    "value": 2700,
+    "unit": "kg/m³",
+    "dimension": [-3, 1, 0, 0, 0, 0, 0],
+    "description": "Densidad del aluminio",
+    "category": "Materiales"
+  },
+  {
+    "name": "Ealuminium",
+    "value": 69000000000,
+    "unit": "Pa",
+    "dimension": [-1, 1, -2, 0, 0, 0, 0],
+    "description": "Módulo de elasticidad del aluminio",
+    "category": "Materiales"
+  },
+  {
+    "name": "nualuminium",
+    "value": 0.33,
+    "unit": "",
+    "dimension": [0, 0, 0, 0, 0, 0, 0],
+    "description": "Coeficiente de Poisson del aluminio",
+    "category": "Materiales"
+  },
+  {
+    "name": "rhoconcrete",
+    "value": 2400,
+    "unit": "kg/m³",
+    "dimension": [-3, 1, 0, 0, 0, 0, 0],
+    "description": "Densidad del hormigón",
+    "category": "Materiales"
+  },
+  {
+    "name": "Econcrete",
+    "value": 30000000000,
+    "unit": "Pa",
+    "dimension": [-1, 1, -2, 0, 0, 0, 0],
+    "description": "Módulo de elasticidad del hormigón",
+    "category": "Materiales"
+  },
+  {
+    "name": "atmstd",
+    "value": 101325,
+    "unit": "Pa",
+    "dimension": [-1, 1, -2, 0, 0, 0, 0],
+    "description": "Presión atmosférica estándar",
+    "category": "Termodinámica"
+  },
+  {
+    "name": "phigolden",
+    "value": 1.618033988749895,
+    "unit": "",
+    "dimension": [0, 0, 0, 0, 0, 0, 0],
+    "description": "Número áureo",
+    "category": "Matemáticas"
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "format": "ingecalc-json",
+  "version": 1,
+  "metadata": {
+    "title": "Ejemplo",
+    "author": "",
+    "language": "es"
+  },
+  "settings": {
+    "units": "metric",
+    "precision": 4,
+    "fractions": "auto"
+  },
+  "pages": [
+    {
+      "id": "page-1",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "math-1",
+          "type": "math",
+          "x": 60,
+          "y": 60,
+          "w": 360,
+          "h": 48,
+          "source": "2+2",
+          "ascii": "2+2"
+        },
+        {
+          "id": "text-1",
+          "type": "text",
+          "x": 60,
+          "y": 140,
+          "w": 500,
+          "h": 100,
+          "html": "<p>Escribe aquí...</p>"
+        }
+      ]
+    }
+  ]
+}

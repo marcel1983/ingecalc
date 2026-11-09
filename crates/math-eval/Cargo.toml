@@ -1,0 +1,15 @@
+[package]
+name = "math-eval"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+math-ast = { path = "../math-ast" }
+math-numeric = { path = "../math-numeric" }
+math-parse = { path = "../math-parse" }
+math-symbolic = { path = "../math-symbolic" }
+math-units = { path = "../math-units" }
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true

@@ -1,0 +1,32 @@
+[workspace]
+resolver = "2"
+members = [
+  "apps/cli",
+  "apps/desktop/src-tauri",
+  "crates/doc-core",
+  "crates/doc-json",
+  "crates/export",
+  "crates/math-ast",
+  "crates/math-eval",
+  "crates/math-json",
+  "crates/math-numeric",
+  "crates/math-parse",
+  "crates/math-symbolic",
+  "crates/math-units",
+  "crates/plugin-api",
+  "crates/plugin-host",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/ingecalc/ingecalc"
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+uuid = { version = "1", features = ["v4", "serde"] }
+clap = { version = "4", features = ["derive"] }
+tracing = "0.1"

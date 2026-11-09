@@ -1,0 +1,72 @@
+name: Error de cálculo
+description: Un resultado numérico, simbólico o de unidades es incorrecto.
+title: "[Cálculo]: "
+labels: ["bug", "calculation", "priority: critical"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Los errores de cálculo tienen máxima prioridad. Gracias por reportarlo.
+        Adjunta un documento `.smj` mínimo si es posible.
+
+  - type: textarea
+    id: expression
+    attributes:
+      label: Expresión o documento
+      description: Pega la expresión o adjunta el archivo `.smj`.
+      placeholder: |
+        x := 2 m + 30 cm
+        x
+    validations:
+      required: true
+
+  - type: input
+    id: obtained
+    attributes:
+      label: Resultado obtenido
+    validations:
+      required: true
+
+  - type: input
+    id: expected
+    attributes:
+      label: Resultado esperado
+    validations:
+      required: true
+
+  - type: textarea
+    id: reference
+    attributes:
+      label: Fuente del valor esperado
+      description: Norma, libro, cálculo manual u otro programa con versión.
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Versión o commit de IngeCalc
+      placeholder: "0.1.0, main@abc1234"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Sistema operativo
+      options:
+        - Linux
+        - Windows
+        - macOS
+        - Otro
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs o información adicional
+      description: Pega errores de consola o del backend.
+      render: shell
+    validations:
+      required: false

@@ -1,0 +1,59 @@
+name: Proponer una función
+description: Sugiere una capacidad nueva o una mejora de cálculo.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe el problema de ingeniería o de flujo de trabajo antes de proponer
+        una solución concreta.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema o necesidad
+      description: ¿Qué trabajo intentas hacer y qué te impide completarlo?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Propuesta
+      description: ¿Cómo imaginas la función? Incluye sintaxis, UI o ejemplos.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas consideradas
+    validations:
+      required: false
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área
+      options:
+        - Documento y edición
+        - Matemática y evaluación
+        - Unidades
+        - Matrices
+        - Cálculo simbólico
+        - Gráficos
+        - Exportación
+        - Interfaz y accesibilidad
+        - CLI y plugins
+        - Otro
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexto adicional
+      description: Enlaces, referencias, normativa o ejemplos.
+    validations:
+      required: false

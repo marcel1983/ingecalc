@@ -1,0 +1,9 @@
+[package]
+name = "math-numeric"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+math-units = { path = "../math-units" }
+serde.workspace = true

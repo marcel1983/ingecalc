@@ -1,0 +1,48 @@
+{
+  "name": "@ingecalc/desktop",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 1420",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "check": "tsc --noEmit",
+    "test": "vitest run",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.12.4",
+    "@tauri-apps/plugin-dialog": "^2.8.4",
+    "@tiptap/core": "^3.32.3",
+    "@tiptap/extension-color": "^3.32.3",
+    "@tiptap/extension-placeholder": "^3.32.3",
+    "@tiptap/extension-table": "^3.32.3",
+    "@tiptap/extension-text-style": "^3.32.3",
+    "@tiptap/react": "^3.32.3",
+    "@tiptap/starter-kit": "^3.32.3",
+    "dompurify": "^3.4.17",
+    "html2canvas": "^1.4.1",
+    "i18next": "^27.0.1",
+    "immer": "^11.2.9",
+    "jspdf": "^4.2.1",
+    "katex": "^0.19.1",
+    "mathlive": "^0.111.4",
+    "nspell": "^2.1.5",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-i18next": "^18.0.0",
+    "zustand": "^5.0.16"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.12.4",
+    "@types/katex": "^0.16.8",
+    "@types/nspell": "^2.1.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.2.1",
+    "typescript": "^5.8.0",
+    "vite": "^8.3.6",
+    "vitest": "^5.1.0"
+  }
+}

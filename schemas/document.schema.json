@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ingecalc/ingecalc/blob/main/schemas/document.schema.json",
+  "title": "IngeCalc document",
+  "type": "object",
+  "required": ["format", "version", "metadata", "settings", "pages"],
+  "additionalProperties": false,
+  "properties": {
+    "format": { "enum": ["ingecalc-json", "mathdoc-json"] },
+    "version": { "const": 1 },
+    "metadata": { "$ref": "#/$defs/metadata" },
+    "settings": { "$ref": "#/$defs/settings" },
+    "pages": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/page" }
+    }
+  },
+  "$defs": {
+    "metadata": {
+      "type": "object",
+      "required": ["title", "author", "language"],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "string" },
+        "author": { "type": "string" },
+        "language": { "type": "string" }
+      }
+    },
+    "settings": {
+      "type": "object",
+      "required": ["units", "precision", "fractions"],
+      "additionalProperties": false,
+      "properties": {
+        "units": { "type": "string" },
+        "precision": { "type": "integer", "minimum": 0 },
+        "fractions": { "type": "string" },
+        "page": { "$ref": "#/$defs/pageSetup" }
+      }
+    },
+    "pageSetup": {
+      "type": "object",
+      "required": [
+        "marginTop",
+        "marginRight",
+        "marginBottom",
+        "marginLeft",
+        "header",
+        "footer"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "marginTop": { "type": "number", "minimum": 0 },
+        "marginRight": { "type": "number", "minimum": 0 },
+        "marginBottom": { "type": "number", "minimum": 0 },
+        "marginLeft": { "type": "number", "minimum": 0 },
+        "header": { "type": "string" },
+        "footer": { "type": "string" }
+      }
+    },
+    "page": {
+      "type": "object",
+      "required": ["id", "width", "height", "regions"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "width": { "type": "number", "exclusiveMinimum": 0 },
+        "height": { "type": "number", "exclusiveMinimum": 0 },
+        "regions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/region" }
+        }
+      }
+    },
+    "region": {
+      "oneOf": [
+        { "$ref": "#/$defs/mathRegion" },
+        { "$ref": "#/$defs/textRegion" },
+        { "$ref": "#/$defs/imageRegion" },
+        { "$ref": "#/$defs/plotRegion" }
+      ]
+    },
+    "regionBase": {
+      "type": "object",
+      "required": ["id", "type", "x", "y", "w", "h"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "w": { "type": "number", "exclusiveMinimum": 0 },
+        "h": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "mathRegion": {
+      "allOf": [
+        { "$ref": "#/$defs/regionBase" },
+        {
+          "type": "object",
+          "required": ["type", "source", "ascii"],
+          "properties": {
+            "type": { "const": "math" },
+            "source": { "type": "string" },
+            "ascii": { "type": "string" }
+          }
+        }
+      ]
+    },
+    "textRegion": {
+      "allOf": [
+        { "$ref": "#/$defs/regionBase" },
+        {
+          "type": "object",
+          "required": ["type", "html"],
+          "properties": {
+            "type": { "const": "text" },
+            "html": { "type": "string" },
+            "role": { "enum": ["header", "footer"] }
+          }
+        }
+      ]
+    },
+    "imageRegion": {
+      "allOf": [
+        { "$ref": "#/$defs/regionBase" },
+        {
+          "type": "object",
+          "required": ["type", "src"],
+          "properties": {
+            "type": { "const": "image" },
+            "src": { "type": "string" }
+          }
+        }
+      ]
+    },
+    "plotRegion": {
+      "allOf": [
+        { "$ref": "#/$defs/regionBase" },
+        {
+          "type": "object",
+          "required": ["type", "series", "xMin", "xMax"],
+          "properties": {
+            "type": { "const": "plot" },
+            "series": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/plotSeries" }
+            },
+            "xMin": { "type": "number" },
+            "xMax": { "type": "number" },
+            "yMin": { "type": ["number", "null"] },
+            "yMax": { "type": ["number", "null"] }
+          }
+        }
+      ]
+    },
+    "plotSeries": {
+      "type": "object",
+      "required": ["expression", "color", "visible"],
+      "additionalProperties": false,
+      "properties": {
+        "expression": { "type": "string" },
+        "expression2": { "type": "string" },
+        "kind": { "enum": ["explicit", "parametric", "implicit"] },
+        "parameterMin": { "type": "number" },
+        "parameterMax": { "type": "number" },
+        "color": { "type": "string" },
+        "visible": { "type": "boolean" }
+      }
+    }
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "format": "ingecalc-json",
+  "version": 1,
+  "metadata": {
+    "title": "Matrices y álgebra lineal",
+    "author": "IngeCalc",
+    "language": "es"
+  },
+  "settings": {
+    "units": "metric",
+    "precision": 4,
+    "fractions": "auto",
+    "page": {
+      "marginTop": 48,
+      "marginRight": 48,
+      "marginBottom": 48,
+      "marginLeft": 48,
+      "header": "",
+      "footer": "Página {page}"
+    }
+  },
+  "pages": [
+    {
+      "id": "page-1",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "heading-1",
+          "type": "text",
+          "x": 60,
+          "y": 44,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Operaciones con matrices</strong></p>"
+        },
+        {
+          "id": "note-2",
+          "type": "text",
+          "x": 60,
+          "y": 84,
+          "w": 720,
+          "h": 40,
+          "html": "<p>Matrices numéricas, indexación 1-based e inversa.</p>"
+        },
+        {
+          "id": "math-3",
+          "type": "math",
+          "x": 60,
+          "y": 128,
+          "w": 720,
+          "h": 72,
+          "source": "A := \\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}",
+          "ascii": "A := [1,2;3,4]"
+        },
+        {
+          "id": "math-4",
+          "type": "math",
+          "x": 60,
+          "y": 204,
+          "w": 720,
+          "h": 72,
+          "source": "B := \\begin{pmatrix}2&0\\\\1&2\\end{pmatrix}",
+          "ascii": "B := [2,0;1,2]"
+        },
+        {
+          "id": "math-5",
+          "type": "math",
+          "x": 60,
+          "y": 280,
+          "w": 720,
+          "h": 54,
+          "source": "A+B",
+          "ascii": "A+B"
+        },
+        {
+          "id": "math-6",
+          "type": "math",
+          "x": 60,
+          "y": 338,
+          "w": 720,
+          "h": 54,
+          "source": "A\\cdot B",
+          "ascii": "A*B"
+        },
+        {
+          "id": "math-7",
+          "type": "math",
+          "x": 60,
+          "y": 396,
+          "w": 720,
+          "h": 54,
+          "source": "B\\cdot A",
+          "ascii": "B*A"
+        },
+        {
+          "id": "math-8",
+          "type": "math",
+          "x": 60,
+          "y": 454,
+          "w": 720,
+          "h": 54,
+          "source": "A^2",
+          "ascii": "A^2"
+        },
+        {
+          "id": "math-9",
+          "type": "math",
+          "x": 60,
+          "y": 512,
+          "w": 720,
+          "h": 54,
+          "source": "\\det(A)",
+          "ascii": "det(A)"
+        },
+        {
+          "id": "math-10",
+          "type": "math",
+          "x": 60,
+          "y": 570,
+          "w": 720,
+          "h": 54,
+          "source": "A^{-1}",
+          "ascii": "A^-1"
+        },
+        {
+          "id": "math-11",
+          "type": "math",
+          "x": 60,
+          "y": 628,
+          "w": 720,
+          "h": 54,
+          "source": "A^{-1}\\cdot A",
+          "ascii": "A^-1 * A"
+        },
+        {
+          "id": "math-12",
+          "type": "math",
+          "x": 60,
+          "y": 686,
+          "w": 720,
+          "h": 54,
+          "source": "\\operatorname{transpose}(A)",
+          "ascii": "transpose(A)"
+        }
+      ]
+    },
+    {
+      "id": "page-2",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "heading-13",
+          "type": "text",
+          "x": 60,
+          "y": 44,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Indexación y matriz identidad</strong></p>"
+        },
+        {
+          "id": "math-14",
+          "type": "math",
+          "x": 60,
+          "y": 84,
+          "w": 720,
+          "h": 54,
+          "source": "A[2,1]",
+          "ascii": "A[2,1]"
+        },
+        {
+          "id": "math-15",
+          "type": "math",
+          "x": 60,
+          "y": 142,
+          "w": 720,
+          "h": 54,
+          "source": "A[1]",
+          "ascii": "A[1]"
+        },
+        {
+          "id": "math-16",
+          "type": "math",
+          "x": 60,
+          "y": 200,
+          "w": 720,
+          "h": 54,
+          "source": "\\operatorname{identity}(3)",
+          "ascii": "identity(3)"
+        },
+        {
+          "id": "heading-17",
+          "type": "text",
+          "x": 60,
+          "y": 258,
+          "w": 720,
+          "h": 36,
+          "html": "<p><strong>Sistema lineal</strong></p>"
+        },
+        {
+          "id": "note-18",
+          "type": "text",
+          "x": 60,
+          "y": 298,
+          "w": 720,
+          "h": 40,
+          "html": "<p>La misma ecuación resuelta por la ruta matricial.</p>"
+        },
+        {
+          "id": "math-19",
+          "type": "math",
+          "x": 60,
+          "y": 342,
+          "w": 720,
+          "h": 72,
+          "source": "\\operatorname{solve}\\left(\\begin{pmatrix}2&1\\\\1&3\\end{pmatrix},\\begin{pmatrix}1\\\\2\\end{pmatrix}\\right)",
+          "ascii": "solve([2,1;1,3],[1;2])"
+        }
+      ]
+    }
+  ]
+}
