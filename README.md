@@ -13,7 +13,10 @@
   <img alt="License: GPL-3.0-or-later" src="https://img.shields.io/badge/license-GPL--3.0--or--later-blue">
   <img alt="Rust" src="https://img.shields.io/badge/Rust-stable-orange">
   <img alt="Tauri 2" src="https://img.shields.io/badge/Tauri-2-24C8DB">
-  <img alt="Linux y Windows" src="https://img.shields.io/badge/platform-Linux%20%7C%20Windows-lightgrey">
+  <img alt="Linux, Windows y macOS" src="https://img.shields.io/badge/platform-Linux%20%7C%20Windows%20%7C%20macOS-lightgrey">
+  <a href="https://github.com/marcel1983/ingecalc/releases/latest">
+    <img alt="Latest release" src="https://img.shields.io/github/v/release/marcel1983/ingecalc?label=release">
+  </a>
 </p>
 
 IngeCalc es un editor open source de hojas de cálculo técnico para **ingeniería
@@ -27,6 +30,18 @@ archivo `.smj`.
 - Formato de documento JSON versionado y abierto.
 - Exportación a **LaTeX, ODT, PDF raster y PDF vectorial**.
 - Licencia **GPL-3.0-or-later**.
+
+## Descargas
+
+Descarga la última versión desde
+[GitHub Releases](https://github.com/marcel1983/ingecalc/releases/latest):
+
+- **Windows:** instalador NSIS `.exe`.
+- **Linux:** AppImage y paquete `.deb`.
+- **macOS:** DMG para Apple Silicon e Intel.
+
+Las compilaciones de `v0.1.0` no están firmadas; Windows puede mostrar SmartScreen
+y macOS puede pedir confirmación. Los hashes SHA-256 están en cada release.
 
 ## Captura
 
@@ -116,6 +131,7 @@ Los resultados esperados y la validación por CLI están en
 - Node.js 24+ y npm.
 - Linux: WebKitGTK 4.1, librsvg y patchelf.
 - Windows: Rust MSVC, Visual Studio Build Tools 2022 y WebView2.
+- macOS: Xcode Command Line Tools; los DMG se compilan en CI.
 - MiKTeX o TeX Live: opcional, para PDF vectorial.
 
 Dependencias Linux (Debian/Ubuntu):
@@ -260,7 +276,8 @@ cargo test --workspace
 ```
 
 El CI ejecuta frontend, comprobación de Tauri en Linux/Windows y la suite Rust con
-`rustfmt` y `clippy`.
+`rustfmt` y `clippy`. El workflow de release genera bundles para Windows, Linux y
+macOS.
 
 Limitaciones conocidas: una definición por nombre, matrices numéricas, unidades
 propias lineales, cálculo simbólico acotado y exportación de regiones sin

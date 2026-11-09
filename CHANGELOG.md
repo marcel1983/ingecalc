@@ -4,6 +4,13 @@ Todas las versiones relevantes de IngeCalc se documentan aquí.
 
 ## [Unreleased]
 
+Sin cambios pendientes de publicar.
+
+## [0.1.0] - 2026-11-08
+
+Primera versión pública. Bundles disponibles para Windows x64, Linux x64
+(AppImage/DEB) y macOS Apple Silicon/Intel (DMG).
+
 ### Added
 
 - Pestaña **Ayuda** con manual navegable, búsqueda y atajos.
@@ -11,6 +18,11 @@ Todas las versiones relevantes de IngeCalc se documentan aquí.
 - Manual de usuario completo en `docs/manual.md`.
 - Guía de desarrollo, visión del proyecto y gobernanza.
 - `CODEOWNERS` y plantilla de errores de cálculo.
+- Documento `.smj`, regiones matemáticas y de texto, unidades, matrices,
+  cálculo simbólico, control de flujo, gráficos 2D/3D y exportación
+  LaTeX/ODT/PDF.
+- Autoguardado, recuperación de borrador y corrector ortográfico.
+- Interfaz en español, inglés, francés, hindi, árabe y chino simplificado.
 
 ### Changed
 
@@ -35,9 +47,3 @@ Todas las versiones relevantes de IngeCalc se documentan aquí.
 
 - Ejemplo `perlin-clavador.smj` y sus exportaciones generadas.
 - Referencias al ejemplo retirado en la documentación.
-
-## [0.1.0]
-
-- Primera base funcional del editor: documento JSON, regiones matemáticas y de
-  texto, evaluación en Rust, unidades, matrices, cálculo simbólico, gráficos,
-  autosave y exportación LaTeX/ODT/PDF.

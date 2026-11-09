@@ -65,7 +65,7 @@ técnicos reproducibles**.
 
 - Linux: objetivo principal y cubierto por CI.
 - Windows: compilación y ejecución verificadas.
-- macOS: pendiente de validación y empaquetado.
+- macOS: bundles DMG para Apple Silicon e Intel; falta validar la ejecución nativa.
 
 ### Fuera del alcance de la primera publicación
 
@@ -113,7 +113,7 @@ IngeCalc es un **MVP funcional**, no un scaffold vacío.
 - La matemática inline en ODT se exporta como texto ASCII por compatibilidad.
 - El PDF raster no tiene texto seleccionable.
 - El desbordamiento de texto mueve la caja completa; falta el corte por párrafos.
-- macOS pendiente.
+- macOS: falta validar la ejecución nativa de los DMG; los bundles se generan en CI.
 
 ---
 
@@ -639,14 +639,21 @@ No se deben incluir tablas, fuentes ni contenido propietario de SMath Studio.
 El job Rust instala dependencias de Tauri y construye el frontend antes de
 compilar el escritorio.
 
-### 11.2 Workflows recomendados
+### 11.2 Release y workflows recomendados
 
-| Workflow | Disparador | Acción |
-|---|---|---|
-| `release.yml` | Tag `v*` | Bundles Tauri para Linux/Windows y GitHub Release |
-| `docs.yml` | Push a `main` | Sitio de documentación o verificación de enlaces |
-| `codeql.yml` | Semanal y PR | Análisis de seguridad |
-| `stale.yml` | Diario | Marcar issues inactivos, nunca `calculation` |
+| Workflow | Estado | Disparador | Acción |
+|---|---|---|---|
+| `release.yml` | Activo | Tag `v*` | Bundles Tauri para Windows, Linux y macOS; release en borrador |
+| `docs.yml` | Pendiente | Push a `main` | Sitio de documentación o verificación de enlaces |
+| `codeql.yml` | Pendiente | Semanal y PR | Análisis de seguridad |
+| `stale.yml` | Pendiente | Diario | Marcar issues inactivos, nunca `calculation` |
+
+El workflow de release genera:
+
+- Windows x64: instalador NSIS `.exe`.
+- Linux x64: AppImage y `.deb`.
+- macOS Apple Silicon: `.dmg`.
+- macOS Intel: `.dmg`.
 
 ### 11.3 Dependabot
 

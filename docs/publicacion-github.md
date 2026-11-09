@@ -92,10 +92,15 @@ git tag -a v0.1.0 -m "IngeCalc 0.1.0"
 git push origin main --tags
 ```
 
-6. Adjuntar los bundles generados por Tauri para Linux y Windows.
-7. Incluir `LICENSE`, `THIRD_PARTY_NOTICES.md` y las licencias de las
-   dependencias en el artefacto.
-8. Publicar las notas de release con:
+6. El tag dispara `.github/workflows/release.yml`, que compila:
+   - Windows x64: instalador NSIS.
+   - Linux x64: AppImage y `.deb`.
+   - macOS Apple Silicon e Intel: DMG.
+7. Revisar el release en borrador, adjuntar `SHA256SUMS.txt` si hace falta y
+   publicarlo.
+8. Incluir `LICENSE`, `THIRD_PARTY_NOTICES.md` y las licencias de las
+   dependencias en el artefacto o enlazarlas desde las notas.
+9. Publicar las notas de release con:
    - cambios de la versión;
    - requisitos de WebView2/WebKitGTK;
    - formato de documento aceptado;

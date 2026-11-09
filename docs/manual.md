@@ -40,6 +40,7 @@ resolución de problemas.
 - Node.js 24+ y npm.
 - Linux: dependencias de Tauri 2 (WebKitGTK 4.1, librsvg, patchelf).
 - Windows: Rust MSVC, Visual Studio Build Tools 2022 y WebView2.
+- macOS: Xcode Command Line Tools y Rust; los DMG se generan en CI.
 - MiKTeX o TeX Live: opcional, necesario para el PDF vectorial.
 
 ### Dependencias Linux (Debian/Ubuntu)
