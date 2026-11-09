@@ -5,7 +5,7 @@ edition.workspace = true
 license.workspace = true
 
 [dependencies]
-base64 = "0.22"
+base64 = "0.23"
 doc-core = { path = "../doc-core" }
 math-ast = { path = "../math-ast" }
 math-eval = { path = "../math-eval" }
