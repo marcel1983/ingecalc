@@ -213,10 +213,11 @@ Las variables antiguas `MATHDOC_*` se aceptan como compatibilidad.
 
 ## 4. Configuración inicial en GitHub
 
-### 4.1 Organización
+### 4.1 Cuenta u organización
 
-Crear `github.com/ingecalc` como **organización**, no como cuenta personal. El
-proyecto no debe depender de una sola persona.
+El repositorio actual está en **github.com/marcel1983/ingecalc** (cuenta
+personal). Si el proyecto crece, se puede crear `github.com/ingecalc` como
+organización y transferir el repositorio; el código y el historial se conservan.
 
 Repositorios sugeridos:
 
@@ -229,6 +230,7 @@ Repositorios sugeridos:
 
 ### 4.2 Identidad del repositorio
 
+- **Repositorio:** `marcel1983/ingecalc`
 - **Nombre:** `ingecalc`
 - **Descripción:** `Hojas de cálculo de ingeniería: cálculo simbólico, unidades, matrices y gráficos. Open source.`
 - **Temas:** `engineering`, `math`, `calculator`, `worksheet`, `rust`, `tauri`, `react`, `mathlive`, `units`, `symbolic-math`
@@ -237,11 +239,14 @@ Repositorios sugeridos:
 - **Avatar:** `docs/assets/branding/ingecalc-avatar.png`
 - **Social preview:** `docs/assets/branding/ingecalc-banner.png`
 
-Si el propietario no es `ingecalc`, actualizar:
+Si el proyecto se traslada a otra cuenta u organización, actualizar:
 
 - `Cargo.toml` (`workspace.package.repository`);
+- `package.json` (`repository`);
 - badges del `README.md`;
 - URLs absolutas de `.github/ISSUE_TEMPLATE/config.yml`;
+- `schemas/document.schema.json`;
+- `CODEOWNERS` y `GOVERNANCE.md`;
 - enlaces de `SECURITY.md` y documentación.
 
 ### 4.3 Equipos y permisos
@@ -254,6 +259,10 @@ Si el propietario no es `ingecalc`, actualizar:
 | `docs` | Write | Manual, guías, traducciones y ADRs |
 | `engineering` | Write | Casos de validación y revisión técnica |
 | `triage` | Triage | Clasificar issues y reproducir errores |
+
+Mientras el repositorio esté en la cuenta personal `@marcel1983`, los roles son
+organizativos y `CODEOWNERS` apunta al mantenedor. Al migrar a una organización,
+se crearán los equipos y se actualizará `CODEOWNERS`.
 
 ### 4.4 Protección de `main`
 
@@ -287,7 +296,7 @@ Si el directorio aún no es un repositorio Git:
 git init -b main
 git add .
 git commit -m "chore: prepare IngeCalc public repository"
-git remote add origin https://github.com/ingecalc/ingecalc.git
+git remote add origin https://github.com/marcel1983/ingecalc.git
 git push -u origin main
 ```
 
@@ -325,33 +334,36 @@ No se requiere CLA. Se usa el modelo de contribución directa y DCO
 
 ```text
 # Por defecto
-*                           @ingecalc/maintainers
+*                           @marcel1983
 
 # Núcleo matemático y documento
-/crates/math-*/             @ingecalc/core
-/crates/doc-*/              @ingecalc/core
-/crates/export/             @ingecalc/core
-/crates/plugin-*/           @ingecalc/core
-/schemas/                   @ingecalc/core
+/crates/math-*/             @marcel1983
+/crates/doc-*/              @marcel1983
+/crates/export/             @marcel1983
+/crates/plugin-*/           @marcel1983
+/schemas/                   @marcel1983
 
 # Escritorio y CLI
-/apps/desktop/src/          @ingecalc/gui
-/apps/desktop/src-tauri/    @ingecalc/core
-/apps/cli/                  @ingecalc/core
+/apps/desktop/src/          @marcel1983
+/apps/desktop/src-tauri/    @marcel1983
+/apps/cli/                  @marcel1983
 
 # Validación y ejemplos
-/examples/                  @ingecalc/engineering
+/examples/                  @marcel1983
 
 # Documentación
-/docs/                      @ingecalc/docs
-/README.md                  @ingecalc/docs @ingecalc/maintainers
-/CONTRIBUTING.md            @ingecalc/docs
-/SECURITY.md                @ingecalc/maintainers
+/docs/                      @marcel1983
+/README.md                  @marcel1983
+/CONTRIBUTING.md            @marcel1983
+/SECURITY.md                @marcel1983
+/CODE_OF_CONDUCT.md         @marcel1983
+/GOVERNANCE.md              @marcel1983
+/CHANGELOG.md               @marcel1983
 
 # Infraestructura
-/.github/                   @ingecalc/maintainers
-/Cargo.toml                 @ingecalc/core
-/package.json               @ingecalc/maintainers
+/.github/                   @marcel1983
+/Cargo.toml                 @marcel1983
+/package.json               @marcel1983
 ```
 
 ---
@@ -386,7 +398,7 @@ Reglas:
 ```bash
 git clone https://github.com/<usuario>/ingecalc.git
 cd ingecalc
-git remote add upstream https://github.com/ingecalc/ingecalc.git
+git remote add upstream https://github.com/marcel1983/ingecalc.git
 git fetch upstream
 git switch -c feat/42-plot-3d upstream/main
 git commit -s -m "feat(plots): add surface rotation controls"

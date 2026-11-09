@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/ingecalc/ingecalc/blob/main/schemas/document.schema.json",
+  "$id": "https://github.com/marcel1983/ingecalc/blob/main/schemas/document.schema.json",
   "title": "IngeCalc document",
   "type": "object",
   "required": ["format", "version", "metadata", "settings", "pages"],

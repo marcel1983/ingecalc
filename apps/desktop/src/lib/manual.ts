@@ -499,7 +499,7 @@ const es: ManualContent = {
         {
           type: "note",
           title: "Versión",
-          text: "Versión 0.1.0. Repositorio: github.com/ingecalc/ingecalc."
+          text: "Versión 0.1.0. Repositorio: github.com/marcel1983/ingecalc."
         }
       ]
     }
@@ -984,7 +984,7 @@ const en: ManualContent = {
         {
           type: "note",
           title: "Version",
-          text: "Version 0.1.0. Repository: github.com/ingecalc/ingecalc."
+          text: "Version 0.1.0. Repository: github.com/marcel1983/ingecalc."
         }
       ]
     }

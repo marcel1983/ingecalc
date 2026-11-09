@@ -29,6 +29,10 @@ Los equipos de GitHub son:
 - `engineering`: validación técnica y ejemplos.
 - `triage`: clasificación de incidencias.
 
+Mientras el repositorio esté en la cuenta personal `@marcel1983`, estos roles son
+organizativos y `CODEOWNERS` apunta al mantenedor. Al trasladar el proyecto a una
+organización, se crearán los equipos y se actualizará `CODEOWNERS`.
+
 ## Toma de decisiones
 
 ### Cambios ordinarios

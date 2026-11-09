@@ -1,33 +1,34 @@
 # Revisores por ruta
-# Actualizar los equipos si cambia la organización de GitHub.
+# El repositorio está actualmente en la cuenta personal @marcel1983.
+# Al migrar a una organización, sustituir por los equipos correspondientes.
 
-*                           @ingecalc/maintainers
+*                           @marcel1983
 
 # Núcleo matemático y documento
-/crates/math-*/             @ingecalc/core
-/crates/doc-*/              @ingecalc/core
-/crates/export/             @ingecalc/core
-/crates/plugin-*/           @ingecalc/core
-/schemas/                   @ingecalc/core
+/crates/math-*/             @marcel1983
+/crates/doc-*/              @marcel1983
+/crates/export/             @marcel1983
+/crates/plugin-*/           @marcel1983
+/schemas/                   @marcel1983
 
 # Escritorio y CLI
-/apps/desktop/src/          @ingecalc/gui
-/apps/desktop/src-tauri/    @ingecalc/core
-/apps/cli/                  @ingecalc/core
+/apps/desktop/src/          @marcel1983
+/apps/desktop/src-tauri/    @marcel1983
+/apps/cli/                  @marcel1983
 
 # Validación y ejemplos
-/examples/                  @ingecalc/engineering
+/examples/                  @marcel1983
 
 # Documentación
-/docs/                      @ingecalc/docs
-/README.md                  @ingecalc/docs @ingecalc/maintainers
-/CONTRIBUTING.md            @ingecalc/docs
-/SECURITY.md                @ingecalc/maintainers
-/CODE_OF_CONDUCT.md         @ingecalc/maintainers
-/GOVERNANCE.md              @ingecalc/maintainers
-/CHANGELOG.md               @ingecalc/maintainers
+/docs/                      @marcel1983
+/README.md                  @marcel1983
+/CONTRIBUTING.md            @marcel1983
+/SECURITY.md                @marcel1983
+/CODE_OF_CONDUCT.md         @marcel1983
+/GOVERNANCE.md              @marcel1983
+/CHANGELOG.md               @marcel1983
 
 # Infraestructura
-/.github/                   @ingecalc/maintainers
-/Cargo.toml                 @ingecalc/core
-/package.json               @ingecalc/maintainers
+/.github/                   @marcel1983
+/Cargo.toml                 @marcel1983
+/package.json               @marcel1983

@@ -5,17 +5,21 @@ el cambio de marca con tareas de release.
 
 ## 1. Identidad del repositorio
 
-- **Nombre sugerido:** `ingecalc`
+- **Repositorio actual:** `marcel1983/ingecalc` (cuenta personal).
+- **Organización futura opcional:** `ingecalc`.
 - **Descripción:** `Hojas de cálculo de ingeniería: cálculo simbólico, unidades, matrices y gráficos. Open source.`
 - **Temas sugeridos:** `engineering`, `math`, `calculator`, `worksheet`, `rust`, `tauri`, `react`, `mathlive`, `units`, `symbolic-math`
 - **Sitio web:** déjalo vacío hasta tener una página pública.
 - **Licencia:** GPL-3.0-or-later.
 
-Si el propietario u organización no es `ingecalc`, actualiza las URLs de:
+Si el proyecto se traslada a una organización, actualiza las URLs de:
 
 - `Cargo.toml` (`workspace.package.repository`)
+- `package.json` (`repository`)
 - Los badges del `README.md`
-- El enlace de incidencias de `SECURITY.md`, si se usa
+- `.github/ISSUE_TEMPLATE/config.yml`
+- El esquema `schemas/document.schema.json`
+- `CODEOWNERS` y `GOVERNANCE.md`
 - Cualquier enlace absoluto de la documentación
 
 ## 2. Recursos visuales
@@ -41,7 +45,7 @@ Si el directorio aún no es un repositorio Git:
 git init -b main
 git add .
 git commit -m "chore: prepare IngeCalc public repository"
-git remote add origin https://github.com/ingecalc/ingecalc.git
+git remote add origin https://github.com/marcel1983/ingecalc.git
 git push -u origin main
 ```
 

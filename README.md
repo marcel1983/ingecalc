@@ -7,8 +7,8 @@
 <p align="center"><strong>Hojas de cálculo de ingeniería, documentadas.</strong></p>
 
 <p align="center">
-  <a href="https://github.com/ingecalc/ingecalc/actions/workflows/ci.yml">
-    <img alt="CI" src="https://github.com/ingecalc/ingecalc/actions/workflows/ci.yml/badge.svg">
+  <a href="https://github.com/marcel1983/ingecalc/actions/workflows/ci.yml">
+    <img alt="CI" src="https://github.com/marcel1983/ingecalc/actions/workflows/ci.yml/badge.svg">
   </a>
   <img alt="License: GPL-3.0-or-later" src="https://img.shields.io/badge/license-GPL--3.0--or--later-blue">
   <img alt="Rust" src="https://img.shields.io/badge/Rust-stable-orange">
