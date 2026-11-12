@@ -160,6 +160,10 @@ f(x) + 1
 - Las definiciones se evalúan por dependencias, no por orden de aparición.
 - Un nombre solo puede definirse una vez.
 - No hay ámbitos anidados ni recursión; los ciclos se reportan como error.
+- El valor absoluto se puede escribir como `abs(x)` o `|x|`; la paleta inserta
+  `|x|`. La parte entera y el techo aceptan `floor(x)`/`⌊x⌋` y `ceil(x)`/`⌈x⌉`.
+- Los subíndices de varias letras se conservan como un solo nombre: `p_{y2}`
+  se evalúa como `p_y2`.
 
 ### Autocompletado
 

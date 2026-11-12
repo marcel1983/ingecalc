@@ -54,6 +54,7 @@ enum Token {
 /// - numbers, identifiers, `+ - * / ^`, parentheses
 /// - assignments such as `x := 2`
 /// - function calls such as `sqrt(2)`, `sin(x)`, `log(100)`
+/// - absolute value with `abs(x)` or `|x|`
 /// - implicit multiplication such as `2x` or `(x+1)(x-1)`
 /// - matrices `[1, 2; 3, 4]`, `[[1,2],[3,4]]` and MathLive's `((1,2),(3,4))`
 /// - quoted unit names such as `2"m"` or `30"cm"`
