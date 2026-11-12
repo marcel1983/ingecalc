@@ -342,6 +342,25 @@ Comprueba el idioma del documento en **Página → Página…** o en la barra de
 región de texto. El chino simplificado está disponible en la interfaz, pero no
 usa Hunspell.
 
+### IngeCalc se cierra al arrancar en Windows
+
+Si el Visor de eventos muestra un fallo en `NahimicOSD.dll`, el problema proviene
+del overlay de audio Nahimic / Alienware Sound Center, no de IngeCalc.
+
+En equipos con Nahimic, IngeCalc solicita UAC, detiene temporalmente
+`NahimicService`, abre la aplicación y lo reactiva después. Esto evita que la DLL
+se inyecte en el proceso durante el arranque.
+
+Si cancelas el UAC, la aplicación no se abrirá. Para evitar el aviso en cada
+arranque:
+
+- desactiva el **Sound Tracker / overlay** de Nahimic; o
+- detén `NahimicService` antes de abrir IngeCalc; o
+- renombra `NahimicOSD.dll` a `.bak` con permisos de administrador.
+
+La última opción solo desactiva el overlay gráfico; el audio principal de Nahimic
+sigue funcionando. Una actualización de Dell/Nahimic puede restaurar el archivo.
+
 ## Preguntas frecuentes
 
 ### ¿IngeCalc puede redefinir una variable?

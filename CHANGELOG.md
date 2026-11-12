@@ -6,6 +6,15 @@ Todas las versiones relevantes de IngeCalc se documentan aquí.
 
 Sin cambios pendientes de publicar.
 
+## [0.1.1] - 2026-11-11
+
+### Fixed
+
+- Arranque seguro en Windows cuando `NahimicService` está activo: IngeCalc
+  solicita UAC, detiene el servicio, abre la aplicación y lo reactiva.
+- Mitigación de puntos de extensión heredados en el proceso principal.
+- Documentado el conflicto con `NahimicOSD.dll` y sus alternativas.
+
 ## [0.1.0] - 2026-11-08
 
 Primera versión pública. Bundles disponibles para Windows x64, Linux x64

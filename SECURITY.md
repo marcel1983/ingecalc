@@ -46,6 +46,13 @@ archivos locales. No compiles documentos de terceros sin revisarlos.
   actualizará cuando Tauri migre a `glib 0.20`; mientras tanto, la alerta queda
   documentada y revisada.
 
+## Elevación en equipos con Nahimic
+
+Si `NahimicService` está activo, IngeCalc solicita UAC para detenerlo
+temporalmente, abrir la aplicación y reactivarlo. La elevación se usa únicamente
+para ese procedimiento y no se solicita en equipos sin Nahimic. Si el usuario
+cancela el UAC, la aplicación no se abre.
+
 ## Buenas prácticas
 
 - Mantén Rust, Node.js, Tauri y WebView2 actualizados.

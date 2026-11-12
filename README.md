@@ -40,8 +40,13 @@ Descarga la última versión desde
 - **Linux:** AppImage y paquete `.deb`.
 - **macOS:** DMG para Apple Silicon e Intel.
 
-Las compilaciones de `v0.1.0` no están firmadas; Windows puede mostrar SmartScreen
+Las compilaciones no están firmadas; Windows puede mostrar SmartScreen
 y macOS puede pedir confirmación. Los hashes SHA-256 están en cada release.
+
+> **Equipos con Nahimic / Alienware Sound Center:** si el servicio Nahimic está
+> activo, IngeCalc solicita UAC al arrancar, lo detiene temporalmente para evitar
+> el fallo de `NahimicOSD.dll`, abre la aplicación y lo reactiva después. En
+> equipos sin Nahimic no aparece ningún aviso.
 
 ## Captura
 

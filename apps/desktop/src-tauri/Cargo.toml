@@ -24,3 +24,12 @@ math-ast = { path = "../../../crates/math-ast" }
 math-eval = { path = "../../../crates/math-eval" }
 math-numeric = { path = "../../../crates/math-numeric" }
 math-parse = { path = "../../../crates/math-parse" }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = [
+  "Win32_Foundation",
+  "Win32_System_Services",
+  "Win32_System_Threading",
+  "Win32_UI_Shell",
+  "Win32_UI_WindowsAndMessaging",
+] }

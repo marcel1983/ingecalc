@@ -756,7 +756,7 @@ dependencies = [
 
 [[package]]
 name = "doc-core"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "serde",
  "serde_json",
@@ -765,7 +765,7 @@ dependencies = [
 
 [[package]]
 name = "doc-json"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "doc-core",
  "serde_json",
@@ -862,7 +862,7 @@ dependencies = [
 
 [[package]]
 name = "export"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "base64 0.22.1",
  "doc-core",
@@ -1617,7 +1617,7 @@ dependencies = [
 
 [[package]]
 name = "ingecalc-cli"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "clap",
  "doc-core",
@@ -1631,7 +1631,7 @@ dependencies = [
 
 [[package]]
 name = "ingecalc-desktop"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "base64 0.22.1",
  "doc-core",
@@ -1646,6 +1646,7 @@ dependencies = [
  "tauri",
  "tauri-build",
  "tauri-plugin-dialog",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -1922,14 +1923,14 @@ dependencies = [
 
 [[package]]
 name = "math-ast"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "serde",
 ]
 
 [[package]]
 name = "math-eval"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "math-ast",
  "math-numeric",
@@ -1943,7 +1944,7 @@ dependencies = [
 
 [[package]]
 name = "math-json"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "math-ast",
  "serde_json",
@@ -1952,7 +1953,7 @@ dependencies = [
 
 [[package]]
 name = "math-numeric"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "math-units",
  "serde",
@@ -1960,7 +1961,7 @@ dependencies = [
 
 [[package]]
 name = "math-parse"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "math-ast",
  "math-units",
@@ -1969,7 +1970,7 @@ dependencies = [
 
 [[package]]
 name = "math-symbolic"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "math-ast",
  "math-parse",
@@ -1977,7 +1978,7 @@ dependencies = [
 
 [[package]]
 name = "math-units"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "serde",
  "thiserror 2.0.21",
@@ -2490,7 +2491,7 @@ dependencies = [
 
 [[package]]
 name = "plugin-api"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "serde",
  "thiserror 2.0.21",
@@ -2498,7 +2499,7 @@ dependencies = [
 
 [[package]]
 name = "plugin-host"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "plugin-api",
  "serde",

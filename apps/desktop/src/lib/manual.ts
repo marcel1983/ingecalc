@@ -24,7 +24,7 @@ export type ManualContent = {
 const es: ManualContent = {
   title: "Manual de IngeCalc",
   subtitle: "Guía de uso y referencia rápida",
-  version: "0.1.0",
+  version: "0.1.1",
   sections: [
     {
       id: "inicio",
@@ -499,7 +499,7 @@ const es: ManualContent = {
         {
           type: "note",
           title: "Versión",
-          text: "Versión 0.1.0. Repositorio: github.com/marcel1983/ingecalc."
+          text: "Versión 0.1.1. Repositorio: github.com/marcel1983/ingecalc."
         }
       ]
     }
@@ -509,7 +509,7 @@ const es: ManualContent = {
 const en: ManualContent = {
   title: "IngeCalc Manual",
   subtitle: "User guide and quick reference",
-  version: "0.1.0",
+  version: "0.1.1",
   sections: [
     {
       id: "inicio",
@@ -984,7 +984,7 @@ const en: ManualContent = {
         {
           type: "note",
           title: "Version",
-          text: "Version 0.1.0. Repository: github.com/marcel1983/ingecalc."
+          text: "Version 0.1.1. Repository: github.com/marcel1983/ingecalc."
         }
       ]
     }
