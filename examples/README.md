@@ -15,7 +15,6 @@ Colección de documentos `.smj` listos para abrir con **Abrir** en la aplicació
 | [`matrices-avanzadas.smj`](matrices-avanzadas.smj) | 1 | LU, QR, autovalores, rango, rangos, vectores, producto escalar/vectorial y norma | `eigenvalues([2,1;1,2]) = [1, 3]`, `rank([1,2;3,4]) = 2`, `range(1,5) = [1,2,3,4,5]`, `dot([1,2,3],[4,5,6]) = 32`, `cross([1,0,0],[0,1,0]) = [0,0,1]` |
 | [`graficos-3d.smj`](graficos-3d.smj) | 1 | Superficie 3D `z = sin(x)·cos(y)` y gráfico 2D con unidades en el eje Y | Superficie interactiva con rotación/zoom y serie `y = x·1 m` |
 | [`avanzado.smj`](avanzado.smj) | 4 | Documento integrador: cálculo simbólico y resolución, matrices avanzadas, gráficos 3D con unidades y control de flujo | Resumen de las cuatro áreas en un solo archivo |
-| [`dinamico-cisterna.smj`](dinamico-cisterna.smj) | 8 | Memoria de cálculo de un tanque rectangular C.A.C: análisis sísmico ACI 350.3, masas efectivas, presiones hidrodinámicas, empuje del suelo y combinaciones | `Ww = 161280 kgf`, `Wi = 140526.6719 kgf`, `Ti = 0.352 s`, `Pae = 15637.8564 kgf/m`, `M4 = 49290.96 kgf·m` (crítica) |
 
 ## Abrir en la aplicación
 
@@ -34,8 +33,7 @@ for file in examples/fibonacci.smj examples/ecuaciones.smj examples/matrices.smj
             examples/unidades.smj examples/complejos.smj examples/graficos.smj \
             examples/control-flujo.smj \
             examples/simbolico.smj examples/matrices-avanzadas.smj \
-            examples/graficos-3d.smj examples/avanzado.smj \
-            examples/dinamico-cisterna.smj; do
+            examples/graficos-3d.smj examples/avanzado.smj; do
   cargo run -p ingecalc-cli -- validate "$file"
   cargo run -p ingecalc-cli -- eval-document "$file"
 done
