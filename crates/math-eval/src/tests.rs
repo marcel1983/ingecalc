@@ -32,6 +32,13 @@ fn evaluates_complex_numbers() {
 }
 
 #[test]
+fn evaluates_absolute_value_bars() {
+    assert_eq!(evaluate_text("|3-5|").unwrap().display(), "2");
+    assert_eq!(evaluate_text("|2\"m\" - 5\"m\"|").unwrap().display(), "3 m");
+    assert_eq!(evaluate_text("abs(-3.5)").unwrap().display(), "3.5");
+}
+
+#[test]
 fn evaluates_units_and_conversions() {
     assert_eq!(
         evaluate_text("2\"m\" + 30\"cm\"").unwrap().display(),

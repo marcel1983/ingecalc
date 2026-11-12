@@ -6,6 +6,17 @@ Todas las versiones relevantes de IngeCalc se documentan aquí.
 
 Sin cambios pendientes de publicar.
 
+## [0.1.2] - 2026-11-11
+
+### Fixed
+
+- Valor absoluto `|x|` en el parser y normalización de `|x|`, `⌊x⌋`, `⌈x⌉`
+  y `‖x‖` generados por MathLive.
+- Subíndices de varias letras (`p_{y2}` → `p_y2`) al editar fórmulas.
+- `log₁₀`, raíces n-ésimas, `arcsin`/`arccos`/`arctan` y sumatorios/productorios
+  visuales al convertirlos desde la paleta.
+- La memoria del tanque usa `|p_y2 − p_y1|` y nombres consistentes al editar.
+
 ## [0.1.1] - 2026-11-11
 
 ### Fixed

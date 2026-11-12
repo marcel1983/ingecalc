@@ -145,7 +145,7 @@
           "y": 688,
           "w": 730,
           "h": 54,
-          "source": "\\phi \\coloneq 30",
+          "source": "\\phi_s \\coloneq 30",
           "ascii": "phi_s := 30"
         },
         {
@@ -196,7 +196,7 @@
           "w": 730,
           "h": 54,
           "source": "W_{w} \\coloneq P\\cdot Hw\\cdot tw\\cdot \\gamma_c",
-          "ascii": "Ww := P*Hw*tw*gamma_c"
+          "ascii": "W_w := P*Hw*tw*gamma_c"
         }
       ]
     },
@@ -221,8 +221,8 @@
           "y": 110,
           "w": 730,
           "h": 54,
-          "source": "\\epsilon \\coloneq \\min(0.0151\\cdot (c/HL)^2 - 0.1908\\cdot (c/HL) + 1.021, 1)",
-          "ascii": "eps := min(0.0151*(c/HL)^2 - 0.1908*(c/HL) + 1.021, 1)"
+          "source": "\\epsilon_c \\coloneq \\min(0.0151\\cdot (c/HL)^2 - 0.1908\\cdot (c/HL) + 1.021, 1)",
+          "ascii": "epsilon_c := min(0.0151*(c/HL)^2 - 0.1908*(c/HL) + 1.021, 1)"
         },
         {
           "id": "p2-We",
@@ -231,8 +231,8 @@
           "y": 165,
           "w": 730,
           "h": 54,
-          "source": "W_{e} \\coloneq \\epsilon\\cdot W_{w}",
-          "ascii": "We := eps*Ww"
+          "source": "W_{e} \\coloneq \\epsilon_c\\cdot W_{w}",
+          "ascii": "W_e := epsilon_c*W_w"
         },
         {
           "id": "p2-WL",
@@ -242,7 +242,7 @@
           "w": 730,
           "h": 54,
           "source": "W_{L} \\coloneq HL\\cdot (c - tw)\\cdot (b - tw)\\cdot \\gamma_L",
-          "ascii": "WL := HL*(c - tw)*(b - tw)*gamma_L"
+          "ascii": "W_L := HL*(c - tw)*(b - tw)*gamma_L"
         },
         {
           "id": "p2-Wi",
@@ -252,7 +252,7 @@
           "w": 730,
           "h": 54,
           "source": "W_{i} \\coloneq W_{L}\\cdot \\tanh(0.866\\cdot c/HL)/(0.866\\cdot c/HL)",
-          "ascii": "Wi := WL*tanh(0.866*c/HL)/(0.866*c/HL)"
+          "ascii": "W_i := W_L*tanh(0.866*c/HL)/(0.866*c/HL)"
         },
         {
           "id": "p2-Wc",
@@ -262,7 +262,7 @@
           "w": 730,
           "h": 54,
           "source": "W_{c} \\coloneq 0.264\\cdot (c/HL)\\cdot \\tanh(3.16\\cdot HL/c)\\cdot W_{L}",
-          "ascii": "Wc := 0.264*(c/HL)*tanh(3.16*HL/c)*WL"
+          "ascii": "W_c := 0.264*(c/HL)*tanh(3.16*HL/c)*W_L"
         },
         {
           "id": "p2-hc",
@@ -272,7 +272,7 @@
           "w": 730,
           "h": 54,
           "source": "h_{c} \\coloneq (1 - (\\cosh(3.16\\cdot HL/c) - 1)/((3.16\\cdot HL/c)\\cdot \\sinh(3.16\\cdot HL/c)))\\cdot HL",
-          "ascii": "hc := (1 - (cosh(3.16*HL/c) - 1)/((3.16*HL/c)*sinh(3.16*HL/c)))*HL"
+          "ascii": "h_c := (1 - (cosh(3.16*HL/c) - 1)/((3.16*HL/c)*sinh(3.16*HL/c)))*HL"
         },
         {
           "id": "p2-hi",
@@ -282,7 +282,7 @@
           "w": 730,
           "h": 54,
           "source": "h_{i} \\coloneq \\mathrm{if}(c/HL < 1.333, (0.5 - 0.09375\\cdot (c/HL))\\cdot HL, 0.375\\cdot HL)",
-          "ascii": "hi := if(c/HL < 1.333, (0.5 - 0.09375*(c/HL))*HL, 0.375*HL)"
+          "ascii": "h_i := if(c/HL < 1.333, (0.5 - 0.09375*(c/HL))*HL, 0.375*HL)"
         },
         {
           "id": "p2-Mw",
@@ -292,7 +292,7 @@
           "w": 730,
           "h": 54,
           "source": "M_{w} \\coloneq Hw\\cdot tw\\cdot \\gamma_c\\cdot 1 m",
-          "ascii": "Mw := Hw*tw*gamma_c*1 m"
+          "ascii": "M_w := Hw*tw*gamma_c*1 m"
         },
         {
           "id": "p2-Mi",
@@ -302,7 +302,7 @@
           "w": 730,
           "h": 54,
           "source": "M_{i} \\coloneq (W_{i}/W_{L})\\cdot (c/2)\\cdot HL\\cdot \\gamma_L\\cdot 1 m",
-          "ascii": "Mi := (Wi/WL)*(c/2)*HL*gamma_L*1 m"
+          "ascii": "M_i := (W_i/W_L)*(c/2)*HL*gamma_L*1 m"
         },
         {
           "id": "p2-hw",
@@ -312,7 +312,7 @@
           "w": 730,
           "h": 54,
           "source": "h_{w} \\coloneq 0.5\\cdot Hw",
-          "ascii": "hw := 0.5*Hw"
+          "ascii": "h_w := 0.5*Hw"
         },
         {
           "id": "p2-h",
@@ -322,7 +322,7 @@
           "w": 730,
           "h": 54,
           "source": "h \\coloneq (h_{w}\\cdot M_{w} + h_{i}\\cdot M_{i})/(M_{w} + M_{i})",
-          "ascii": "h := (hw*Mw + hi*Mi)/(Mw + Mi)"
+          "ascii": "h := (h_w*M_w + h_i*M_i)/(M_w + M_i)"
         },
         {
           "id": "p2-note",
@@ -357,7 +357,7 @@
           "w": 730,
           "h": 54,
           "source": "M \\coloneq M_{i} + M_{w}",
-          "ascii": "M := Mi + Mw"
+          "ascii": "M := M_i + M_w"
         },
         {
           "id": "p3-Ec",
@@ -367,7 +367,7 @@
           "w": 730,
           "h": 54,
           "source": "E_{c} \\coloneq 57000\\cdot \\sqrt{4500}",
-          "ascii": "Ec := 57000*sqrt(4500)"
+          "ascii": "E_c := 57000*sqrt(4500)"
         },
         {
           "id": "p3-k",
@@ -377,7 +377,7 @@
           "w": 730,
           "h": 54,
           "source": "k \\coloneq (E_{c}\\cdot 144/12)\\cdot (tw/h)^3\\cdot ((1 m)/(0.3048 m))/1000",
-          "ascii": "k := (Ec*144/12)*(tw/h)^3*((1 m)/(0.3048 m))/1000"
+          "ascii": "k := (E_c*144/12)*(tw/h)^3*((1 m)/(0.3048 m))/1000"
         },
         {
           "id": "p3-Mk",
@@ -436,7 +436,7 @@
           "w": 730,
           "h": 54,
           "source": "S_{1} \\coloneq 500/981",
-          "ascii": "S1 := 500/981"
+          "ascii": "S_1 := 500/981"
         },
         {
           "id": "p3-Ss",
@@ -446,7 +446,7 @@
           "w": 730,
           "h": 54,
           "source": "S_{s} \\coloneq 1800/981",
-          "ascii": "Ss := 1800/981"
+          "ascii": "S_s := 1800/981"
         },
         {
           "id": "p3-Fv",
@@ -456,7 +456,7 @@
           "w": 730,
           "h": 54,
           "source": "F_{v} \\coloneq 1.3",
-          "ascii": "Fv := 1.3"
+          "ascii": "F_v := 1.3"
         },
         {
           "id": "p3-Fa",
@@ -466,7 +466,7 @@
           "w": 730,
           "h": 54,
           "source": "F_{a} \\coloneq 1",
-          "ascii": "Fa := 1"
+          "ascii": "F_a := 1"
         },
         {
           "id": "p3-Sd1",
@@ -476,7 +476,7 @@
           "w": 730,
           "h": 54,
           "source": "S_{d1} \\coloneq (2/3)\\cdot S_{1}\\cdot F_{v}",
-          "ascii": "Sd1 := (2/3)*S1*Fv"
+          "ascii": "S_d1 := (2/3)*S_1*F_v"
         },
         {
           "id": "p3-Sds",
@@ -486,7 +486,7 @@
           "w": 730,
           "h": 54,
           "source": "S_{ds} \\coloneq (2/3)\\cdot S_{s}\\cdot F_{a}",
-          "ascii": "Sds := (2/3)*Ss*Fa"
+          "ascii": "S_ds := (2/3)*S_s*F_a"
         },
         {
           "id": "p3-Ts",
@@ -496,7 +496,7 @@
           "w": 730,
           "h": 54,
           "source": "T_{s} \\coloneq S_{d1}/S_{ds}",
-          "ascii": "Ts := Sd1/Sds"
+          "ascii": "T_s := S_d1/S_ds"
         },
         {
           "id": "p3-Ci",
@@ -506,7 +506,7 @@
           "w": 730,
           "h": 54,
           "source": "C_{i} \\coloneq \\mathrm{if}(T_{i} \\le  T_{s}, S_{ds}, \\min(S_{d1}/T_{i}, S_{ds}))",
-          "ascii": "Ci := if(T_i <= Ts, Sds, min(Sd1/T_i, Sds))"
+          "ascii": "C_i := if(T_i <= T_s, S_ds, min(S_d1/T_i, S_ds))"
         },
         {
           "id": "p3-Cc",
@@ -516,7 +516,7 @@
           "w": 730,
           "h": 54,
           "source": "C_{c} \\coloneq \\mathrm{if}(T_{c} \\le  1.6/T_{s}, \\min(1.5\\cdot S_{d1}/T_{c}, 1.5\\cdot S_{ds}), 2.4\\cdot S_{ds}/T_{c}^2)",
-          "ascii": "Cc := if(T_c <= 1.6/Ts, min(1.5*Sd1/T_c, 1.5*Sds), 2.4*Sds/T_c^2)"
+          "ascii": "C_c := if(T_c <= 1.6/T_s, min(1.5*S_d1/T_c, 1.5*S_ds), 2.4*S_ds/T_c^2)"
         }
       ]
     },
@@ -542,7 +542,7 @@
           "w": 730,
           "h": 54,
           "source": "R_{wi} \\coloneq 3 - (Hw - Ha)/Hw",
-          "ascii": "Rwi := 3 - (Hw - Ha)/Hw"
+          "ascii": "R_wi := 3 - (Hw - Ha)/Hw"
         },
         {
           "id": "p4-Rwc",
@@ -552,7 +552,7 @@
           "w": 730,
           "h": 54,
           "source": "R_{wc} \\coloneq 1",
-          "ascii": "Rwc := 1"
+          "ascii": "R_wc := 1"
         },
         {
           "id": "p4-I",
@@ -571,8 +571,8 @@
           "y": 270,
           "w": 730,
           "h": 54,
-          "source": "P_{w} \\coloneq I_{imp}\\cdot C_{i}\\cdot \\epsilon\\cdot W_{w}/R_{wi}",
-          "ascii": "Pw := I_imp*Ci*eps*Ww/Rwi"
+          "source": "P_{w} \\coloneq I_{imp}\\cdot C_{i}\\cdot \\epsilon_c\\cdot W_{w}/R_{wi}",
+          "ascii": "P_w := I_imp*C_i*epsilon_c*W_w/R_wi"
         },
         {
           "id": "p4-Pi",
@@ -582,7 +582,7 @@
           "w": 730,
           "h": 54,
           "source": "P_{i} \\coloneq I_{imp}\\cdot C_{i}\\cdot W_{i}/R_{wi}",
-          "ascii": "Pi := I_imp*Ci*Wi/Rwi"
+          "ascii": "P_i := I_imp*C_i*W_i/R_wi"
         },
         {
           "id": "p4-Pc",
@@ -592,7 +592,7 @@
           "w": 730,
           "h": 54,
           "source": "P_{c} \\coloneq I_{imp}\\cdot C_{c}\\cdot W_{c}/R_{wc}",
-          "ascii": "Pc := I_imp*Cc*Wc/Rwc"
+          "ascii": "P_c := I_imp*C_c*W_c/R_wc"
         },
         {
           "id": "p4-Pwy",
@@ -601,8 +601,8 @@
           "y": 435,
           "w": 730,
           "h": 54,
-          "source": "P_{wy} \\coloneq I_{imp}\\cdot C_{i}/R_{wi}\\cdot \\epsilon\\cdot (\\gamma_c\\cdot c\\cdot tw)",
-          "ascii": "Pwy := I_imp*Ci/Rwi*eps*(gamma_c*c*tw)"
+          "source": "P_{wy} \\coloneq I_{imp}\\cdot C_{i}/R_{wi}\\cdot \\epsilon_c\\cdot (\\gamma_c\\cdot c\\cdot tw)",
+          "ascii": "P_wy := I_imp*C_i/R_wi*epsilon_c*(gamma_c*c*tw)"
         },
         {
           "id": "p4-pwy",
@@ -612,7 +612,7 @@
           "w": 730,
           "h": 54,
           "source": "p_{wy} \\coloneq P_{wy}/(c\\cdot 2)",
-          "ascii": "pwy := Pwy/(c*2)"
+          "ascii": "p_wy := P_wy/(c*2)"
         },
         {
           "id": "p4-B",
@@ -632,7 +632,7 @@
           "w": 730,
           "h": 54,
           "source": "C_{t} \\coloneq 0.4\\cdot S_{ds}",
-          "ascii": "Ct := 0.4*Sds"
+          "ascii": "C_t := 0.4*S_ds"
         },
         {
           "id": "p4-av",
@@ -642,7 +642,7 @@
           "w": 730,
           "h": 54,
           "source": "av \\coloneq \\min(C_{t}\\cdot I_{imp}\\cdot B_{v}/R_{wi}, 0.2\\cdot S_{ds})",
-          "ascii": "av := min(Ct*I_imp*B_v/Rwi, 0.2*Sds)"
+          "ascii": "av := min(C_t*I_imp*B_v/R_wi, 0.2*S_ds)"
         },
         {
           "id": "p4-q",
@@ -652,7 +652,7 @@
           "w": 730,
           "h": 54,
           "source": "q_{hyt} \\coloneq \\gamma_L\\cdot (HL\\cdot c\\cdot HL/2)",
-          "ascii": "qhyt := gamma_L*(HL*c*HL/2)"
+          "ascii": "q_hyt := gamma_L*(HL*c*HL/2)"
         },
         {
           "id": "p4-Phy",
@@ -662,7 +662,7 @@
           "w": 730,
           "h": 54,
           "source": "P_{hy} \\coloneq av\\cdot q_{hyt}",
-          "ascii": "Phy := av*qhyt"
+          "ascii": "P_hy := av*q_hyt"
         },
         {
           "id": "p4-note",
@@ -717,7 +717,7 @@
           "w": 730,
           "h": 62,
           "source": "p_{iy1} \\coloneq (P_{i}/2)\\cdot (4\\cdot HL - 6\\cdot h_{i} - (6\\cdot HL - 12\\cdot h_{i})\\cdot (y1/HL))/(HL^2\\cdot c)",
-          "ascii": "piy1 := (Pi/2)*(4*HL - 6*hi - (6*HL - 12*hi)*(y1/HL))/(HL^2*c)"
+          "ascii": "p_iy1 := (P_i/2)*(4*HL - 6*h_i - (6*HL - 12*h_i)*(y1/HL))/(HL^2*c)"
         },
         {
           "id": "p5-piy2",
@@ -727,7 +727,7 @@
           "w": 730,
           "h": 62,
           "source": "p_{iy2} \\coloneq (P_{i}/2)\\cdot (4\\cdot HL - 6\\cdot h_{i} - (6\\cdot HL - 12\\cdot h_{i})\\cdot (y2/HL))/(HL^2\\cdot c)",
-          "ascii": "piy2 := (Pi/2)*(4*HL - 6*hi - (6*HL - 12*hi)*(y2/HL))/(HL^2*c)"
+          "ascii": "p_iy2 := (P_i/2)*(4*HL - 6*h_i - (6*HL - 12*h_i)*(y2/HL))/(HL^2*c)"
         },
         {
           "id": "p5-pcy1",
@@ -737,7 +737,7 @@
           "w": 730,
           "h": 62,
           "source": "p_{cy1} \\coloneq (P_{c}/2)\\cdot (4\\cdot HL - 6\\cdot h_{c} - (6\\cdot HL - 12\\cdot h_{c})\\cdot (y1/HL))/(HL^2\\cdot c)",
-          "ascii": "pcy1 := (Pc/2)*(4*HL - 6*hc - (6*HL - 12*hc)*(y1/HL))/(HL^2*c)"
+          "ascii": "p_cy1 := (P_c/2)*(4*HL - 6*h_c - (6*HL - 12*h_c)*(y1/HL))/(HL^2*c)"
         },
         {
           "id": "p5-pcy2",
@@ -747,7 +747,7 @@
           "w": 730,
           "h": 62,
           "source": "p_{cy2} \\coloneq (P_{c}/2)\\cdot (4\\cdot HL - 6\\cdot h_{c} - (6\\cdot HL - 12\\cdot h_{c})\\cdot (y2/HL))/(HL^2\\cdot c)",
-          "ascii": "pcy2 := (Pc/2)*(4*HL - 6*hc - (6*HL - 12*hc)*(y2/HL))/(HL^2*c)"
+          "ascii": "p_cy2 := (P_c/2)*(4*HL - 6*h_c - (6*HL - 12*h_c)*(y2/HL))/(HL^2*c)"
         },
         {
           "id": "p5-phy1",
@@ -757,7 +757,7 @@
           "w": 730,
           "h": 54,
           "source": "p_{hy1} \\coloneq (av/2)\\cdot \\gamma_L\\cdot y1",
-          "ascii": "phy1 := (av/2)*gamma_L*y1"
+          "ascii": "p_hy1 := (av/2)*gamma_L*y1"
         },
         {
           "id": "p5-phy2",
@@ -767,7 +767,7 @@
           "w": 730,
           "h": 54,
           "source": "p_{hy2} \\coloneq (av/2)\\cdot \\gamma_L\\cdot y2",
-          "ascii": "phy2 := (av/2)*gamma_L*y2"
+          "ascii": "p_hy2 := (av/2)*gamma_L*y2"
         },
         {
           "id": "p5-py1",
@@ -777,7 +777,7 @@
           "w": 730,
           "h": 72,
           "source": "p_{y1} \\coloneq \\sqrt{(p_{iy1}+p_{wy})^2+p_{cy1}^2+p_{hy1}^2}",
-          "ascii": "py1 := sqrt(((piy1 + pwy)/(1 kgf/m^2))^2 + (pcy1/(1 kgf/m^2))^2 + (phy1/(1 kgf/m^2))^2)*(1 kgf/m^2)"
+          "ascii": "p_y1 := sqrt(((p_iy1 + p_wy)/(1 kgf/m^2))^2 + (p_cy1/(1 kgf/m^2))^2 + (p_hy1/(1 kgf/m^2))^2)*(1 kgf/m^2)"
         },
         {
           "id": "p5-py2",
@@ -787,7 +787,7 @@
           "w": 730,
           "h": 72,
           "source": "p_{y2} \\coloneq \\sqrt{(p_{iy2}+p_{wy})^2+p_{cy2}^2+p_{hy2}^2}",
-          "ascii": "py2 := sqrt(((piy2 + pwy)/(1 kgf/m^2))^2 + (pcy2/(1 kgf/m^2))^2 + (phy2/(1 kgf/m^2))^2)*(1 kgf/m^2)"
+          "ascii": "p_y2 := sqrt(((p_iy2 + p_wy)/(1 kgf/m^2))^2 + (p_cy2/(1 kgf/m^2))^2 + (p_hy2/(1 kgf/m^2))^2)*(1 kgf/m^2)"
         },
         {
           "id": "p5-note",
@@ -822,7 +822,7 @@
           "w": 730,
           "h": 54,
           "source": "K_{h} \\coloneq 0.33\\cdot S_{s}/2.5",
-          "ascii": "Kh := 0.33*Ss/2.5"
+          "ascii": "K_h := 0.33*S_s/2.5"
         },
         {
           "id": "p6-Kv",
@@ -832,7 +832,7 @@
           "w": 730,
           "h": 54,
           "source": "K_{v} \\coloneq 0",
-          "ascii": "Kv := 0"
+          "ascii": "K_v := 0"
         },
         {
           "id": "p6-phir",
@@ -861,7 +861,7 @@
           "y": 325,
           "w": 730,
           "h": 54,
-          "source": "\\delta \\coloneq 2\\cdot \\phi/3",
+          "source": "\\delta_w \\coloneq 2\\cdot \\phi_{rad}/3",
           "ascii": "delta_w := 2*phi_rad/3"
         },
         {
@@ -871,8 +871,8 @@
           "y": 380,
           "w": 730,
           "h": 54,
-          "source": "\\psi \\coloneq \\arctan(K_{h}/(1 - K_{v}))",
-          "ascii": "psi_s := atan(Kh/(1 - Kv))"
+          "source": "\\psi_s \\coloneq \\arctan(K_{h}/(1 - K_{v}))",
+          "ascii": "psi_s := atan(K_h/(1 - K_v))"
         },
         {
           "id": "p6-thv",
@@ -881,7 +881,7 @@
           "y": 435,
           "w": 730,
           "h": 54,
-          "source": "\\theta \\coloneq 0",
+          "source": "\\theta_v \\coloneq 0",
           "ascii": "theta_v := 0"
         },
         {
@@ -891,8 +891,8 @@
           "y": 505,
           "w": 730,
           "h": 90,
-          "source": "K_{AE} \\coloneq \\frac{\\cos^{2}(\\phi-\\psi-\\theta)}{\\cos\\psi\\,\\cos^{2}\\theta\\,\\cos(\\psi+\\theta+\\delta)\\left(1+\\sqrt{\\frac{\\sin(\\phi+\\delta)\\sin(\\phi-\\psi-\\beta)}{\\cos(\\beta-\\theta)\\cos(\\psi+\\theta+\\delta)}}\\right)^{2}}",
-          "ascii": "KAE := (cos(phi_rad - psi_s - theta_v))^2/(cos(psi_s)*(cos(theta_v))^2*cos(psi_s + theta_v + delta_w)*(1 + sqrt(sin(phi_rad + delta_w)*sin(phi_rad - psi_s - beta)/(cos(beta - theta_v)*cos(psi_s + theta_v + delta_w))))^2)"
+          "source": "K_{AE} \\coloneq \\frac{(\\cos(\\phi_{rad}-\\psi_s-\\theta_v))^{2}}{\\cos(\\psi_s)\\,(\\cos(\\theta_v))^{2}\\,\\cos(\\psi_s+\\theta_v+\\delta_w)\\left(1+\\sqrt{\\frac{\\sin(\\phi_{rad}+\\delta_w)\\sin(\\phi_{rad}-\\psi_s-\\beta)}{\\cos(\\beta-\\theta_v)\\cos(\\psi_s+\\theta_v+\\delta_w)}}\\right)^{2}}",
+          "ascii": "K_AE := (cos(phi_rad - psi_s - theta_v))^2/(cos(psi_s)*(cos(theta_v))^2*cos(psi_s + theta_v + delta_w)*(1 + sqrt(sin(phi_rad + delta_w)*sin(phi_rad - psi_s - beta)/(cos(beta - theta_v)*cos(psi_s + theta_v + delta_w))))^2)"
         },
         {
           "id": "p6-pae",
@@ -902,7 +902,7 @@
           "w": 730,
           "h": 54,
           "source": "p_{ae} \\coloneq K_{AE}\\cdot \\gamma_s\\cdot (1 - K_{v})\\cdot Ha",
-          "ascii": "pae := KAE*gamma_s*(1 - Kv)*Ha"
+          "ascii": "p_ae := K_AE*gamma_s*(1 - K_v)*Ha"
         },
         {
           "id": "p6-Pae",
@@ -912,7 +912,7 @@
           "w": 730,
           "h": 54,
           "source": "P_{ae} \\coloneq 0.5\\cdot K_{AE}\\cdot \\gamma_s\\cdot (1 - K_{v})\\cdot Ha^2",
-          "ascii": "Pae := 0.5*KAE*gamma_s*(1 - Kv)*Ha^2"
+          "ascii": "P_ae := 0.5*K_AE*gamma_s*(1 - K_v)*Ha^2"
         },
         {
           "id": "p6-KPE",
@@ -921,8 +921,8 @@
           "y": 745,
           "w": 730,
           "h": 90,
-          "source": "K_{PE} \\coloneq \\frac{\\cos^{2}(\\phi-\\psi+\\theta)}{\\cos\\psi\\,\\cos^{2}\\theta\\,\\cos(\\psi-\\theta+\\delta)\\left(1+\\sqrt{\\frac{\\sin(\\phi+\\delta)\\sin(\\phi-\\psi-\\beta)}{\\cos(\\beta+\\theta)\\cos(\\psi-\\theta+\\delta)}}\\right)^{2}}",
-          "ascii": "KPE := (cos(phi_rad - psi_s + theta_v))^2/(cos(psi_s)*(cos(theta_v))^2*cos(psi_s - theta_v + delta_w)*(1 + sqrt(sin(phi_rad + delta_w)*sin(phi_rad - psi_s - beta)/(cos(beta + theta_v)*cos(psi_s - theta_v + delta_w))))^2)"
+          "source": "K_{PE} \\coloneq \\frac{(\\cos(\\phi_{rad}-\\psi_s+\\theta_v))^{2}}{\\cos(\\psi_s)\\,(\\cos(\\theta_v))^{2}\\,\\cos(\\psi_s-\\theta_v+\\delta_w)\\left(1+\\sqrt{\\frac{\\sin(\\phi_{rad}+\\delta_w)\\sin(\\phi_{rad}-\\psi_s-\\beta)}{\\cos(\\beta+\\theta_v)\\cos(\\psi_s-\\theta_v+\\delta_w)}}\\right)^{2}}",
+          "ascii": "K_PE := (cos(phi_rad - psi_s + theta_v))^2/(cos(psi_s)*(cos(theta_v))^2*cos(psi_s - theta_v + delta_w)*(1 + sqrt(sin(phi_rad + delta_w)*sin(phi_rad - psi_s - beta)/(cos(beta + theta_v)*cos(psi_s - theta_v + delta_w))))^2)"
         },
         {
           "id": "p6-ppe",
@@ -932,7 +932,7 @@
           "w": 730,
           "h": 54,
           "source": "p_{pe} \\coloneq K_{PE}\\cdot \\gamma_s\\cdot (1 - K_{v})\\cdot Ha",
-          "ascii": "ppe := KPE*gamma_s*(1 - Kv)*Ha"
+          "ascii": "p_pe := K_PE*gamma_s*(1 - K_v)*Ha"
         },
         {
           "id": "p6-Ppe",
@@ -942,7 +942,7 @@
           "w": 730,
           "h": 54,
           "source": "P_{pe} \\coloneq 0.5\\cdot K_{PE}\\cdot \\gamma_s\\cdot (1 - K_{v})\\cdot Ha^2",
-          "ascii": "Ppe := 0.5*KPE*gamma_s*(1 - Kv)*Ha^2"
+          "ascii": "P_pe := 0.5*K_PE*gamma_s*(1 - K_v)*Ha^2"
         }
       ]
     },
@@ -967,7 +967,7 @@
           "y": 110,
           "w": 730,
           "h": 54,
-          "source": "Cr \\coloneq 1 - \\sin(\\phi)",
+          "source": "Cr \\coloneq 1 - \\sin(\\phi_{rad})",
           "ascii": "Cr := 1 - sin(phi_rad)"
         },
         {
@@ -977,7 +977,7 @@
           "y": 165,
           "w": 730,
           "h": 54,
-          "source": "Ca \\coloneq (1 - \\sin(\\phi))/(1 + \\sin(\\phi))",
+          "source": "Ca \\coloneq (1 - \\sin(\\phi_{rad}))/(1 + \\sin(\\phi_{rad}))",
           "ascii": "Ca := (1 - sin(phi_rad))/(1 + sin(phi_rad))"
         },
         {
@@ -988,7 +988,7 @@
           "w": 730,
           "h": 54,
           "source": "P_{rep} \\coloneq Cr\\cdot \\gamma_s\\cdot Ha",
-          "ascii": "Prep := Cr*gamma_s*Ha"
+          "ascii": "P_rep := Cr*gamma_s*Ha"
         },
         {
           "id": "p7-Pac",
@@ -998,7 +998,7 @@
           "w": 730,
           "h": 54,
           "source": "P_{ac} \\coloneq Ca\\cdot \\gamma_s\\cdot Ha",
-          "ascii": "Pac := Ca*gamma_s*Ha"
+          "ascii": "P_ac := Ca*gamma_s*Ha"
         },
         {
           "id": "p7-eq1",
@@ -1008,7 +1008,7 @@
           "w": 730,
           "h": 54,
           "source": "\\sigma_{rep}(Z_{h}) \\coloneq P_{rep} - Cr\\cdot \\gamma_s\\cdot Z_{h}",
-          "ascii": "sigma_rep(Zh) := Prep - Cr*gamma_s*Zh"
+          "ascii": "sigma_rep(Z_h) := P_rep - Cr*gamma_s*Z_h"
         },
         {
           "id": "p7-eq2",
@@ -1018,7 +1018,7 @@
           "w": 730,
           "h": 54,
           "source": "\\sigma_{act}(Z_{h}) \\coloneq P_{ac} - Ca\\cdot \\gamma_s\\cdot Z_{h}",
-          "ascii": "sigma_act(Zh) := Pac - Ca*gamma_s*Zh"
+          "ascii": "sigma_act(Z_h) := P_ac - Ca*gamma_s*Z_h"
         },
         {
           "id": "p7-note",
@@ -1046,7 +1046,7 @@
           "w": 730,
           "h": 54,
           "source": "p_{hidro} \\coloneq \\gamma_L\\cdot HL",
-          "ascii": "pHidro := gamma_L*HL"
+          "ascii": "p_hidro := gamma_L*HL"
         },
         {
           "id": "p7-Mpsad",
@@ -1056,7 +1056,7 @@
           "w": 730,
           "h": 54,
           "source": "M_{psad} \\coloneq P_{ae}\\cdot 0.6\\cdot Ha\\cdot 1 m",
-          "ascii": "Mpsad := Pae*0.6*Ha*1 m"
+          "ascii": "M_psad := P_ae*0.6*Ha*1 m"
         },
         {
           "id": "p7-Mpspd",
@@ -1066,7 +1066,7 @@
           "w": 730,
           "h": 54,
           "source": "M_{pspd} \\coloneq P_{pe}\\cdot 0.6\\cdot Ha\\cdot 1 m",
-          "ascii": "Mpspd := Ppe*0.6*Ha*1 m"
+          "ascii": "M_pspd := P_pe*0.6*Ha*1 m"
         },
         {
           "id": "p7-MpSh",
@@ -1075,8 +1075,8 @@
           "y": 765,
           "w": 730,
           "h": 62,
-          "source": "M_{pShidro} \\coloneq (((p_{y1} - p_{y2})\\cdot HL^2\\cdot (1/6)) + (\\min(p_{y2}, p_{y1})\\cdot HL^2\\cdot (1/2)))\\cdot 1 m",
-          "ascii": "MpShidro := (((py1 - py2)*HL^2*(1/6)) + (min(py2, py1)*HL^2*(1/2)))*1 m"
+          "source": "M_{pShidro} \\coloneq \\left(\\left(\\left|p_{y2} - p_{y1}\\right|\\cdot HL^2\\cdot(1/6)\\right) + \\left(\\min(p_{y2},p_{y1})\\cdot HL^2\\cdot(1/2)\\right)\\right)\\cdot 1 m",
+          "ascii": "M_pShidro := (((abs(p_y2 - p_y1))*HL^2*(1/6)) + (min(p_y2, p_y1)*HL^2*(1/2)))*1 m"
         },
         {
           "id": "p7-Mph",
@@ -1086,7 +1086,7 @@
           "w": 730,
           "h": 54,
           "source": "M_{phidro} \\coloneq p_{hidro}\\cdot HL^2\\cdot (1/6)\\cdot 1 m",
-          "ascii": "Mphidro := pHidro*HL^2*(1/6)*1 m"
+          "ascii": "M_phidro := p_hidro*HL^2*(1/6)*1 m"
         },
         {
           "id": "p7-Mrep",
@@ -1096,7 +1096,7 @@
           "w": 730,
           "h": 54,
           "source": "M_{rep} \\coloneq P_{rep}\\cdot Ha^2\\cdot (1/6)\\cdot 1 m",
-          "ascii": "Mrep := Prep*Ha^2*(1/6)*1 m"
+          "ascii": "M_rep := P_rep*Ha^2*(1/6)*1 m"
         },
         {
           "id": "p7-note2",
@@ -1105,7 +1105,7 @@
           "y": 960,
           "w": 730,
           "h": 56,
-          "html": "<p><strong>Nota:</strong> el PDF original escribe (p<sub>y2</sub> − p<sub>y1</sub>), pero su resultado 9602,7402 kgf·m corresponde a (p<sub>y1</sub> − p<sub>y2</sub>), que es la forma correcta para la distribución trapezoidal. Se usa esta última.</p>"
+          "html": "<p><strong>Nota:</strong> se usa |p<sub>y2</sub> − p<sub>y1</sub>| para garantizar que la diferencia de presiones sea positiva; el resultado coincide con el PDF original (9602,7402 kgf·m).</p>"
         }
       ]
     },
@@ -1131,7 +1131,7 @@
           "w": 730,
           "h": 54,
           "source": "M_{1} \\coloneq M_{pShidro} + M_{psad} - 1.2\\cdot M_{phidro}",
-          "ascii": "M1 := MpShidro + Mpsad - 1.2*Mphidro"
+          "ascii": "M_1 := M_pShidro + M_psad - 1.2*M_phidro"
         },
         {
           "id": "p8-c2",
@@ -1141,7 +1141,7 @@
           "w": 730,
           "h": 54,
           "source": "M_{2} \\coloneq M_{pShidro} - M_{pspd} + 1.2\\cdot M_{phidro}",
-          "ascii": "M2 := MpShidro - Mpspd + 1.2*Mphidro"
+          "ascii": "M_2 := M_pShidro - M_pspd + 1.2*M_phidro"
         },
         {
           "id": "p8-c3",
@@ -1151,7 +1151,7 @@
           "w": 730,
           "h": 54,
           "source": "M_{3} \\coloneq 1.4\\cdot M_{phidro}",
-          "ascii": "M3 := 1.4*Mphidro"
+          "ascii": "M_3 := 1.4*M_phidro"
         },
         {
           "id": "p8-c4",
@@ -1161,7 +1161,7 @@
           "w": 730,
           "h": 54,
           "source": "M_{4} \\coloneq 1.6\\cdot M_{rep}",
-          "ascii": "M4 := 1.6*Mrep"
+          "ascii": "M_4 := 1.6*M_rep"
         },
         {
           "id": "p8-ratio",
@@ -1171,7 +1171,7 @@
           "w": 730,
           "h": 54,
           "source": "\\mathrm{ratio} \\coloneq M_{pShidro}/M_{phidro}",
-          "ascii": "ratio := MpShidro/Mphidro"
+          "ascii": "ratio := M_pShidro/M_phidro"
         },
         {
           "id": "p8-critical",
@@ -1199,7 +1199,7 @@
           "w": 730,
           "h": 54,
           "source": "W_{w}",
-          "ascii": "Ww"
+          "ascii": "W_w"
         },
         {
           "id": "p8-r2",
@@ -1209,7 +1209,7 @@
           "w": 730,
           "h": 54,
           "source": "W_{i}",
-          "ascii": "Wi"
+          "ascii": "W_i"
         },
         {
           "id": "p8-r3",
@@ -1219,7 +1219,7 @@
           "w": 730,
           "h": 54,
           "source": "W_{c}",
-          "ascii": "Wc"
+          "ascii": "W_c"
         },
         {
           "id": "p8-r4",
@@ -1229,7 +1229,7 @@
           "w": 730,
           "h": 54,
           "source": "P_{w}",
-          "ascii": "Pw"
+          "ascii": "P_w"
         },
         {
           "id": "p8-r5",
@@ -1239,7 +1239,7 @@
           "w": 730,
           "h": 54,
           "source": "P_{i}",
-          "ascii": "Pi"
+          "ascii": "P_i"
         },
         {
           "id": "p8-r6",
@@ -1249,7 +1249,7 @@
           "w": 730,
           "h": 54,
           "source": "P_{c}",
-          "ascii": "Pc"
+          "ascii": "P_c"
         },
         {
           "id": "p8-r7",
@@ -1259,7 +1259,7 @@
           "w": 730,
           "h": 54,
           "source": "P_{ae}",
-          "ascii": "Pae"
+          "ascii": "P_ae"
         },
         {
           "id": "p8-r8",
@@ -1269,7 +1269,7 @@
           "w": 730,
           "h": 54,
           "source": "M_{4}",
-          "ascii": "M4"
+          "ascii": "M_4"
         },
         {
           "id": "p8-note",

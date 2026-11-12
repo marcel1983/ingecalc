@@ -42,6 +42,7 @@ enum Token {
     RParen,
     LBracket,
     RBracket,
+    Pipe,
     Comma,
     Semicolon,
     End,
@@ -377,6 +378,14 @@ impl Parser {
                 }
             }
             Token::LBracket => self.parse_matrix_literal(),
+            Token::Pipe => {
+                let value = self.parse_expression()?;
+                self.expect(Token::Pipe)?;
+                Ok(Expr::Call {
+                    name: "abs".into(),
+                    args: vec![value],
+                })
+            }
             Token::End => Err(ParseError::UnexpectedEnd),
             _ => Err(ParseError::UnexpectedToken(
                 self.position().saturating_sub(1),
@@ -751,6 +760,7 @@ fn tokenize(input: &str) -> Result<Vec<(Token, usize)>, ParseError> {
             ')' => Token::RParen,
             '[' => Token::LBracket,
             ']' => Token::RBracket,
+            '|' => Token::Pipe,
             ',' => Token::Comma,
             ';' => Token::Semicolon,
             '%' => Token::Ident("%".into()),
@@ -843,6 +853,23 @@ mod tests {
                 ..
             }
         ));
+    }
+
+    #[test]
+    fn parses_absolute_value_bars() {
+        let expression = parse("|p_y2 - p_y1|").expect("absolute value should parse");
+        assert!(matches!(
+            expression,
+            Expr::Call { name, args } if name == "abs" && args.len() == 1
+        ));
+
+        let nested = parse("|x + |y||").expect("nested absolute value should parse");
+        assert!(matches!(
+            nested,
+            Expr::Call { name, .. } if name == "abs"
+        ));
+
+        parse("|2\"m\" - 5\"m\"|").expect("quoted units inside bars should parse");
     }
 
     #[test]
