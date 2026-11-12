@@ -10,6 +10,7 @@ type Props = {
   onEnter: () => void;
   completions: MathCompletion[];
   constantNames: string[];
+  showResults: boolean;
 };
 
 export function MathRegion({
@@ -17,7 +18,8 @@ export function MathRegion({
   onChange,
   onEnter,
   completions,
-  constantNames
+  constantNames,
+  showResults
 }: Props) {
   const result = useDocumentStore((state) => state.mathResults[region.id]);
   const hasTrailingEquals = region.source.trimEnd().endsWith("=");
@@ -60,7 +62,7 @@ export function MathRegion({
         <span className="region-error" title={result.error}>
           {result.error}
         </span>
-      ) : !hasTrailingEquals && formattedResult?.value ? (
+      ) : showResults && !hasTrailingEquals && formattedResult?.value ? (
         <span className="region-result" title={`= ${result.display}`}>
           = {formattedResult.value}
           {formattedResult.unit && (

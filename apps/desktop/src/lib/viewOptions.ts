@@ -4,12 +4,14 @@ export type ViewOptions = {
   showGrid: boolean;
   snapToGrid: boolean;
   lockPositions: boolean;
+  showResults: boolean;
 };
 
 export const DEFAULT_VIEW_OPTIONS: ViewOptions = {
   showGrid: true,
   snapToGrid: true,
-  lockPositions: false
+  lockPositions: false,
+  showResults: true
 };
 
 const STORAGE_KEY = "ingecalc-view-options";
@@ -33,7 +35,11 @@ export function readViewOptions(): ViewOptions {
       lockPositions:
         typeof parsed.lockPositions === "boolean"
           ? parsed.lockPositions
-          : DEFAULT_VIEW_OPTIONS.lockPositions
+          : DEFAULT_VIEW_OPTIONS.lockPositions,
+      showResults:
+        typeof parsed.showResults === "boolean"
+          ? parsed.showResults
+          : DEFAULT_VIEW_OPTIONS.showResults
     };
   } catch {
     return { ...DEFAULT_VIEW_OPTIONS };

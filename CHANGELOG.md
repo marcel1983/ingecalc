@@ -4,6 +4,16 @@ Todas las versiones relevantes de IngeCalc se documentan aquí.
 
 ## [Unreleased]
 
+Sin cambios pendientes de publicar.
+
+## [0.1.3] - 2026-11-11
+
+### Added
+
+- Botón 👁 junto al de fijar en la barra superior para ocultar o mostrar las
+  respuestas automáticas verdes. Las regiones que terminan en `=` conservan su
+  resultado.
+
 ### Changed
 
 - Se retiró del repositorio el ejemplo `examples/dinamico-cisterna.smj`.

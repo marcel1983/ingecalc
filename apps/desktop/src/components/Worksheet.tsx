@@ -16,6 +16,7 @@ type Props = {
   showGrid: boolean;
   snapToGrid: boolean;
   positionLocked: boolean;
+  showResults: boolean;
   documentLanguage: string;
   personalDictionary: string[];
   mathCompletions: MathCompletion[];
@@ -37,6 +38,7 @@ export function Worksheet({
   showGrid,
   snapToGrid,
   positionLocked,
+  showResults,
   documentLanguage,
   personalDictionary,
   mathCompletions,
@@ -409,6 +411,7 @@ export function Worksheet({
                   selected={selectedIds.includes(region.id)}
                   snapToGrid={snapToGrid}
                   positionLocked={positionLocked}
+                  showResults={showResults}
                   documentLanguage={documentLanguage}
                   personalDictionary={personalDictionary}
                   mathCompletions={mathCompletions}

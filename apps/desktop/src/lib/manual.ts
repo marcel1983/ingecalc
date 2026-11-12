@@ -24,7 +24,7 @@ export type ManualContent = {
 const es: ManualContent = {
   title: "Manual de IngeCalc",
   subtitle: "Guía de uso y referencia rápida",
-  version: "0.1.2",
+  version: "0.1.3",
   sections: [
     {
       id: "inicio",
@@ -109,6 +109,7 @@ const es: ManualContent = {
             "`Ctrl+clic` añade o quita regiones de la selección; arrastrar sobre el fondo crea una selección rectangular.",
             "`Ctrl+D` duplica la selección; `Ctrl+C`, `Ctrl+X` y `Ctrl+V` gestionan el portapapeles de regiones.",
             "El botón de fijar bloquea las posiciones. Una caja fijada no se mueve, pero su contenido sigue siendo editable.",
+            "El botón 👁, junto al de fijar, oculta las respuestas automáticas en verde. Las regiones que terminan en `=` conservan su resultado.",
             "**Insertar → Imagen** añade una imagen redimensionable. **Insertar → Tabla** crea una tabla 3×3 editable.",
             "El botón **ƒx** de una región de texto inserta matemática inline con KaTeX."
           ]
@@ -499,7 +500,7 @@ const es: ManualContent = {
         {
           type: "note",
           title: "Versión",
-          text: "Versión 0.1.2. Repositorio: github.com/marcel1983/ingecalc."
+          text: "Versión 0.1.3. Repositorio: github.com/marcel1983/ingecalc."
         }
       ]
     }
@@ -509,7 +510,7 @@ const es: ManualContent = {
 const en: ManualContent = {
   title: "IngeCalc Manual",
   subtitle: "User guide and quick reference",
-  version: "0.1.2",
+  version: "0.1.3",
   sections: [
     {
       id: "inicio",
@@ -594,6 +595,7 @@ const en: ManualContent = {
             "`Ctrl+click` adds or removes regions from the selection; dragging on the background creates a rectangular selection.",
             "`Ctrl+D` duplicates the selection; `Ctrl+C`, `Ctrl+X` and `Ctrl+V` manage the region clipboard.",
             "The pin button locks positions. A pinned box cannot move, but its content remains editable.",
+            "The 👁 button, next to the pin, hides automatic green results. Regions ending in `=` keep their result.",
             "**Insert → Image** adds a resizable image. **Insert → Table** creates an editable 3×3 table.",
             "The **ƒx** button in a text region inserts inline KaTeX math."
           ]
@@ -984,7 +986,7 @@ const en: ManualContent = {
         {
           type: "note",
           title: "Version",
-          text: "Version 0.1.2. Repository: github.com/marcel1983/ingecalc."
+          text: "Version 0.1.3. Repository: github.com/marcel1983/ingecalc."
         }
       ]
     }

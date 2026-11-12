@@ -32,6 +32,7 @@ type Props = {
   snapToGrid: boolean;
   groupSelected: boolean;
   positionLocked: boolean;
+  showResults: boolean;
   documentLanguage: string;
   personalDictionary: string[];
   mathCompletions: MathCompletion[];
@@ -71,6 +72,7 @@ export function RegionFrame({
   snapToGrid,
   groupSelected,
   positionLocked,
+  showResults,
   documentLanguage,
   personalDictionary,
   mathCompletions,
@@ -422,6 +424,7 @@ export function RegionFrame({
           onEnter={onEnter}
           completions={mathCompletions}
           constantNames={constantNames}
+          showResults={showResults}
         />
       )}
       {region.type === "text" && (

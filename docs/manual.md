@@ -126,6 +126,8 @@ interfaz y el acceso rápido a la ayuda.
   márgenes y refluyen hacia abajo o hacia otra página cuando no caben.
 - Las cajas vacías se eliminan al perder el foco.
 - La barra superior permite mover, fijar, duplicar y eliminar regiones.
+- El botón **👁**, junto a **📌**, oculta o muestra las respuestas automáticas en
+  verde. Las regiones que terminan en `=` conservan su resultado.
 - `Ctrl+clic` añade o quita regiones de la selección; `Ctrl+D` duplica.
 - `Ctrl+Z` y `Ctrl+Y` deshacen y rehacen. Un arrastre o redimensionado cuenta
   como una sola operación.

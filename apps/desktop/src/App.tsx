@@ -927,6 +927,32 @@ export default function App() {
           </button>
           <button
             type="button"
+            className={`panel-toggle ${viewOptions.showResults ? "active" : ""}`}
+            title={
+              viewOptions.showResults
+                ? "Ocultar respuestas automáticas"
+                : "Mostrar respuestas automáticas"
+            }
+            aria-label={
+              viewOptions.showResults
+                ? "Ocultar respuestas automáticas"
+                : "Mostrar respuestas automáticas"
+            }
+            aria-pressed={viewOptions.showResults}
+            onClick={() => {
+              const showResults = !viewOptions.showResults;
+              setViewOptions({ ...viewOptions, showResults });
+              setStatus(
+                showResults
+                  ? "Respuestas automáticas visibles"
+                  : "Respuestas automáticas ocultas"
+              );
+            }}
+          >
+            👁
+          </button>
+          <button
+            type="button"
             className="theme-toggle help-toggle"
             title={t("help.open")}
             aria-label={t("help.open")}
@@ -1329,6 +1355,7 @@ export default function App() {
             showGrid={viewOptions.showGrid}
             snapToGrid={viewOptions.snapToGrid}
             positionLocked={viewOptions.lockPositions}
+            showResults={viewOptions.showResults}
             documentLanguage={doc.metadata.language}
             personalDictionary={doc.settings.personalDictionary ?? []}
             mathCompletions={mathCompletions}
