@@ -124,6 +124,7 @@ La carpeta [`examples/`](examples/) contiene documentos listos para abrir:
 | [`matrices-avanzadas.smj`](examples/matrices-avanzadas.smj) | LU, QR, autovalores, rango y vectores |
 | [`graficos-3d.smj`](examples/graficos-3d.smj) | Superficie 3D y unidades en los ejes |
 | [`avanzado.smj`](examples/avanzado.smj) | Documento integrador de cuatro páginas |
+| [`dinamico-cisterna.smj`](examples/dinamico-cisterna.smj) | Memoria de cálculo sísmico ACI 350.3 de un tanque rectangular |
 
 Los resultados esperados y la validación por CLI están en
 [`examples/README.md`](examples/README.md).

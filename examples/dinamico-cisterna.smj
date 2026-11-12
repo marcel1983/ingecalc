@@ -1,0 +1,1286 @@
+{
+  "format": "ingecalc-json",
+  "version": 1,
+  "metadata": {
+    "title": "Tanque rectangular C.A.C — análisis sísmico ACI 350.3",
+    "author": "IngeCalc",
+    "language": "es"
+  },
+  "settings": {
+    "units": "original",
+    "unitOverrides": {},
+    "customConstants": [],
+    "personalDictionary": [],
+    "precision": 4,
+    "fractions": "decimal",
+    "notation": "auto",
+    "trimZeros": true,
+    "page": {
+      "marginTop": 48,
+      "marginRight": 48,
+      "marginBottom": 48,
+      "marginLeft": 48,
+      "header": "",
+      "footer": "Dinamico 2.3 cisterna — {page}"
+    }
+  },
+  "pages": [
+    {
+      "id": "page-1",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "p1-title",
+          "type": "text",
+          "x": 60,
+          "y": 46,
+          "w": 730,
+          "h": 62,
+          "html": "<p><strong style=\"font-size: 22px\">MEMORIA DE CÁLCULO — TANQUE RECTANGULAR C.A.C</strong></p><p>Análisis sísmico según ACI 350.3 · Reconstrucción de “Dinamico 2.3 cisterna.sm”</p>"
+        },
+        {
+          "id": "p1-h1",
+          "type": "text",
+          "x": 60,
+          "y": 120,
+          "w": 730,
+          "h": 32,
+          "html": "<p><strong style=\"font-size: 20px\">1. Datos geométricos y materiales</strong></p>"
+        },
+        {
+          "id": "p1-c",
+          "type": "math",
+          "x": 60,
+          "y": 175,
+          "w": 730,
+          "h": 54,
+          "source": "c \\coloneq 12 m",
+          "ascii": "c := 12 m"
+        },
+        {
+          "id": "p1-b",
+          "type": "math",
+          "x": 60,
+          "y": 232,
+          "w": 730,
+          "h": 54,
+          "source": "b \\coloneq 4 m",
+          "ascii": "b := 4 m"
+        },
+        {
+          "id": "p1-P",
+          "type": "math",
+          "x": 60,
+          "y": 289,
+          "w": 730,
+          "h": 54,
+          "source": "P \\coloneq 2\\cdot c + 2\\cdot b",
+          "ascii": "P := 2*c + 2*b"
+        },
+        {
+          "id": "p1-Hw",
+          "type": "math",
+          "x": 60,
+          "y": 346,
+          "w": 730,
+          "h": 54,
+          "source": "Hw \\coloneq 6 m",
+          "ascii": "Hw := 6 m"
+        },
+        {
+          "id": "p1-tw",
+          "type": "math",
+          "x": 60,
+          "y": 403,
+          "w": 730,
+          "h": 54,
+          "source": "tw \\coloneq 0.35 m",
+          "ascii": "tw := 0.35 m"
+        },
+        {
+          "id": "p1-HL",
+          "type": "math",
+          "x": 60,
+          "y": 460,
+          "w": 730,
+          "h": 54,
+          "source": "HL \\coloneq 5.6 m",
+          "ascii": "HL := 5.6 m"
+        },
+        {
+          "id": "p1-gc",
+          "type": "math",
+          "x": 60,
+          "y": 517,
+          "w": 730,
+          "h": 54,
+          "source": "\\gamma_c \\coloneq 2400 kgf/m^3",
+          "ascii": "gamma_c := 2400 kgf/m^3"
+        },
+        {
+          "id": "p1-gL",
+          "type": "math",
+          "x": 60,
+          "y": 574,
+          "w": 730,
+          "h": 54,
+          "source": "\\gamma_L \\coloneq 1150 kgf/m^3",
+          "ascii": "gamma_L := 1150 kgf/m^3"
+        },
+        {
+          "id": "p1-gs",
+          "type": "math",
+          "x": 60,
+          "y": 631,
+          "w": 730,
+          "h": 54,
+          "source": "\\gamma_s \\coloneq 1800 kgf/m^3",
+          "ascii": "gamma_s := 1800 kgf/m^3"
+        },
+        {
+          "id": "p1-phis",
+          "type": "math",
+          "x": 60,
+          "y": 688,
+          "w": 730,
+          "h": 54,
+          "source": "\\phi \\coloneq 30",
+          "ascii": "phi_s := 30"
+        },
+        {
+          "id": "p1-D",
+          "type": "math",
+          "x": 60,
+          "y": 745,
+          "w": 730,
+          "h": 54,
+          "source": "D \\coloneq 0.1 m",
+          "ascii": "D := 0.1 m"
+        },
+        {
+          "id": "p1-Ha",
+          "type": "math",
+          "x": 60,
+          "y": 802,
+          "w": 730,
+          "h": 54,
+          "source": "Ha \\coloneq Hw - D",
+          "ascii": "Ha := Hw - D"
+        },
+        {
+          "id": "p1-tt",
+          "type": "math",
+          "x": 60,
+          "y": 859,
+          "w": 730,
+          "h": 54,
+          "source": "t_{techo} \\coloneq 0.25 m",
+          "ascii": "t_techo := 0.25 m"
+        },
+        {
+          "id": "p1-Wr",
+          "type": "math",
+          "x": 60,
+          "y": 916,
+          "w": 730,
+          "h": 54,
+          "source": "Wr \\coloneq c\\cdot b\\cdot \\gamma_c\\cdot t_{techo}",
+          "ascii": "Wr := c*b*gamma_c*t_techo"
+        },
+        {
+          "id": "p1-Ww",
+          "type": "math",
+          "x": 60,
+          "y": 973,
+          "w": 730,
+          "h": 54,
+          "source": "W_{w} \\coloneq P\\cdot Hw\\cdot tw\\cdot \\gamma_c",
+          "ascii": "Ww := P*Hw*tw*gamma_c"
+        }
+      ]
+    },
+    {
+      "id": "page-2",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "p2-h",
+          "type": "text",
+          "x": 60,
+          "y": 46,
+          "w": 730,
+          "h": 32,
+          "html": "<p><strong style=\"font-size: 20px\">2. Masa efectiva y masas equivalentes ACI 350.3</strong></p>"
+        },
+        {
+          "id": "p2-eps",
+          "type": "math",
+          "x": 60,
+          "y": 110,
+          "w": 730,
+          "h": 54,
+          "source": "\\epsilon \\coloneq \\min(0.0151\\cdot (c/HL)^2 - 0.1908\\cdot (c/HL) + 1.021, 1)",
+          "ascii": "eps := min(0.0151*(c/HL)^2 - 0.1908*(c/HL) + 1.021, 1)"
+        },
+        {
+          "id": "p2-We",
+          "type": "math",
+          "x": 60,
+          "y": 165,
+          "w": 730,
+          "h": 54,
+          "source": "W_{e} \\coloneq \\epsilon\\cdot W_{w}",
+          "ascii": "We := eps*Ww"
+        },
+        {
+          "id": "p2-WL",
+          "type": "math",
+          "x": 60,
+          "y": 220,
+          "w": 730,
+          "h": 54,
+          "source": "W_{L} \\coloneq HL\\cdot (c - tw)\\cdot (b - tw)\\cdot \\gamma_L",
+          "ascii": "WL := HL*(c - tw)*(b - tw)*gamma_L"
+        },
+        {
+          "id": "p2-Wi",
+          "type": "math",
+          "x": 60,
+          "y": 275,
+          "w": 730,
+          "h": 54,
+          "source": "W_{i} \\coloneq W_{L}\\cdot \\tanh(0.866\\cdot c/HL)/(0.866\\cdot c/HL)",
+          "ascii": "Wi := WL*tanh(0.866*c/HL)/(0.866*c/HL)"
+        },
+        {
+          "id": "p2-Wc",
+          "type": "math",
+          "x": 60,
+          "y": 330,
+          "w": 730,
+          "h": 54,
+          "source": "W_{c} \\coloneq 0.264\\cdot (c/HL)\\cdot \\tanh(3.16\\cdot HL/c)\\cdot W_{L}",
+          "ascii": "Wc := 0.264*(c/HL)*tanh(3.16*HL/c)*WL"
+        },
+        {
+          "id": "p2-hc",
+          "type": "math",
+          "x": 60,
+          "y": 385,
+          "w": 730,
+          "h": 54,
+          "source": "h_{c} \\coloneq (1 - (\\cosh(3.16\\cdot HL/c) - 1)/((3.16\\cdot HL/c)\\cdot \\sinh(3.16\\cdot HL/c)))\\cdot HL",
+          "ascii": "hc := (1 - (cosh(3.16*HL/c) - 1)/((3.16*HL/c)*sinh(3.16*HL/c)))*HL"
+        },
+        {
+          "id": "p2-hi",
+          "type": "math",
+          "x": 60,
+          "y": 440,
+          "w": 730,
+          "h": 54,
+          "source": "h_{i} \\coloneq \\mathrm{if}(c/HL < 1.333, (0.5 - 0.09375\\cdot (c/HL))\\cdot HL, 0.375\\cdot HL)",
+          "ascii": "hi := if(c/HL < 1.333, (0.5 - 0.09375*(c/HL))*HL, 0.375*HL)"
+        },
+        {
+          "id": "p2-Mw",
+          "type": "math",
+          "x": 60,
+          "y": 495,
+          "w": 730,
+          "h": 54,
+          "source": "M_{w} \\coloneq Hw\\cdot tw\\cdot \\gamma_c\\cdot 1 m",
+          "ascii": "Mw := Hw*tw*gamma_c*1 m"
+        },
+        {
+          "id": "p2-Mi",
+          "type": "math",
+          "x": 60,
+          "y": 550,
+          "w": 730,
+          "h": 54,
+          "source": "M_{i} \\coloneq (W_{i}/W_{L})\\cdot (c/2)\\cdot HL\\cdot \\gamma_L\\cdot 1 m",
+          "ascii": "Mi := (Wi/WL)*(c/2)*HL*gamma_L*1 m"
+        },
+        {
+          "id": "p2-hw",
+          "type": "math",
+          "x": 60,
+          "y": 605,
+          "w": 730,
+          "h": 54,
+          "source": "h_{w} \\coloneq 0.5\\cdot Hw",
+          "ascii": "hw := 0.5*Hw"
+        },
+        {
+          "id": "p2-h",
+          "type": "math",
+          "x": 60,
+          "y": 660,
+          "w": 730,
+          "h": 54,
+          "source": "h \\coloneq (h_{w}\\cdot M_{w} + h_{i}\\cdot M_{i})/(M_{w} + M_{i})",
+          "ascii": "h := (hw*Mw + hi*Mi)/(Mw + Mi)"
+        },
+        {
+          "id": "p2-note",
+          "type": "text",
+          "x": 60,
+          "y": 735,
+          "w": 730,
+          "h": 60,
+          "html": "<p><strong>Modelo equivalente:</strong> M<sub>w</sub> es el peso de la pared por unidad de ancho; W<sub>i</sub> y W<sub>c</sub> son los pesos impulsivo y convectivo.</p>"
+        }
+      ]
+    },
+    {
+      "id": "page-3",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "p3-h",
+          "type": "text",
+          "x": 60,
+          "y": 46,
+          "w": 730,
+          "h": 32,
+          "html": "<p><strong style=\"font-size: 20px\">3. Propiedades dinámicas y espectro de respuesta</strong></p>"
+        },
+        {
+          "id": "p3-M",
+          "type": "math",
+          "x": 60,
+          "y": 105,
+          "w": 730,
+          "h": 54,
+          "source": "M \\coloneq M_{i} + M_{w}",
+          "ascii": "M := Mi + Mw"
+        },
+        {
+          "id": "p3-Ec",
+          "type": "math",
+          "x": 60,
+          "y": 160,
+          "w": 730,
+          "h": 54,
+          "source": "E_{c} \\coloneq 57000\\cdot \\sqrt{4500}",
+          "ascii": "Ec := 57000*sqrt(4500)"
+        },
+        {
+          "id": "p3-k",
+          "type": "math",
+          "x": 60,
+          "y": 215,
+          "w": 730,
+          "h": 54,
+          "source": "k \\coloneq (E_{c}\\cdot 144/12)\\cdot (tw/h)^3\\cdot ((1 m)/(0.3048 m))/1000",
+          "ascii": "k := (Ec*144/12)*(tw/h)^3*((1 m)/(0.3048 m))/1000"
+        },
+        {
+          "id": "p3-Mk",
+          "type": "math",
+          "x": 60,
+          "y": 270,
+          "w": 730,
+          "h": 54,
+          "source": "M_{kip} \\coloneq (M/kgf)\\cdot 2.2046226/1000",
+          "ascii": "M_kip := (M/kgf)*2.2046226/1000"
+        },
+        {
+          "id": "p3-omega",
+          "type": "math",
+          "x": 60,
+          "y": 325,
+          "w": 730,
+          "h": 54,
+          "source": "\\omega_i \\coloneq \\sqrt{k\\cdot 32.174/M_{kip}}",
+          "ascii": "omega_i := sqrt(k*32.174/M_kip)"
+        },
+        {
+          "id": "p3-Ti",
+          "type": "math",
+          "x": 60,
+          "y": 380,
+          "w": 730,
+          "h": 54,
+          "source": "T_{i} \\coloneq 2\\cdot \\pi/\\omega_i",
+          "ascii": "T_i := 2*pi/omega_i"
+        },
+        {
+          "id": "p3-Tc",
+          "type": "math",
+          "x": 60,
+          "y": 435,
+          "w": 730,
+          "h": 54,
+          "source": "T_{c} \\coloneq 4.1203",
+          "ascii": "T_c := 4.1203"
+        },
+        {
+          "id": "p3-note",
+          "type": "text",
+          "x": 60,
+          "y": 490,
+          "w": 730,
+          "h": 48,
+          "html": "<p>Ec en psi; k en kip/ft; M<sub>kip</sub> en kip; omega<sub>i</sub> en Hz (modelo equivalente); T<sub>i</sub> y T<sub>c</sub> en s.</p>"
+        },
+        {
+          "id": "p3-S1",
+          "type": "math",
+          "x": 60,
+          "y": 560,
+          "w": 730,
+          "h": 54,
+          "source": "S_{1} \\coloneq 500/981",
+          "ascii": "S1 := 500/981"
+        },
+        {
+          "id": "p3-Ss",
+          "type": "math",
+          "x": 60,
+          "y": 615,
+          "w": 730,
+          "h": 54,
+          "source": "S_{s} \\coloneq 1800/981",
+          "ascii": "Ss := 1800/981"
+        },
+        {
+          "id": "p3-Fv",
+          "type": "math",
+          "x": 60,
+          "y": 670,
+          "w": 730,
+          "h": 54,
+          "source": "F_{v} \\coloneq 1.3",
+          "ascii": "Fv := 1.3"
+        },
+        {
+          "id": "p3-Fa",
+          "type": "math",
+          "x": 60,
+          "y": 725,
+          "w": 730,
+          "h": 54,
+          "source": "F_{a} \\coloneq 1",
+          "ascii": "Fa := 1"
+        },
+        {
+          "id": "p3-Sd1",
+          "type": "math",
+          "x": 60,
+          "y": 780,
+          "w": 730,
+          "h": 54,
+          "source": "S_{d1} \\coloneq (2/3)\\cdot S_{1}\\cdot F_{v}",
+          "ascii": "Sd1 := (2/3)*S1*Fv"
+        },
+        {
+          "id": "p3-Sds",
+          "type": "math",
+          "x": 60,
+          "y": 835,
+          "w": 730,
+          "h": 54,
+          "source": "S_{ds} \\coloneq (2/3)\\cdot S_{s}\\cdot F_{a}",
+          "ascii": "Sds := (2/3)*Ss*Fa"
+        },
+        {
+          "id": "p3-Ts",
+          "type": "math",
+          "x": 60,
+          "y": 890,
+          "w": 730,
+          "h": 54,
+          "source": "T_{s} \\coloneq S_{d1}/S_{ds}",
+          "ascii": "Ts := Sd1/Sds"
+        },
+        {
+          "id": "p3-Ci",
+          "type": "math",
+          "x": 60,
+          "y": 945,
+          "w": 730,
+          "h": 54,
+          "source": "C_{i} \\coloneq \\mathrm{if}(T_{i} \\le  T_{s}, S_{ds}, \\min(S_{d1}/T_{i}, S_{ds}))",
+          "ascii": "Ci := if(T_i <= Ts, Sds, min(Sd1/T_i, Sds))"
+        },
+        {
+          "id": "p3-Cc",
+          "type": "math",
+          "x": 60,
+          "y": 1000,
+          "w": 730,
+          "h": 54,
+          "source": "C_{c} \\coloneq \\mathrm{if}(T_{c} \\le  1.6/T_{s}, \\min(1.5\\cdot S_{d1}/T_{c}, 1.5\\cdot S_{ds}), 2.4\\cdot S_{ds}/T_{c}^2)",
+          "ascii": "Cc := if(T_c <= 1.6/Ts, min(1.5*Sd1/T_c, 1.5*Sds), 2.4*Sds/T_c^2)"
+        }
+      ]
+    },
+    {
+      "id": "page-4",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "p4-h",
+          "type": "text",
+          "x": 60,
+          "y": 46,
+          "w": 730,
+          "h": 32,
+          "html": "<p><strong style=\"font-size: 20px\">4. Factores de modificación y fuerzas laterales</strong></p>"
+        },
+        {
+          "id": "p4-Rwi",
+          "type": "math",
+          "x": 60,
+          "y": 105,
+          "w": 730,
+          "h": 54,
+          "source": "R_{wi} \\coloneq 3 - (Hw - Ha)/Hw",
+          "ascii": "Rwi := 3 - (Hw - Ha)/Hw"
+        },
+        {
+          "id": "p4-Rwc",
+          "type": "math",
+          "x": 60,
+          "y": 160,
+          "w": 730,
+          "h": 54,
+          "source": "R_{wc} \\coloneq 1",
+          "ascii": "Rwc := 1"
+        },
+        {
+          "id": "p4-I",
+          "type": "math",
+          "x": 60,
+          "y": 215,
+          "w": 730,
+          "h": 54,
+          "source": "I_{imp} \\coloneq 1",
+          "ascii": "I_imp := 1"
+        },
+        {
+          "id": "p4-Pw",
+          "type": "math",
+          "x": 60,
+          "y": 270,
+          "w": 730,
+          "h": 54,
+          "source": "P_{w} \\coloneq I_{imp}\\cdot C_{i}\\cdot \\epsilon\\cdot W_{w}/R_{wi}",
+          "ascii": "Pw := I_imp*Ci*eps*Ww/Rwi"
+        },
+        {
+          "id": "p4-Pi",
+          "type": "math",
+          "x": 60,
+          "y": 325,
+          "w": 730,
+          "h": 54,
+          "source": "P_{i} \\coloneq I_{imp}\\cdot C_{i}\\cdot W_{i}/R_{wi}",
+          "ascii": "Pi := I_imp*Ci*Wi/Rwi"
+        },
+        {
+          "id": "p4-Pc",
+          "type": "math",
+          "x": 60,
+          "y": 380,
+          "w": 730,
+          "h": 54,
+          "source": "P_{c} \\coloneq I_{imp}\\cdot C_{c}\\cdot W_{c}/R_{wc}",
+          "ascii": "Pc := I_imp*Cc*Wc/Rwc"
+        },
+        {
+          "id": "p4-Pwy",
+          "type": "math",
+          "x": 60,
+          "y": 435,
+          "w": 730,
+          "h": 54,
+          "source": "P_{wy} \\coloneq I_{imp}\\cdot C_{i}/R_{wi}\\cdot \\epsilon\\cdot (\\gamma_c\\cdot c\\cdot tw)",
+          "ascii": "Pwy := I_imp*Ci/Rwi*eps*(gamma_c*c*tw)"
+        },
+        {
+          "id": "p4-pwy",
+          "type": "math",
+          "x": 60,
+          "y": 490,
+          "w": 730,
+          "h": 54,
+          "source": "p_{wy} \\coloneq P_{wy}/(c\\cdot 2)",
+          "ascii": "pwy := Pwy/(c*2)"
+        },
+        {
+          "id": "p4-B",
+          "type": "math",
+          "x": 60,
+          "y": 545,
+          "w": 730,
+          "h": 54,
+          "source": "B_{v} \\coloneq 2/3",
+          "ascii": "B_v := 2/3"
+        },
+        {
+          "id": "p4-Ct",
+          "type": "math",
+          "x": 60,
+          "y": 600,
+          "w": 730,
+          "h": 54,
+          "source": "C_{t} \\coloneq 0.4\\cdot S_{ds}",
+          "ascii": "Ct := 0.4*Sds"
+        },
+        {
+          "id": "p4-av",
+          "type": "math",
+          "x": 60,
+          "y": 655,
+          "w": 730,
+          "h": 54,
+          "source": "av \\coloneq \\min(C_{t}\\cdot I_{imp}\\cdot B_{v}/R_{wi}, 0.2\\cdot S_{ds})",
+          "ascii": "av := min(Ct*I_imp*B_v/Rwi, 0.2*Sds)"
+        },
+        {
+          "id": "p4-q",
+          "type": "math",
+          "x": 60,
+          "y": 710,
+          "w": 730,
+          "h": 54,
+          "source": "q_{hyt} \\coloneq \\gamma_L\\cdot (HL\\cdot c\\cdot HL/2)",
+          "ascii": "qhyt := gamma_L*(HL*c*HL/2)"
+        },
+        {
+          "id": "p4-Phy",
+          "type": "math",
+          "x": 60,
+          "y": 765,
+          "w": 730,
+          "h": 54,
+          "source": "P_{hy} \\coloneq av\\cdot q_{hyt}",
+          "ascii": "Phy := av*qhyt"
+        },
+        {
+          "id": "p4-note",
+          "type": "text",
+          "x": 60,
+          "y": 835,
+          "w": 730,
+          "h": 40,
+          "html": "<p>P<sub>w</sub>, P<sub>i</sub> y P<sub>c</sub> en kgf; P<sub>wy</sub> en kgf/m; p<sub>wy</sub> en kgf/m².</p>"
+        }
+      ]
+    },
+    {
+      "id": "page-5",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "p5-h",
+          "type": "text",
+          "x": 60,
+          "y": 46,
+          "w": 730,
+          "h": 32,
+          "html": "<p><strong style=\"font-size: 20px\">5. Distribución de presiones hidrodinámicas</strong></p>"
+        },
+        {
+          "id": "p5-y1",
+          "type": "math",
+          "x": 60,
+          "y": 105,
+          "w": 730,
+          "h": 54,
+          "source": "y1 \\coloneq 0 m",
+          "ascii": "y1 := 0 m"
+        },
+        {
+          "id": "p5-y2",
+          "type": "math",
+          "x": 60,
+          "y": 160,
+          "w": 730,
+          "h": 54,
+          "source": "y2 \\coloneq HL",
+          "ascii": "y2 := HL"
+        },
+        {
+          "id": "p5-piy1",
+          "type": "math",
+          "x": 60,
+          "y": 230,
+          "w": 730,
+          "h": 62,
+          "source": "p_{iy1} \\coloneq (P_{i}/2)\\cdot (4\\cdot HL - 6\\cdot h_{i} - (6\\cdot HL - 12\\cdot h_{i})\\cdot (y1/HL))/(HL^2\\cdot c)",
+          "ascii": "piy1 := (Pi/2)*(4*HL - 6*hi - (6*HL - 12*hi)*(y1/HL))/(HL^2*c)"
+        },
+        {
+          "id": "p5-piy2",
+          "type": "math",
+          "x": 60,
+          "y": 300,
+          "w": 730,
+          "h": 62,
+          "source": "p_{iy2} \\coloneq (P_{i}/2)\\cdot (4\\cdot HL - 6\\cdot h_{i} - (6\\cdot HL - 12\\cdot h_{i})\\cdot (y2/HL))/(HL^2\\cdot c)",
+          "ascii": "piy2 := (Pi/2)*(4*HL - 6*hi - (6*HL - 12*hi)*(y2/HL))/(HL^2*c)"
+        },
+        {
+          "id": "p5-pcy1",
+          "type": "math",
+          "x": 60,
+          "y": 370,
+          "w": 730,
+          "h": 62,
+          "source": "p_{cy1} \\coloneq (P_{c}/2)\\cdot (4\\cdot HL - 6\\cdot h_{c} - (6\\cdot HL - 12\\cdot h_{c})\\cdot (y1/HL))/(HL^2\\cdot c)",
+          "ascii": "pcy1 := (Pc/2)*(4*HL - 6*hc - (6*HL - 12*hc)*(y1/HL))/(HL^2*c)"
+        },
+        {
+          "id": "p5-pcy2",
+          "type": "math",
+          "x": 60,
+          "y": 440,
+          "w": 730,
+          "h": 62,
+          "source": "p_{cy2} \\coloneq (P_{c}/2)\\cdot (4\\cdot HL - 6\\cdot h_{c} - (6\\cdot HL - 12\\cdot h_{c})\\cdot (y2/HL))/(HL^2\\cdot c)",
+          "ascii": "pcy2 := (Pc/2)*(4*HL - 6*hc - (6*HL - 12*hc)*(y2/HL))/(HL^2*c)"
+        },
+        {
+          "id": "p5-phy1",
+          "type": "math",
+          "x": 60,
+          "y": 510,
+          "w": 730,
+          "h": 54,
+          "source": "p_{hy1} \\coloneq (av/2)\\cdot \\gamma_L\\cdot y1",
+          "ascii": "phy1 := (av/2)*gamma_L*y1"
+        },
+        {
+          "id": "p5-phy2",
+          "type": "math",
+          "x": 60,
+          "y": 565,
+          "w": 730,
+          "h": 54,
+          "source": "p_{hy2} \\coloneq (av/2)\\cdot \\gamma_L\\cdot y2",
+          "ascii": "phy2 := (av/2)*gamma_L*y2"
+        },
+        {
+          "id": "p5-py1",
+          "type": "math",
+          "x": 60,
+          "y": 635,
+          "w": 730,
+          "h": 72,
+          "source": "p_{y1} \\coloneq \\sqrt{(p_{iy1}+p_{wy})^2+p_{cy1}^2+p_{hy1}^2}",
+          "ascii": "py1 := sqrt(((piy1 + pwy)/(1 kgf/m^2))^2 + (pcy1/(1 kgf/m^2))^2 + (phy1/(1 kgf/m^2))^2)*(1 kgf/m^2)"
+        },
+        {
+          "id": "p5-py2",
+          "type": "math",
+          "x": 60,
+          "y": 715,
+          "w": 730,
+          "h": 72,
+          "source": "p_{y2} \\coloneq \\sqrt{(p_{iy2}+p_{wy})^2+p_{cy2}^2+p_{hy2}^2}",
+          "ascii": "py2 := sqrt(((piy2 + pwy)/(1 kgf/m^2))^2 + (pcy2/(1 kgf/m^2))^2 + (phy2/(1 kgf/m^2))^2)*(1 kgf/m^2)"
+        },
+        {
+          "id": "p5-note",
+          "type": "text",
+          "x": 60,
+          "y": 800,
+          "w": 730,
+          "h": 60,
+          "html": "<p>Presiones combinadas por unidad de área (kgf/m²). El radicando se normaliza a kgf/m² para extraer la raíz. La presión hidrodinámica se distribuye en la mitad de cada pared perpendicular a la dirección del sismo.</p>"
+        }
+      ]
+    },
+    {
+      "id": "page-6",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "p6-h",
+          "type": "text",
+          "x": 60,
+          "y": 46,
+          "w": 730,
+          "h": 32,
+          "html": "<p><strong style=\"font-size: 20px\">6. Empuje sísmico del suelo</strong></p>"
+        },
+        {
+          "id": "p6-Kh",
+          "type": "math",
+          "x": 60,
+          "y": 105,
+          "w": 730,
+          "h": 54,
+          "source": "K_{h} \\coloneq 0.33\\cdot S_{s}/2.5",
+          "ascii": "Kh := 0.33*Ss/2.5"
+        },
+        {
+          "id": "p6-Kv",
+          "type": "math",
+          "x": 60,
+          "y": 160,
+          "w": 730,
+          "h": 54,
+          "source": "K_{v} \\coloneq 0",
+          "ascii": "Kv := 0"
+        },
+        {
+          "id": "p6-phir",
+          "type": "math",
+          "x": 60,
+          "y": 215,
+          "w": 730,
+          "h": 54,
+          "source": "\\phi_{rad} \\coloneq \\phi_s\\cdot\\pi/180",
+          "ascii": "phi_rad := phi_s*pi/180"
+        },
+        {
+          "id": "p6-beta",
+          "type": "math",
+          "x": 60,
+          "y": 270,
+          "w": 730,
+          "h": 54,
+          "source": "\\beta \\coloneq 0",
+          "ascii": "beta := 0"
+        },
+        {
+          "id": "p6-dw",
+          "type": "math",
+          "x": 60,
+          "y": 325,
+          "w": 730,
+          "h": 54,
+          "source": "\\delta \\coloneq 2\\cdot \\phi/3",
+          "ascii": "delta_w := 2*phi_rad/3"
+        },
+        {
+          "id": "p6-psi",
+          "type": "math",
+          "x": 60,
+          "y": 380,
+          "w": 730,
+          "h": 54,
+          "source": "\\psi \\coloneq \\arctan(K_{h}/(1 - K_{v}))",
+          "ascii": "psi_s := atan(Kh/(1 - Kv))"
+        },
+        {
+          "id": "p6-thv",
+          "type": "math",
+          "x": 60,
+          "y": 435,
+          "w": 730,
+          "h": 54,
+          "source": "\\theta \\coloneq 0",
+          "ascii": "theta_v := 0"
+        },
+        {
+          "id": "p6-KAE",
+          "type": "math",
+          "x": 60,
+          "y": 505,
+          "w": 730,
+          "h": 90,
+          "source": "K_{AE} \\coloneq \\frac{\\cos^{2}(\\phi-\\psi-\\theta)}{\\cos\\psi\\,\\cos^{2}\\theta\\,\\cos(\\psi+\\theta+\\delta)\\left(1+\\sqrt{\\frac{\\sin(\\phi+\\delta)\\sin(\\phi-\\psi-\\beta)}{\\cos(\\beta-\\theta)\\cos(\\psi+\\theta+\\delta)}}\\right)^{2}}",
+          "ascii": "KAE := (cos(phi_rad - psi_s - theta_v))^2/(cos(psi_s)*(cos(theta_v))^2*cos(psi_s + theta_v + delta_w)*(1 + sqrt(sin(phi_rad + delta_w)*sin(phi_rad - psi_s - beta)/(cos(beta - theta_v)*cos(psi_s + theta_v + delta_w))))^2)"
+        },
+        {
+          "id": "p6-pae",
+          "type": "math",
+          "x": 60,
+          "y": 620,
+          "w": 730,
+          "h": 54,
+          "source": "p_{ae} \\coloneq K_{AE}\\cdot \\gamma_s\\cdot (1 - K_{v})\\cdot Ha",
+          "ascii": "pae := KAE*gamma_s*(1 - Kv)*Ha"
+        },
+        {
+          "id": "p6-Pae",
+          "type": "math",
+          "x": 60,
+          "y": 675,
+          "w": 730,
+          "h": 54,
+          "source": "P_{ae} \\coloneq 0.5\\cdot K_{AE}\\cdot \\gamma_s\\cdot (1 - K_{v})\\cdot Ha^2",
+          "ascii": "Pae := 0.5*KAE*gamma_s*(1 - Kv)*Ha^2"
+        },
+        {
+          "id": "p6-KPE",
+          "type": "math",
+          "x": 60,
+          "y": 745,
+          "w": 730,
+          "h": 90,
+          "source": "K_{PE} \\coloneq \\frac{\\cos^{2}(\\phi-\\psi+\\theta)}{\\cos\\psi\\,\\cos^{2}\\theta\\,\\cos(\\psi-\\theta+\\delta)\\left(1+\\sqrt{\\frac{\\sin(\\phi+\\delta)\\sin(\\phi-\\psi-\\beta)}{\\cos(\\beta+\\theta)\\cos(\\psi-\\theta+\\delta)}}\\right)^{2}}",
+          "ascii": "KPE := (cos(phi_rad - psi_s + theta_v))^2/(cos(psi_s)*(cos(theta_v))^2*cos(psi_s - theta_v + delta_w)*(1 + sqrt(sin(phi_rad + delta_w)*sin(phi_rad - psi_s - beta)/(cos(beta + theta_v)*cos(psi_s - theta_v + delta_w))))^2)"
+        },
+        {
+          "id": "p6-ppe",
+          "type": "math",
+          "x": 60,
+          "y": 860,
+          "w": 730,
+          "h": 54,
+          "source": "p_{pe} \\coloneq K_{PE}\\cdot \\gamma_s\\cdot (1 - K_{v})\\cdot Ha",
+          "ascii": "ppe := KPE*gamma_s*(1 - Kv)*Ha"
+        },
+        {
+          "id": "p6-Ppe",
+          "type": "math",
+          "x": 60,
+          "y": 915,
+          "w": 730,
+          "h": 54,
+          "source": "P_{pe} \\coloneq 0.5\\cdot K_{PE}\\cdot \\gamma_s\\cdot (1 - K_{v})\\cdot Ha^2",
+          "ascii": "Ppe := 0.5*KPE*gamma_s*(1 - Kv)*Ha^2"
+        }
+      ]
+    },
+    {
+      "id": "page-7",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "p7-h",
+          "type": "text",
+          "x": 60,
+          "y": 46,
+          "w": 730,
+          "h": 32,
+          "html": "<p><strong style=\"font-size: 20px\">7. Presión del suelo con movimiento restringido</strong></p>"
+        },
+        {
+          "id": "p7-Cr",
+          "type": "math",
+          "x": 60,
+          "y": 110,
+          "w": 730,
+          "h": 54,
+          "source": "Cr \\coloneq 1 - \\sin(\\phi)",
+          "ascii": "Cr := 1 - sin(phi_rad)"
+        },
+        {
+          "id": "p7-Ca",
+          "type": "math",
+          "x": 60,
+          "y": 165,
+          "w": 730,
+          "h": 54,
+          "source": "Ca \\coloneq (1 - \\sin(\\phi))/(1 + \\sin(\\phi))",
+          "ascii": "Ca := (1 - sin(phi_rad))/(1 + sin(phi_rad))"
+        },
+        {
+          "id": "p7-Prep",
+          "type": "math",
+          "x": 60,
+          "y": 220,
+          "w": 730,
+          "h": 54,
+          "source": "P_{rep} \\coloneq Cr\\cdot \\gamma_s\\cdot Ha",
+          "ascii": "Prep := Cr*gamma_s*Ha"
+        },
+        {
+          "id": "p7-Pac",
+          "type": "math",
+          "x": 60,
+          "y": 275,
+          "w": 730,
+          "h": 54,
+          "source": "P_{ac} \\coloneq Ca\\cdot \\gamma_s\\cdot Ha",
+          "ascii": "Pac := Ca*gamma_s*Ha"
+        },
+        {
+          "id": "p7-eq1",
+          "type": "math",
+          "x": 60,
+          "y": 330,
+          "w": 730,
+          "h": 54,
+          "source": "\\sigma_{rep}(Z_{h}) \\coloneq P_{rep} - Cr\\cdot \\gamma_s\\cdot Z_{h}",
+          "ascii": "sigma_rep(Zh) := Prep - Cr*gamma_s*Zh"
+        },
+        {
+          "id": "p7-eq2",
+          "type": "math",
+          "x": 60,
+          "y": 385,
+          "w": 730,
+          "h": 54,
+          "source": "\\sigma_{act}(Z_{h}) \\coloneq P_{ac} - Ca\\cdot \\gamma_s\\cdot Z_{h}",
+          "ascii": "sigma_act(Zh) := Pac - Ca*gamma_s*Zh"
+        },
+        {
+          "id": "p7-note",
+          "type": "text",
+          "x": 60,
+          "y": 460,
+          "w": 730,
+          "h": 50,
+          "html": "<p>Z<sub>h</sub> es la variable de altura. Las ecuaciones describen la variación lineal de la presión de reposo y activa en el muro.</p>"
+        },
+        {
+          "id": "p7-h2",
+          "type": "text",
+          "x": 60,
+          "y": 540,
+          "w": 730,
+          "h": 32,
+          "html": "<p><strong style=\"font-size: 20px\">8. Momentos por unidad de ancho</strong></p>"
+        },
+        {
+          "id": "p7-pH",
+          "type": "math",
+          "x": 60,
+          "y": 600,
+          "w": 730,
+          "h": 54,
+          "source": "p_{hidro} \\coloneq \\gamma_L\\cdot HL",
+          "ascii": "pHidro := gamma_L*HL"
+        },
+        {
+          "id": "p7-Mpsad",
+          "type": "math",
+          "x": 60,
+          "y": 655,
+          "w": 730,
+          "h": 54,
+          "source": "M_{psad} \\coloneq P_{ae}\\cdot 0.6\\cdot Ha\\cdot 1 m",
+          "ascii": "Mpsad := Pae*0.6*Ha*1 m"
+        },
+        {
+          "id": "p7-Mpspd",
+          "type": "math",
+          "x": 60,
+          "y": 710,
+          "w": 730,
+          "h": 54,
+          "source": "M_{pspd} \\coloneq P_{pe}\\cdot 0.6\\cdot Ha\\cdot 1 m",
+          "ascii": "Mpspd := Ppe*0.6*Ha*1 m"
+        },
+        {
+          "id": "p7-MpSh",
+          "type": "math",
+          "x": 60,
+          "y": 765,
+          "w": 730,
+          "h": 62,
+          "source": "M_{pShidro} \\coloneq (((p_{y1} - p_{y2})\\cdot HL^2\\cdot (1/6)) + (\\min(p_{y2}, p_{y1})\\cdot HL^2\\cdot (1/2)))\\cdot 1 m",
+          "ascii": "MpShidro := (((py1 - py2)*HL^2*(1/6)) + (min(py2, py1)*HL^2*(1/2)))*1 m"
+        },
+        {
+          "id": "p7-Mph",
+          "type": "math",
+          "x": 60,
+          "y": 835,
+          "w": 730,
+          "h": 54,
+          "source": "M_{phidro} \\coloneq p_{hidro}\\cdot HL^2\\cdot (1/6)\\cdot 1 m",
+          "ascii": "Mphidro := pHidro*HL^2*(1/6)*1 m"
+        },
+        {
+          "id": "p7-Mrep",
+          "type": "math",
+          "x": 60,
+          "y": 890,
+          "w": 730,
+          "h": 54,
+          "source": "M_{rep} \\coloneq P_{rep}\\cdot Ha^2\\cdot (1/6)\\cdot 1 m",
+          "ascii": "Mrep := Prep*Ha^2*(1/6)*1 m"
+        },
+        {
+          "id": "p7-note2",
+          "type": "text",
+          "x": 60,
+          "y": 960,
+          "w": 730,
+          "h": 56,
+          "html": "<p><strong>Nota:</strong> el PDF original escribe (p<sub>y2</sub> − p<sub>y1</sub>), pero su resultado 9602,7402 kgf·m corresponde a (p<sub>y1</sub> − p<sub>y2</sub>), que es la forma correcta para la distribución trapezoidal. Se usa esta última.</p>"
+        }
+      ]
+    },
+    {
+      "id": "page-8",
+      "width": 850,
+      "height": 1100,
+      "regions": [
+        {
+          "id": "p8-h",
+          "type": "text",
+          "x": 60,
+          "y": 46,
+          "w": 730,
+          "h": 32,
+          "html": "<p><strong style=\"font-size: 20px\">9. Combinaciones críticas y resumen</strong></p>"
+        },
+        {
+          "id": "p8-c1",
+          "type": "math",
+          "x": 60,
+          "y": 105,
+          "w": 730,
+          "h": 54,
+          "source": "M_{1} \\coloneq M_{pShidro} + M_{psad} - 1.2\\cdot M_{phidro}",
+          "ascii": "M1 := MpShidro + Mpsad - 1.2*Mphidro"
+        },
+        {
+          "id": "p8-c2",
+          "type": "math",
+          "x": 60,
+          "y": 160,
+          "w": 730,
+          "h": 54,
+          "source": "M_{2} \\coloneq M_{pShidro} - M_{pspd} + 1.2\\cdot M_{phidro}",
+          "ascii": "M2 := MpShidro - Mpspd + 1.2*Mphidro"
+        },
+        {
+          "id": "p8-c3",
+          "type": "math",
+          "x": 60,
+          "y": 215,
+          "w": 730,
+          "h": 54,
+          "source": "M_{3} \\coloneq 1.4\\cdot M_{phidro}",
+          "ascii": "M3 := 1.4*Mphidro"
+        },
+        {
+          "id": "p8-c4",
+          "type": "math",
+          "x": 60,
+          "y": 270,
+          "w": 730,
+          "h": 54,
+          "source": "M_{4} \\coloneq 1.6\\cdot M_{rep}",
+          "ascii": "M4 := 1.6*Mrep"
+        },
+        {
+          "id": "p8-ratio",
+          "type": "math",
+          "x": 60,
+          "y": 325,
+          "w": 730,
+          "h": 54,
+          "source": "\\mathrm{ratio} \\coloneq M_{pShidro}/M_{phidro}",
+          "ascii": "ratio := MpShidro/Mphidro"
+        },
+        {
+          "id": "p8-critical",
+          "type": "text",
+          "x": 60,
+          "y": 385,
+          "w": 730,
+          "h": 42,
+          "html": "<p><strong style=\"font-size: 18px; color: #b91c1c\">CRÍTICA: 1.6 · M<sub>rep</sub> = 49 290,96 kgf·m</strong></p>"
+        },
+        {
+          "id": "p8-h2",
+          "type": "text",
+          "x": 60,
+          "y": 455,
+          "w": 730,
+          "h": 32,
+          "html": "<p><strong style=\"font-size: 20px\">Resumen de resultados</strong></p>"
+        },
+        {
+          "id": "p8-r1",
+          "type": "math",
+          "x": 60,
+          "y": 510,
+          "w": 730,
+          "h": 54,
+          "source": "W_{w}",
+          "ascii": "Ww"
+        },
+        {
+          "id": "p8-r2",
+          "type": "math",
+          "x": 60,
+          "y": 565,
+          "w": 730,
+          "h": 54,
+          "source": "W_{i}",
+          "ascii": "Wi"
+        },
+        {
+          "id": "p8-r3",
+          "type": "math",
+          "x": 60,
+          "y": 620,
+          "w": 730,
+          "h": 54,
+          "source": "W_{c}",
+          "ascii": "Wc"
+        },
+        {
+          "id": "p8-r4",
+          "type": "math",
+          "x": 60,
+          "y": 675,
+          "w": 730,
+          "h": 54,
+          "source": "P_{w}",
+          "ascii": "Pw"
+        },
+        {
+          "id": "p8-r5",
+          "type": "math",
+          "x": 60,
+          "y": 730,
+          "w": 730,
+          "h": 54,
+          "source": "P_{i}",
+          "ascii": "Pi"
+        },
+        {
+          "id": "p8-r6",
+          "type": "math",
+          "x": 60,
+          "y": 785,
+          "w": 730,
+          "h": 54,
+          "source": "P_{c}",
+          "ascii": "Pc"
+        },
+        {
+          "id": "p8-r7",
+          "type": "math",
+          "x": 60,
+          "y": 840,
+          "w": 730,
+          "h": 54,
+          "source": "P_{ae}",
+          "ascii": "Pae"
+        },
+        {
+          "id": "p8-r8",
+          "type": "math",
+          "x": 60,
+          "y": 895,
+          "w": 730,
+          "h": 54,
+          "source": "M_{4}",
+          "ascii": "M4"
+        },
+        {
+          "id": "p8-note",
+          "type": "text",
+          "x": 60,
+          "y": 955,
+          "w": 730,
+          "h": 60,
+          "html": "<p>Documento reconstruido a partir de “Dinamico 2.3 cisterna.sm”. Revisar y validar por un ingeniero antes de usarlo en diseño.</p>"
+        }
+      ]
+    }
+  ]
+}
