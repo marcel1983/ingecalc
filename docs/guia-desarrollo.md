@@ -679,7 +679,7 @@ updates:
 
 | Cambio | Versión |
 |---|---|
-| Corrección compatible | `0.1.0` → `0.1.1` |
+| Corrección compatible | `0.1.2` → `0.1.3` |
 | Funcionalidad compatible | `0.1.0` → `0.2.0` |
 | Cambio incompatible de API o formato | `0.1.0` → `1.0.0` |
 
