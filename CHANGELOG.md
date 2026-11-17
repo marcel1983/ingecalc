@@ -6,6 +6,14 @@ Todas las versiones relevantes de IngeCalc se documentan aquí.
 
 Sin cambios pendientes de publicar.
 
+## [0.1.4] - 2026-11-16
+
+### Changed
+
+- Actualización de dependencias: `zip` 9.5.1, `uuid` 1.29.2, grupo `@tiptap/*`
+  3.33.1, `immer` 11.2.10 y `vite` 8.3.8 (desarrollo).
+- `zip` corrige `raw_copy_file` para mantener descifrable una entrada cifrada.
+
 ## [0.1.3] - 2026-11-11
 
 ### Added
