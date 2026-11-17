@@ -126,11 +126,25 @@ interfaz y el acceso rápido a la ayuda.
   márgenes y refluyen hacia abajo o hacia otra página cuando no caben.
 - Las cajas vacías se eliminan al perder el foco.
 - La barra superior permite mover, fijar, duplicar y eliminar regiones.
+- El botón **▾**, junto a **Abrir**, muestra los últimos 8 documentos abiertos.
+- Si hay cambios sin guardar, aparece un **●** junto al nombre de IngeCalc. Al
+  crear un documento nuevo, abrir otro o cerrar la ventana se muestra **Guardar /
+  Descartar / Cancelar**.
+- El botón **Errores (N)** y el contador **N con error** llevan a la siguiente
+  fórmula con error.
 - El botón **👁**, junto a **📌**, oculta o muestra las respuestas automáticas en
   verde. Las regiones que terminan en `=` conservan su resultado.
 - `Ctrl+clic` añade o quita regiones de la selección; `Ctrl+D` duplica.
-- `Ctrl+Z` y `Ctrl+Y` deshacen y rehacen. Un arrastre o redimensionado cuenta
-  como una sola operación.
+- `Ctrl+Z` y `Ctrl+Y` deshacen y rehacen. Dentro de una fórmula solo afectan a
+    esa fórmula. Un arrastre o redimensionado cuenta como una sola operación.
+- `Tab` y `Shift+Tab` recorren las fórmulas.
+
+### Borrador y versiones
+
+- El borrador actual se guarda automáticamente cada 1,2 s.
+- Cada 5 minutos se crea una instantánea; se conservan las últimas 10.
+- La pancarta de recuperación ofrece **Versiones** para volver a una copia
+  anterior.
 
 ### Páginas
 
@@ -296,7 +310,8 @@ El motor LaTeX se busca en este orden:
 | `Ctrl+D` | Duplicar selección |
 | `F9` | Recalcular |
 | `Ctrl+=` / `Ctrl+-` / `Ctrl+0` | Zoom |
-| `Tab` / `Shift+Tab` | Navegar regiones |
+| `Ctrl` + rueda | Zoom |
+| `Tab` / `Shift+Tab` | Navegar regiones o fórmulas |
 
 ## Solución de problemas
 
@@ -331,6 +346,15 @@ El identificador de la aplicación cambió a `org.ingecalc.app`, por lo que
 WebView2 usa un directorio de datos nuevo. Los borradores de la etapa anterior
 no se migran automáticamente. Puedes recuperar el documento desde su archivo
 `.smj` original.
+
+Las versiones del borrador se guardan cada 5 minutos y solo aparecen cuando hay
+un borrador recuperable. Si no ves **Versiones**, abre primero la pancarta de
+recuperación.
+
+### No encuentro un archivo reciente
+
+El menú **▾** conserva los últimos 8 documentos abiertos. Si falta uno, vuelve
+a abrirlo con **Abrir** (`Ctrl+O`); al abrirlo o guardarlo volverá a la lista.
 
 ### El PDF raster no permite seleccionar texto
 

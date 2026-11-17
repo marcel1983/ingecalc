@@ -83,24 +83,27 @@ Antes de etiquetar una versión:
    - `apps/desktop/package.json`
    - `apps/desktop/src-tauri/tauri.conf.json`
 2. Actualizar `CHANGELOG.md` con los cambios de la versión.
-3. Regenerar `Cargo.lock` y `package-lock.json`.
-4. Ejecutar la lista de comprobación de pruebas.
-5. Crear un tag anotado:
+3. Actualizar la ayuda integrada (`apps/desktop/src/lib/manual.ts`,
+   español e inglés) y el manual (`docs/manual.md`) para que describan las
+   funciones nuevas o corregidas de esta versión.
+4. Regenerar `Cargo.lock` y `package-lock.json`.
+5. Ejecutar la lista de comprobación de pruebas.
+6. Crear un tag anotado:
 
 ```bash
 git tag -a v0.1.5 -m "IngeCalc 0.1.5"
 git push origin main --tags
 ```
 
-6. El tag dispara `.github/workflows/release.yml`, que compila:
+7. El tag dispara `.github/workflows/release.yml`, que compila:
    - Windows x64: instalador NSIS.
    - Linux x64: AppImage y `.deb`.
    - macOS Apple Silicon e Intel: DMG.
-7. Revisar el release en borrador, adjuntar `SHA256SUMS.txt` si hace falta y
+8. Revisar el release en borrador, adjuntar `SHA256SUMS.txt` si hace falta y
    publicarlo.
-8. Incluir `LICENSE`, `THIRD_PARTY_NOTICES.md` y las licencias de las
+9. Incluir `LICENSE`, `THIRD_PARTY_NOTICES.md` y las licencias de las
    dependencias en el artefacto o enlazarlas desde las notas.
-9. Publicar las notas de release con:
+10. Publicar las notas de release con:
    - cambios de la versión;
    - requisitos de WebView2/WebKitGTK;
    - formato de documento aceptado;

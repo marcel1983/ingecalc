@@ -4,7 +4,7 @@
 > en GitHub. Describe el producto actual, el stack real, las reglas de
 > contribución, la validación técnica y el proceso de release.
 >
-> **Versión del proyecto:** 0.1.5  
+> **Versión del proyecto:** 0.1.6  
 > **Última actualización:** 8 de noviembre de 2026  
 > **Licencia:** GPL-3.0-or-later
 
@@ -706,7 +706,7 @@ Actualizar siempre:
 6. Crear tag anotado:
 
 ```bash
-git tag -a v0.1.5 -m "IngeCalc 0.1.5"
+git tag -a v0.1.6 -m "IngeCalc 0.1.6"
 git push origin main --tags
 ```
 

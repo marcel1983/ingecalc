@@ -24,7 +24,7 @@ export type ManualContent = {
 const es: ManualContent = {
   title: "Manual de IngeCalc",
   subtitle: "Guía de uso y referencia rápida",
-  version: "0.1.5",
+  version: "0.1.6",
   sections: [
     {
       id: "inicio",
@@ -110,14 +110,22 @@ const es: ManualContent = {
             "`Ctrl+D` duplica la selección; `Ctrl+C`, `Ctrl+X` y `Ctrl+V` gestionan el portapapeles de regiones.",
             "El botón de fijar bloquea las posiciones. Una caja fijada no se mueve, pero su contenido sigue siendo editable.",
             "El botón 👁, junto al de fijar, oculta las respuestas automáticas en verde. Las regiones que terminan en `=` conservan su resultado.",
+            "El botón **▾**, junto a Abrir, muestra los últimos 8 documentos abiertos para volver a cargarlos con un clic.",
+            "Si hay cambios sin guardar, un **●** aparece junto al nombre de IngeCalc. Al crear un documento nuevo, abrir otro o cerrar la ventana se muestra **Guardar / Descartar / Cancelar**.",
+            "El botón **Errores (N)** y el contador **N con error** llevan a la siguiente fórmula con error.",
             "**Insertar → Imagen** añade una imagen redimensionable. **Insertar → Tabla** crea una tabla 3×3 editable.",
             "El botón **ƒx** de una región de texto inserta matemática inline con KaTeX."
           ]
         },
         {
           type: "note",
-          title: "Enter en matemática",
-          text: "Dentro de una región matemática, `Enter` crea otra región matemática justo debajo y mueve el cursor a ella, sin solaparse."
+          title: "Enter y Tab en matemática",
+          text: "Dentro de una región matemática, `Enter` crea otra región matemática justo debajo y mueve el cursor a ella, sin solaparse. `Tab` pasa a la siguiente fórmula y `Shift+Tab` a la anterior."
+        },
+        {
+          type: "note",
+          title: "Borrador y versiones",
+          text: "El autoguardado conserva el borrador actual. Cada 5 minutos se guarda una instantánea (máximo 10); la pancarta de recuperación ofrece **Versiones** para volver a una copia anterior."
         },
         {
           type: "paragraph",
@@ -417,6 +425,7 @@ const es: ManualContent = {
             ["F1", "Abrir la ayuda"],
             ["Ctrl+Espacio", "Abrir catálogo de autocompletado"],
             ["Tab / Shift+Tab", "Navegar entre regiones o insertar sugerencia"],
+            ["Ctrl + rueda", "Acercar o alejar el zoom"],
             ["Esc", "Cerrar menú o diálogo"],
             ["Ctrl+= / Ctrl+- / Ctrl+0", "Zoom"]
           ]
@@ -424,7 +433,7 @@ const es: ManualContent = {
         {
           type: "note",
           title: "En matemática",
-          text: "`Tab` inserta la sugerencia seleccionada; `Enter` sin navegación solo cierra el menú. Así el autocompletado nunca cambia el texto por accidente."
+          text: "`Tab` inserta la sugerencia seleccionada; `Enter` sin navegación solo cierra el menú. Dentro de una fórmula, `Ctrl+Z` y `Ctrl+Y` deshacen y rehacen solo esa fórmula; `Tab` y `Shift+Tab` pasan a la siguiente o anterior."
         }
       ]
     },
@@ -440,6 +449,8 @@ const es: ManualContent = {
           items: [
             "**No aparece el motor LaTeX:** instala MiKTeX/TeX Live o define `INGECALC_LATEX_ENGINE` con la ruta del ejecutable.",
             "**Una fórmula no evalúa:** comprueba que todas las variables estén definidas y que ningún nombre se defina dos veces.",
+            "**No encuentro un archivo reciente:** el menú **▾** guarda los últimos 8 documentos; si falta, vuelve a abrirlo con **Abrir**.",
+            "**No aparece la versión anterior del borrador:** las versiones se guardan cada 5 minutos y solo se muestran cuando existe un borrador recuperable.",
             "**Una caja no cabe:** se traslada a la página siguiente. Si hay cajas fijadas, pueden bloquear el reflujo.",
             "**No veo el borrador anterior:** el identificador de la aplicación cambió a `org.ingecalc.app` y crea un directorio de datos nuevo.",
             "**El PDF raster no permite seleccionar texto:** usa **PDF LaTeX** para obtener texto vectorial.",
@@ -500,7 +511,7 @@ const es: ManualContent = {
         {
           type: "note",
           title: "Versión",
-          text: "Versión 0.1.5. Repositorio: github.com/marcel1983/ingecalc."
+          text: "Versión 0.1.6. Repositorio: github.com/marcel1983/ingecalc."
         }
       ]
     }
@@ -510,7 +521,7 @@ const es: ManualContent = {
 const en: ManualContent = {
   title: "IngeCalc Manual",
   subtitle: "User guide and quick reference",
-  version: "0.1.5",
+  version: "0.1.6",
   sections: [
     {
       id: "inicio",
@@ -596,14 +607,22 @@ const en: ManualContent = {
             "`Ctrl+D` duplicates the selection; `Ctrl+C`, `Ctrl+X` and `Ctrl+V` manage the region clipboard.",
             "The pin button locks positions. A pinned box cannot move, but its content remains editable.",
             "The 👁 button, next to the pin, hides automatic green results. Regions ending in `=` keep their result.",
+            "The **▾** button, next to Open, lists the last 8 opened documents for quick reopening.",
+            "When there are unsaved changes, a **●** appears next to the IngeCalc name. Creating a new document, opening another one or closing the window shows **Save / Discard / Cancel**.",
+            "The **Errors (N)** button and the **N with error** counter jump to the next formula with an error.",
             "**Insert → Image** adds a resizable image. **Insert → Table** creates an editable 3×3 table.",
             "The **ƒx** button in a text region inserts inline KaTeX math."
           ]
         },
         {
           type: "note",
-          title: "Enter in math",
-          text: "Inside a math region, `Enter` creates another math region directly below and moves the cursor there without overlapping."
+          title: "Enter and Tab in math",
+          text: "Inside a math region, `Enter` creates another math region directly below and moves the cursor there without overlapping. `Tab` moves to the next formula and `Shift+Tab` to the previous one."
+        },
+        {
+          type: "note",
+          title: "Draft and versions",
+          text: "Autosave keeps the current draft. Every 5 minutes a snapshot is saved (up to 10); the recovery banner offers **Versions** to restore an earlier copy."
         },
         {
           type: "paragraph",
@@ -903,6 +922,7 @@ const en: ManualContent = {
             ["F1", "Open help"],
             ["Ctrl+Space", "Open autocomplete catalog"],
             ["Tab / Shift+Tab", "Navigate regions or insert suggestion"],
+            ["Ctrl + wheel", "Zoom in or out"],
             ["Esc", "Close menu or dialog"],
             ["Ctrl+= / Ctrl+- / Ctrl+0", "Zoom"]
           ]
@@ -910,7 +930,7 @@ const en: ManualContent = {
         {
           type: "note",
           title: "In math",
-          text: "`Tab` inserts the selected suggestion; `Enter` without navigation only closes the menu. Autocomplete never changes text accidentally."
+          text: "`Tab` inserts the selected suggestion; `Enter` without navigation only closes the menu. Inside a formula, `Ctrl+Z` and `Ctrl+Y` undo and redo only that formula; `Tab` and `Shift+Tab` move to the next or previous one."
         }
       ]
     },
@@ -926,6 +946,8 @@ const en: ManualContent = {
           items: [
             "**LaTeX engine not found:** install MiKTeX/TeX Live or set `INGECALC_LATEX_ENGINE` to the executable path.",
             "**A formula does not evaluate:** check that every variable is defined and that no name is defined twice.",
+            "**I cannot find a recent file:** the **▾** menu keeps the last 8 documents; if it is missing, open it again with **Open**.",
+            "**The previous draft version is missing:** versions are saved every 5 minutes and only appear when there is a recoverable draft.",
             "**A box does not fit:** it moves to the next page. Pinned boxes may block reflow.",
             "**I cannot see the previous draft:** the app identifier changed to `org.ingecalc.app`, so it uses a new data directory.",
             "**Raster PDF text cannot be selected:** use **LaTeX PDF** for vector text.",
@@ -986,7 +1008,7 @@ const en: ManualContent = {
         {
           type: "note",
           title: "Version",
-          text: "Version 0.1.5. Repository: github.com/marcel1983/ingecalc."
+          text: "Version 0.1.6. Repository: github.com/marcel1983/ingecalc."
         }
       ]
     }

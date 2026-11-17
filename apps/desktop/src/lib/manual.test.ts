@@ -36,6 +36,41 @@ describe("in-app manual", () => {
     );
   });
 
+  it("documents the 0.1.5 UX features in Spanish and English", () => {
+    for (const language of ["es", "en"]) {
+      const content = getManualContent(language);
+      const document = content.sections.find((section) => section.id === "documento");
+      const shortcuts = content.sections.find((section) => section.id === "atajos");
+      const problems = content.sections.find((section) => section.id === "problemas");
+      const blocks = [
+        ...(document?.blocks ?? []),
+        ...(shortcuts?.blocks ?? []),
+        ...(problems?.blocks ?? [])
+      ];
+      const text = blocks
+        .map((block) => {
+          const record = block as unknown as {
+            items?: string[];
+            text?: string;
+            rows?: string[][];
+          };
+          return [
+            ...(record.items ?? []),
+            record.text ?? "",
+            ...(record.rows?.flat() ?? [])
+          ].join("\n");
+        })
+        .join("\n");
+
+      expect(text).toContain("▾");
+      expect(text).toContain("●");
+      expect(text).toContain(language === "es" ? "Errores (N)" : "Errors (N)");
+      expect(text).toContain("Shift+Tab");
+      expect(text).toMatch(language === "es" ? /Versiones/ : /Versions/);
+      expect(text).toMatch(language === "es" ? /rueda/ : /wheel/);
+    }
+  });
+
   it("returns every section for an empty query", () => {
     const content = getManualContent("es");
     expect(searchManual(content, "  ")).toHaveLength(content.sections.length);

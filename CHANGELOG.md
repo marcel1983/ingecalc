@@ -6,6 +6,22 @@ Todas las versiones relevantes de IngeCalc se documentan aquí.
 
 Sin cambios pendientes de publicar.
 
+## [0.1.6] - 2026-11-17
+
+### Fixed
+
+- La ayuda integrada (F1) y el manual describen ahora los archivos recientes,
+  las versiones del borrador, el aviso de cambios sin guardar, el contador de
+  errores, `Tab`/`Shift+Tab`, `Ctrl+Z` local en fórmulas y el zoom con
+  `Ctrl` + rueda.
+- Se añadió una prueba que comprueba que la ayuda en español e inglés contenga
+  estas funciones.
+
+### Changed
+
+- La lista de publicación en `docs/publicacion-github.md` exige actualizar la
+  ayuda y el manual antes de cada release.
+
 ## [0.1.5] - 2026-11-17
 
 ### Added
