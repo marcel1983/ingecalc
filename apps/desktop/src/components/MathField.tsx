@@ -364,6 +364,50 @@ export function MathField({
         !readOnly &&
         !event.isComposing &&
         (event.ctrlKey || event.metaKey) &&
+        (event.key.toLowerCase() === "z" || event.key.toLowerCase() === "y")
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        const key = event.key.toLowerCase();
+        const undoFn = (element as unknown as { undo?: () => void }).undo;
+        const redoFn = (element as unknown as { redo?: () => void }).redo;
+        if (key === "y" || event.shiftKey) {
+          redoFn?.call(element);
+        } else {
+          undoFn?.call(element);
+        }
+        return;
+      }
+
+      if (
+        !readOnly &&
+        !event.isComposing &&
+        event.key === "Tab" &&
+        !event.ctrlKey &&
+        !event.metaKey &&
+        !event.altKey
+      ) {
+        const root = element.closest(".worksheet");
+        const fields = root
+          ? Array.from(root.querySelectorAll("math-field"))
+          : [];
+        const index = fields.indexOf(element);
+        const next =
+          fields[
+            (index + (event.shiftKey ? -1 : 1) + fields.length) % fields.length
+          ];
+        if (next && next !== element) {
+          event.preventDefault();
+          event.stopPropagation();
+          (next as MathfieldElement).focus();
+          return;
+        }
+      }
+
+      if (
+        !readOnly &&
+        !event.isComposing &&
+        (event.ctrlKey || event.metaKey) &&
         (event.code === "Space" || event.key === " ")
       ) {
         event.preventDefault();
@@ -395,7 +439,7 @@ export function MathField({
           setCompletionMenu(null);
           return;
         }
-        if (event.key === "Tab") {
+        if (event.key === "Tab" && !event.shiftKey) {
           event.preventDefault();
           event.stopPropagation();
           insertCompletionRef.current(menu.items[menu.index]);

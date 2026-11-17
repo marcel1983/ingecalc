@@ -20,16 +20,24 @@ import { HelpDialog } from "./components/HelpDialog";
 import { getLastMathField, getSelectedLatex } from "./components/MathField";
 import { latexToAscii } from "./components/InlineMath";
 import { clearDraft, readDraft, writeDraft, type Draft } from "./lib/draft";
+import {
+  rememberDraftSnapshot,
+  readDraftHistory,
+  HISTORY_INTERVAL_MS,
+  type DraftSnapshot
+} from "./lib/draftHistory";
 import { isTauri } from "./lib/environment";
 import { evaluateDocument } from "./lib/api";
 import { getPageSetup } from "./lib/pageSetup";
 import { ASSIGNMENT_ITEM } from "./lib/formulaSidebar";
 import { wrapSelectedMath } from "./lib/mathWrap";
+import { readViewOptions, writeViewOptions, type ViewOptions } from "./lib/viewOptions";
 import {
-  readViewOptions,
-  writeViewOptions,
-  type ViewOptions
-} from "./lib/viewOptions";
+  readRecentFiles,
+  rememberRecentFile,
+  forgetRecentFile,
+  type RecentFile
+} from "./lib/recentFiles";
 import type { PaletteItem, PaletteKind } from "./lib/palettes";
 import { customUnitPalette, extractUserUnits } from "./lib/userUnits";
 import { resultUnitSystemLabel } from "./lib/resultUnits";
@@ -89,6 +97,25 @@ const RIBBON_TABS: Array<{ id: RibbonTab; key: string }> = [
   { id: "ayuda", key: "tabs.help" }
 ];
 
+function hasActiveTextSelection(): boolean {
+  const selection = globalThis.getSelection();
+  if (!selection || selection.isCollapsed) {
+    return false;
+  }
+  const anchor = selection.anchorNode;
+  const focus = selection.focusNode;
+  if (!anchor || !focus) {
+    return false;
+  }
+  const editableRoot = (node: Node | null): HTMLElement | null =>
+    node instanceof HTMLElement
+      ? node
+      : node?.parentElement ?? null;
+  const inEditable = (node: Node | null): boolean =>
+    Boolean(editableRoot(node)?.closest(".tiptap"));
+  return inEditable(anchor) && inEditable(focus);
+}
+
 export default function App() {
   const doc = useDocumentStore((state) => state.doc);
   const setDoc = useDocumentStore((state) => state.setDoc);
@@ -129,8 +156,10 @@ export default function App() {
   const recalculate = useDocumentStore((state) => state.recalculate);
   const recalcToken = useDocumentStore((state) => state.recalcToken);
   const setMathResults = useDocumentStore((state) => state.setMathResults);
+  const mathResults = useDocumentStore((state) => state.mathResults);
   const canUndo = useDocumentStore((state) => state.past.length > 0);
   const canRedo = useDocumentStore((state) => state.future.length > 0);
+  const dirty = useDocumentStore((state) => state.dirty);
 
   const [status, setStatus] = useState("Listo");
   const [exportingPdf, setExportingPdf] = useState(false);
@@ -164,10 +193,18 @@ export default function App() {
   );
   const [viewOptions, setViewOptions] = useState<ViewOptions>(readViewOptions);
   const [viewOptionsOpen, setViewOptionsOpen] = useState(false);
+  const [recentFiles, setRecentFiles] = useState<RecentFile[]>(readRecentFiles);
+  const [recentMenuOpen, setRecentMenuOpen] = useState(false);
+  const [draftHistory, setDraftHistory] = useState<DraftSnapshot[]>(readDraftHistory);
+  const [historyMenuOpen, setHistoryMenuOpen] = useState(false);
   const [draft, setDraft] = useState<Draft | null>(null);
   const [draftResolved, setDraftResolved] = useState(false);
+  const [pendingClose, setPendingClose] = useState<"new" | "path" | null>(null);
+  const [pendingPath, setPendingPath] = useState<string | null>(null);
+  const pendingActionRef = useRef<(() => void) | null>(null);
   const workspaceRef = useRef<HTMLElement | null>(null);
   const firstAutosave = useRef(true);
+  const lastSnapshotAt = useRef(0);
   const shortcuts = useRef<ShortcutActions | null>(null);
 
   useEffect(() => {
@@ -212,6 +249,52 @@ export default function App() {
   }, [viewOptions]);
 
   useEffect(() => {
+    if (!recentMenuOpen) {
+      return;
+    }
+    const close = (event: PointerEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (!target?.closest(".recent-files")) {
+        setRecentMenuOpen(false);
+      }
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setRecentMenuOpen(false);
+      }
+    };
+    window.addEventListener("pointerdown", close);
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      window.removeEventListener("pointerdown", close);
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [recentMenuOpen]);
+
+  useEffect(() => {
+    if (!historyMenuOpen) {
+      return;
+    }
+    const close = (event: PointerEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (!target?.closest(".draft-history, .recent-menu")) {
+        setHistoryMenuOpen(false);
+      }
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setHistoryMenuOpen(false);
+      }
+    };
+    window.addEventListener("pointerdown", close);
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      window.removeEventListener("pointerdown", close);
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [historyMenuOpen]);
+
+  useEffect(() => {
     void i18n.changeLanguage(uiLanguage);
     globalThis.localStorage?.setItem("ingecalc-ui-language", uiLanguage);
     const language = UI_LANGUAGES.find((item) => item.id === uiLanguage);
@@ -230,9 +313,13 @@ export default function App() {
     }
 
     const timer = window.setTimeout(() => {
-      writeDraft(doc).catch((error) => {
+      void writeDraft(doc).catch((error) => {
         setStatus(`No se pudo autoguardar: ${String(error)}`);
       });
+      if (Date.now() - lastSnapshotAt.current >= HISTORY_INTERVAL_MS) {
+        lastSnapshotAt.current = Date.now();
+        setDraftHistory(rememberDraftSnapshot(doc, lastSnapshotAt.current));
+      }
     }, 1200);
 
     return () => window.clearTimeout(timer);
@@ -280,10 +367,7 @@ export default function App() {
       if (!draftResolved) {
         return;
       }
-
-      void writeDraft(doc).catch(() => {
-        // Closing should not be blocked by a failed draft write.
-      });
+      void writeDraft(doc).catch(() => {});
     };
 
     window.addEventListener("beforeunload", handleBeforeUnload);
@@ -311,12 +395,93 @@ export default function App() {
     void clearDraft();
     setDraft(null);
     setDraftResolved(true);
+    useDocumentStore.setState({ dirty: false });
   };
 
+  const hasUnsavedChanges = dirty;
+
+  useEffect(() => {
+    if (!isTauri() || !dirty) {
+      return;
+    }
+    let cancelled = false;
+    let dispose: (() => void) | undefined;
+    void import("@tauri-apps/api/event")
+      .then(({ listen }) =>
+        listen("tauri://close-requested", () => {
+          if (cancelled) {
+            return;
+          }
+          pendingActionRef.current = () => {
+            void import("@tauri-apps/api/window")
+              .then(({ Window }) => {
+                const windows = (Window as unknown as { getAll?: () => Array<{ label?: string; close: () => Promise<void> }> }).getAll?.() ?? [];
+                const main = windows.find((item) => item.label === "main");
+                if (main) {
+                  void main.close();
+                }
+              })
+              .catch(() => {});
+          };
+          setPendingClose("new");
+        })
+      )
+      .then((unlisten) => {
+        dispose = unlisten;
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+      dispose?.();
+    };
+  }, [dirty]);
+
   const handleNew = () => {
+    pendingActionRef.current = null;
+    if (hasUnsavedChanges) {
+      pendingActionRef.current = () => {
+        newDoc();
+        resolveDraft();
+        setStatus("Documento nuevo");
+      };
+      setPendingClose("new");
+      return;
+    }
     newDoc();
     resolveDraft();
     setStatus("Documento nuevo");
+  };
+
+  const openDocumentAtPath = async (path: string) => {
+    pendingActionRef.current = null;
+    if (hasUnsavedChanges) {
+      pendingActionRef.current = () => {
+        void loadDocumentAtPath(path);
+      };
+      setPendingPath(path);
+      setPendingClose("path");
+      return;
+    }
+    await loadDocumentAtPath(path);
+  };
+
+  const loadDocumentAtPath = async (path: string) => {
+    try {
+      const loaded = await invoke<typeof doc>("load_document", { path });
+      setDoc(loaded);
+      resolveDraft();
+      const next = rememberRecentFile(
+        readRecentFiles(),
+        path,
+        loaded.metadata.title || path
+      );
+      setRecentFiles(next);
+      setRecentMenuOpen(false);
+      setStatus("Documento abierto");
+    } catch (error) {
+      setRecentFiles(forgetRecentFile(readRecentFiles(), path));
+      setStatus(`Error al abrir: ${String(error)}`);
+    }
   };
 
   const handleOpen = async () => {
@@ -330,10 +495,7 @@ export default function App() {
         return;
       }
 
-      const loaded = await invoke<typeof doc>("load_document", { path });
-      setDoc(loaded);
-      resolveDraft();
-      setStatus("Documento abierto");
+      await openDocumentAtPath(path);
     } catch (error) {
       setStatus(`Error al abrir: ${String(error)}`);
     }
@@ -346,16 +508,49 @@ export default function App() {
       });
 
       if (!path) {
-        return;
+        return false;
       }
 
       await invoke("save_document", { path, document: doc });
       resolveDraft();
+      setRecentFiles(rememberRecentFile(readRecentFiles(), path, doc.metadata.title || path));
       setStatus("Documento guardado");
+      return true;
     } catch (error) {
       setStatus(`Error al guardar: ${String(error)}`);
+      return false;
     }
   };
+
+  const saveAndContinue = async () => {
+    const saved = await handleSave();
+    if (!saved) {
+      return;
+    }
+    if (pendingClose === "path" && pendingPath) {
+      pendingActionRef.current = null;
+      setPendingClose(null);
+      setPendingPath(null);
+      await loadDocumentAtPath(pendingPath);
+      return;
+    }
+    const action = pendingActionRef.current;
+    pendingActionRef.current = null;
+    setPendingClose(null);
+    setPendingPath(null);
+    action?.();
+  };
+
+  useEffect(() => {
+    if (pendingClose !== "new" || !pendingActionRef.current) {
+      return;
+    }
+    const action = pendingActionRef.current;
+    pendingActionRef.current = null;
+    setPendingClose(null);
+    setPendingPath(null);
+    action();
+  }, [pendingClose]);
 
   const handleExport = async (format: "latex" | "odt") => {
     try {
@@ -663,6 +858,7 @@ export default function App() {
     setDoc(draft.document);
     setDraft(null);
     setDraftResolved(true);
+    useDocumentStore.setState({ dirty: false });
     setStatus("Borrador recuperado");
   };
 
@@ -687,6 +883,14 @@ export default function App() {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && pendingActionRef.current) {
+        event.preventDefault();
+        pendingActionRef.current = null;
+        setPendingClose(null);
+        setPendingPath(null);
+        return;
+      }
+
       const actions = shortcuts.current;
       if (!actions) {
         return;
@@ -699,7 +903,7 @@ export default function App() {
         target instanceof HTMLElement &&
         Boolean(
           target.closest(
-            "input, textarea, [contenteditable='true'], math-field, .tiptap"
+            "input, textarea, [contenteditable='true'], math-field, .tiptap, .recent-menu, .draft-history"
           )
         );
 
@@ -762,7 +966,7 @@ export default function App() {
         return;
       }
 
-      if (editable) {
+      if (editable && !hasActiveTextSelection()) {
         return;
       }
 
@@ -846,27 +1050,108 @@ export default function App() {
 
   const mathCompletions = useMemo(() => buildMathCompletions(doc), [doc]);
   const constantNames = useMemo(() => mathConstantNames(doc), [doc]);
+  const errorRegionIds = useMemo(() => {
+    const ids: string[] = [];
+    for (const page of doc.pages) {
+      for (const region of page.regions) {
+        if (region.type === "math" && mathResults[region.id]?.error) {
+          ids.push(region.id);
+        }
+      }
+    }
+    return ids;
+  }, [doc, mathResults]);
+  const focusRegion = (regionId: string) => {
+    window.requestAnimationFrame(() => {
+      const element = globalThis.document.querySelector<HTMLElement>(
+        `[data-region-id="${regionId}"]`
+      );
+      element?.scrollIntoView({ block: "nearest" });
+      element?.querySelector<HTMLElement>("math-field")?.focus();
+    });
+  };
+  const focusNextError = () => {
+    if (errorRegionIds.length === 0) {
+      return;
+    }
+    const currentIndex = errorRegionIds.findIndex((id) => id === selectedIds[0]);
+    const nextId =
+      errorRegionIds[(currentIndex + 1 + errorRegionIds.length) % errorRegionIds.length];
+    useDocumentStore.getState().select(nextId);
+    focusRegion(nextId);
+  };
 
   return (
     <div className="app">
       <header className="ribbon">
         <div className="ribbon-titlebar">
-          <div className="brand">IngeCalc</div>
+          <div className="brand">
+            IngeCalc
+            {dirty && (
+              <span className="brand-dirty" title="Cambios sin guardar" aria-hidden="true">
+                ●
+              </span>
+            )}
+          </div>
 
           <div className="ribbon-quick">
-            <button onClick={handleNew} title="Nuevo documento (Ctrl+N)">
+            <button
+              onClick={handleNew}
+              title="Nuevo documento (Ctrl+N)"
+              aria-keyshortcuts="Control+N Meta+N"
+            >
               {t("quick.new")}
             </button>
-            <button onClick={handleOpen} title="Abrir documento (Ctrl+O)">
+            <button
+              onClick={handleOpen}
+              title="Abrir documento (Ctrl+O)"
+              aria-keyshortcuts="Control+O Meta+O"
+            >
               {t("quick.open")}
             </button>
-            <button onClick={handleSave} title="Guardar documento (Ctrl+S)">
+            <div className="recent-files">
+              <button
+                type="button"
+                title="Archivos recientes"
+                aria-haspopup="true"
+                aria-expanded={recentMenuOpen}
+                onClick={() => setRecentMenuOpen((current) => !current)}
+              >
+                ▾
+              </button>
+              {recentMenuOpen && (
+                <div className="recent-menu" role="menu">
+                  {recentFiles.length === 0 ? (
+                    <span className="recent-empty">Sin archivos recientes</span>
+                  ) : (
+                    recentFiles.map((item) => (
+                      <button
+                        key={item.path}
+                        type="button"
+                        role="menuitem"
+                        title={item.path}
+                        onClick={() => void openDocumentAtPath(item.path)}
+                      >
+                        {item.title}
+                      </button>
+                    ))
+                  )}
+                </div>
+              )}
+            </div>
+            <button
+              onClick={handleSave}
+              title="Guardar documento (Ctrl+S)"
+              aria-keyshortcuts="Control+S Meta+S"
+              aria-label={dirty ? "Guardar documento con cambios" : "Guardar documento"}
+            >
               {t("quick.save")}
             </button>
             <button
               onClick={handleUndo}
               disabled={!canUndo}
               title="Deshacer (Ctrl+Z)"
+              aria-keyshortcuts="Control+Z Meta+Z"
             >
               ↶
             </button>
@@ -880,6 +1165,16 @@ export default function App() {
           </div>
 
           <div className="ribbon-spacer" />
+          {errorRegionIds.length > 0 && (
+            <button
+              type="button"
+              className="error-summary"
+              title="Ir a la siguiente fórmula con error"
+              onClick={focusNextError}
+            >
+              {errorRegionIds.length} con error
+            </button>
+          )}
           <div className="status" title={status}>
             {status}
           </div>
@@ -1041,6 +1336,13 @@ export default function App() {
 
               <RibbonGroup label={t("groups.calculation")}>
                 <button onClick={handleRecalculate} title="Recalcular (F9)">{t("actions.recalculate")}</button>
+                <button
+                  onClick={focusNextError}
+                  disabled={errorRegionIds.length === 0}
+                  title="Ir a la siguiente fórmula con error"
+                >
+                  Errores ({errorRegionIds.length})
+                </button>
               </RibbonGroup>
             </>
           )}
@@ -1156,7 +1458,7 @@ export default function App() {
                 <button
                   className="zoom-value"
                   onClick={() => setZoom(1)}
-                  title="Restablecer zoom al 100% (Ctrl+0)"
+                  title="Restablecer zoom al 100% (Ctrl+0 o Ctrl+rueda)"
                 >
                   {Math.round(zoom * 100)}%
                 </button>
@@ -1243,6 +1545,13 @@ export default function App() {
               </RibbonGroup>
               <RibbonGroup label={t("groups.calculation")}>
                 <button onClick={handleRecalculate} title="Recalcular (F9)">{t("actions.recalculate")}</button>
+                <button
+                  onClick={focusNextError}
+                  disabled={errorRegionIds.length === 0}
+                  title="Ir a la siguiente fórmula con error"
+                >
+                  Errores ({errorRegionIds.length})
+                </button>
               </RibbonGroup>
               <RibbonGroup label={t("groups.math")}>
                 <button
@@ -1335,6 +1644,34 @@ export default function App() {
         </div>
       </header>
 
+      {pendingClose && (
+        <div className="discard-banner" role="alertdialog" aria-modal="true">
+          <span>Tienes cambios sin guardar. ¿Qué quieres hacer?</span>
+          <button
+            onClick={() => {
+              const action = pendingActionRef.current;
+              pendingActionRef.current = null;
+              setPendingClose(null);
+              setPendingPath(null);
+              action?.();
+            }}
+          >
+            Descartar cambios
+          </button>
+          <button
+            className="secondary"
+            onClick={() => {
+              setPendingClose(null);
+              setPendingPath(null);
+              pendingActionRef.current = null;
+            }}
+          >
+            Cancelar
+          </button>
+          <button onClick={() => void saveAndContinue()}>Guardar</button>
+        </div>
+      )}
+
       {draft && (
         <div className="draft-banner" role="status">
           <span>
@@ -1342,6 +1679,41 @@ export default function App() {
             {new Date(draft.savedAt).toLocaleString("es")}.
           </span>
           <button onClick={recoverDraft}>Recuperar</button>
+          <div className="draft-history">
+            <button
+              type="button"
+              aria-haspopup="true"
+              aria-expanded={historyMenuOpen}
+              onClick={() => setHistoryMenuOpen((current) => !current)}
+            >
+              Versiones ({draftHistory.length})
+            </button>
+            {historyMenuOpen && (
+              <div className="recent-menu" role="menu">
+                {draftHistory.length === 0 ? (
+                  <span className="recent-empty">Sin versiones anteriores</span>
+                ) : (
+                  draftHistory.map((snapshot) => (
+                    <button
+                      key={snapshot.id}
+                      type="button"
+                      role="menuitem"
+                      onClick={() => {
+                        setDoc(snapshot.document);
+                        setHistoryMenuOpen(false);
+                        setStatus(
+                          `Versión recuperada del ${new Date(snapshot.savedAt).toLocaleString("es")}`
+                        );
+                      }}
+                    >
+                      {new Date(snapshot.savedAt).toLocaleString("es")} ·{" "}
+                      {snapshot.title}
+                    </button>
+                  ))
+                )}
+              </div>
+            )}
+          </div>
           <button className="secondary" onClick={discardDraft}>
             Descartar
           </button>
@@ -1352,6 +1724,7 @@ export default function App() {
         <main className="workspace" ref={workspaceRef}>
           <Worksheet
             zoom={zoom}
+            onZoom={setZoom}
             showGrid={viewOptions.showGrid}
             snapToGrid={viewOptions.snapToGrid}
             positionLocked={viewOptions.lockPositions}

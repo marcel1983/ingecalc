@@ -1,5 +1,6 @@
 import {
   useEffect,
+  useRef,
   useState,
   type PointerEvent as ReactPointerEvent
 } from "react";
@@ -13,6 +14,7 @@ import { RegionFrame } from "./RegionFrame";
 
 type Props = {
   zoom: number;
+  onZoom?: (zoom: number) => void;
   showGrid: boolean;
   snapToGrid: boolean;
   positionLocked: boolean;
@@ -35,6 +37,7 @@ type Marquee = {
 
 export function Worksheet({
   zoom,
+  onZoom,
   showGrid,
   snapToGrid,
   positionLocked,
@@ -75,6 +78,7 @@ export function Worksheet({
   );
   const endTransaction = useDocumentStore((state) => state.endTransaction);
   const [marquee, setMarquee] = useState<Marquee | null>(null);
+  const workspaceRef = useRef<HTMLDivElement | null>(null);
 
   const pagePoint = (
     event: ReactPointerEvent<HTMLDivElement>,
@@ -110,12 +114,21 @@ export function Worksheet({
           )
         );
 
-      if (event.key === "Tab") {
+      if (event.key === "Tab" && !event.shiftKey) {
+        const target = event.target;
+        const insideMathField =
+          target instanceof HTMLElement &&
+          Boolean(target.closest("math-field"));
+
+        if (insideMathField) {
+          return;
+        }
+
         const insideChrome =
           target instanceof HTMLElement &&
           Boolean(
             target.closest(
-              ".toolbar, .draft-banner, .page-meta, input, textarea, [contenteditable='true'], math-field, .tiptap"
+              ".toolbar, .draft-banner, .page-meta, input, textarea, [contenteditable='true'], .tiptap, .recent-menu"
             )
           );
 
@@ -173,8 +186,27 @@ export function Worksheet({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedIds, removeSelected, doc.pages, select]);
 
+  useEffect(() => {
+    const element = workspaceRef.current;
+    if (!element || !onZoom) {
+      return;
+    }
+    const handleWheel = (event: WheelEvent) => {
+      if (!event.ctrlKey) {
+        return;
+      }
+      event.preventDefault();
+      const delta = event.deltaY > 0 ? -0.05 : 0.05;
+      const next = Math.max(0.4, Math.min(2, zoom + delta));
+      onZoom(Number(next.toFixed(2)));
+    };
+    element.addEventListener("wheel", handleWheel, { passive: false });
+    return () => element.removeEventListener("wheel", handleWheel);
+  }, [zoom, onZoom]);
+
   return (
     <div
+      ref={workspaceRef}
       className="worksheet"
       onPointerDown={(event) => {
         if (event.target === event.currentTarget) {

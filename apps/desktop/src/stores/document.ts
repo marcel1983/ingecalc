@@ -103,6 +103,7 @@ type Store = {
   historyKey: string | null;
   historyAt: number;
   transactionKey: string | null;
+  dirty: boolean;
   recalcToken: number;
   mathResults: Record<string, MathResult>;
   setDoc: (doc: Document) => void;
@@ -260,7 +261,12 @@ export const useDocumentStore = create<Store>((set, get) => {
       const next = produce(state, (draft) => {
         recipe(draft);
       });
-      return { ...next, ...history };
+      const contentChanged = next.doc !== state.doc;
+      return {
+        ...next,
+        ...history,
+        ...(contentChanged ? { dirty: true } : {})
+      };
     });
   };
 
@@ -424,6 +430,7 @@ export const useDocumentStore = create<Store>((set, get) => {
     historyKey: null,
     historyAt: 0,
     transactionKey: null,
+    dirty: false,
     recalcToken: 0,
     mathResults: {},
 
@@ -443,6 +450,7 @@ export const useDocumentStore = create<Store>((set, get) => {
         historyKey: null,
         historyAt: 0,
         transactionKey: null,
+        dirty: false,
         mathResults: {}
       }),
 
@@ -455,6 +463,7 @@ export const useDocumentStore = create<Store>((set, get) => {
         historyKey: null,
         historyAt: 0,
         transactionKey: null,
+        dirty: false,
         mathResults: {}
       }),
 
@@ -1306,7 +1315,8 @@ export const useDocumentStore = create<Store>((set, get) => {
           selectedIds: [],
           historyKey: null,
           historyAt: 0,
-          transactionKey: null
+          transactionKey: null,
+          dirty: true
         };
       }),
 
@@ -1325,7 +1335,8 @@ export const useDocumentStore = create<Store>((set, get) => {
           selectedIds: [],
           historyKey: null,
           historyAt: 0,
-          transactionKey: null
+          transactionKey: null,
+          dirty: true
         };
       }),
 

@@ -108,13 +108,13 @@ export type Document = {
   pages: Page[];
 };
 
-export type EvalResponse = {
+export type DocumentEvalResult = {
+  id: string;
   value: string | null;
   error: string | null;
 };
 
-export type DocumentEvalResult = {
-  id: string;
+export type EvalResponse = {
   value: string | null;
   error: string | null;
 };

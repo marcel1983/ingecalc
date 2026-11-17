@@ -104,6 +104,27 @@ export async function loadDocument(): Promise<Document | null> {
   return invoke<Document>("load_document", { path: selection });
 }
 
+export async function loadDocumentWithPath(): Promise<{
+  document: Document;
+  path: string;
+} | null> {
+  const selection = await open({
+    multiple: false,
+    filters: [
+      { name: "IngeCalc", extensions: ["smj", "json"] }
+    ]
+  });
+
+  if (!selection || Array.isArray(selection)) {
+    return null;
+  }
+
+  return {
+    document: await invoke<Document>("load_document", { path: selection }),
+    path: selection
+  };
+}
+
 export async function saveDocument(document: Document): Promise<void> {
   const path = await save({
     filters: [
