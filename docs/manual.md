@@ -288,9 +288,16 @@ que las regiones.
 
 - **LaTeX:** documento `.tex` con resultados calculados.
 - **ODT:** fórmulas como objetos Math embebidos, tablas, imágenes y encabezado/pie.
+- **Excel:** libro `.xlsx` con una hoja **Documento** formateada y una hoja
+  **Cálculos** con fórmulas reales editables.
 - **PDF raster:** KaTeX + html2canvas + jsPDF; texto no seleccionable.
 - **PDF vectorial:** LaTeX/MiKTeX; requiere un motor externo.
 - **PNG/SVG:** gráficos 2D.
+
+En la hoja **Cálculos**, la columna D contiene la fórmula real que Excel
+recalcula al editar los valores; la columna C muestra la fórmula equivalente.
+Las expresiones con unidades o funciones no traducibles conservan el valor
+calculado y su unidad.
 
 El motor LaTeX se busca en este orden:
 

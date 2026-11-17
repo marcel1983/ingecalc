@@ -24,7 +24,7 @@ export type ManualContent = {
 const es: ManualContent = {
   title: "Manual de IngeCalc",
   subtitle: "Guía de uso y referencia rápida",
-  version: "0.1.6",
+  version: "0.1.7",
   sections: [
     {
       id: "inicio",
@@ -76,7 +76,7 @@ const es: ManualContent = {
             "**Insertar:** regiones, encabezado/pie, funciones, unidades y constantes.",
             "**Página:** tamaño, márgenes, unidades de resultado, números, zoom y vista.",
             "**Fórmulas:** asignación `:=`, panel lateral y catálogos matemáticos.",
-            "**Exportar:** LaTeX, ODT, PDF raster y PDF vectorial.",
+            "**Exportar:** LaTeX, ODT, Excel, PDF raster y PDF vectorial.",
             "**Ayuda:** manual, primeros pasos, atajos, problemas y acerca de IngeCalc."
           ]
         },
@@ -380,18 +380,24 @@ const es: ManualContent = {
       id: "exportar",
       icon: "📤",
       title: "Exportación",
-      summary: "LaTeX, ODT, PDF raster, PDF vectorial y gráficos.",
-      keywords: ["exportar", "latex", "odt", "pdf", "vectorial", "miktex"],
+      summary: "LaTeX, ODT, Excel, PDF raster, PDF vectorial y gráficos.",
+      keywords: ["exportar", "latex", "odt", "excel", "xlsx", "pdf", "vectorial", "miktex"],
       blocks: [
         {
           type: "list",
           items: [
             "**LaTeX:** genera un `.tex` con los resultados calculados.",
             "**ODT:** fórmulas como objetos Math embebidos, tablas, imágenes y encabezado/pie.",
+            "**Excel:** libro `.xlsx` con una hoja **Documento** formateada y una hoja **Cálculos** con fórmulas reales editables.",
             "**PDF raster:** usa KaTeX, html2canvas y jsPDF; el texto no es seleccionable.",
             "**PDF vectorial:** compila con XeLaTeX, LuaLaTeX o pdfLaTeX; requiere MiKTeX o TeX Live.",
             "**SVG/PNG:** exporta gráficos 2D."
           ]
+        },
+        {
+          type: "note",
+          title: "Excel y unidades",
+          text: "En la hoja **Cálculos**, la columna D contiene fórmulas reales que Excel recalcula al editar los valores. La columna C muestra la fórmula equivalente. Las expresiones con unidades o funciones no traducibles conservan el valor calculado y su unidad."
         },
         {
           type: "paragraph",
@@ -511,7 +517,7 @@ const es: ManualContent = {
         {
           type: "note",
           title: "Versión",
-          text: "Versión 0.1.6. Repositorio: github.com/marcel1983/ingecalc."
+          text: "Versión 0.1.7. Repositorio: github.com/marcel1983/ingecalc."
         }
       ]
     }
@@ -521,7 +527,7 @@ const es: ManualContent = {
 const en: ManualContent = {
   title: "IngeCalc Manual",
   subtitle: "User guide and quick reference",
-  version: "0.1.6",
+  version: "0.1.7",
   sections: [
     {
       id: "inicio",
@@ -573,7 +579,7 @@ const en: ManualContent = {
             "**Insert:** regions, header/footer, functions, units and constants.",
             "**Page:** size, margins, result units, numbers, zoom and view.",
             "**Formulas:** assignment `:=`, side panel and math catalogs.",
-            "**Export:** LaTeX, ODT, raster PDF and vector PDF.",
+            "**Export:** LaTeX, ODT, Excel, raster PDF and vector PDF.",
             "**Help:** manual, quick start, shortcuts, troubleshooting and about IngeCalc."
           ]
         },
@@ -877,18 +883,24 @@ const en: ManualContent = {
       id: "exportar",
       icon: "📤",
       title: "Export",
-      summary: "LaTeX, ODT, raster PDF, vector PDF and plots.",
-      keywords: ["export", "latex", "odt", "pdf", "vector", "miktex"],
+      summary: "LaTeX, ODT, Excel, raster PDF, vector PDF and plots.",
+      keywords: ["export", "latex", "odt", "excel", "xlsx", "pdf", "vector", "miktex"],
       blocks: [
         {
           type: "list",
           items: [
             "**LaTeX:** generates a `.tex` file with calculated results.",
             "**ODT:** formulas as embedded Math objects, tables, images and header/footer.",
+            "**Excel:** `.xlsx` workbook with a formatted **Document** sheet and a **Calculations** sheet with real editable formulas.",
             "**Raster PDF:** uses KaTeX, html2canvas and jsPDF; text is not selectable.",
             "**Vector PDF:** compiles with XeLaTeX, LuaLaTeX or pdfLaTeX; requires MiKTeX or TeX Live.",
             "**SVG/PNG:** exports 2D plots."
           ]
+        },
+        {
+          type: "note",
+          title: "Excel and units",
+          text: "On the **Calculations** sheet, column D contains real formulas that Excel recalculates when values are edited. Column C shows the equivalent formula. Expressions with units or unsupported functions keep their calculated value and unit."
         },
         {
           type: "paragraph",
@@ -1008,7 +1020,7 @@ const en: ManualContent = {
         {
           type: "note",
           title: "Version",
-          text: "Version 0.1.6. Repository: github.com/marcel1983/ingecalc."
+          text: "Version 0.1.7. Repository: github.com/marcel1983/ingecalc."
         }
       ]
     }

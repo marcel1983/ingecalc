@@ -6,6 +6,28 @@ Todas las versiones relevantes de IngeCalc se documentan aquí.
 
 Sin cambios pendientes de publicar.
 
+## [0.1.7] - 2026-11-17
+
+### Added
+
+- **Exportación a Excel (`.xlsx`)** desde **Exportar → Exportar Excel** y desde
+  la CLI (`ingecalc export documento.smj xlsx salida.xlsx`).
+  - Hoja **Documento**: vista formateada con títulos, texto, fórmulas y
+    resultados, similar al documento.
+  - Hoja **Cálculos**: una fila por fórmula, con la expresión original, la
+    fórmula Excel equivalente y una celda con la fórmula real.
+  - Las definiciones se enlazan por referencia de celda, de modo que al editar
+    un valor Excel recalcula el resto.
+  - Las expresiones con unidades o funciones no traducibles conservan el valor
+    calculado y su unidad.
+
+### Changed
+
+- La ayuda integrada (F1) y `docs/manual.md` describen la exportación a Excel,
+  sus hojas y el comportamiento con unidades.
+- La lista de publicación exige actualizar la ayuda y el manual antes de cada
+  release.
+
 ## [0.1.6] - 2026-11-17
 
 ### Fixed

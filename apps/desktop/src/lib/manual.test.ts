@@ -42,10 +42,12 @@ describe("in-app manual", () => {
       const document = content.sections.find((section) => section.id === "documento");
       const shortcuts = content.sections.find((section) => section.id === "atajos");
       const problems = content.sections.find((section) => section.id === "problemas");
+      const exportSection = content.sections.find((section) => section.id === "exportar");
       const blocks = [
         ...(document?.blocks ?? []),
         ...(shortcuts?.blocks ?? []),
-        ...(problems?.blocks ?? [])
+        ...(problems?.blocks ?? []),
+        ...(exportSection?.blocks ?? [])
       ];
       const text = blocks
         .map((block) => {
@@ -68,6 +70,8 @@ describe("in-app manual", () => {
       expect(text).toContain("Shift+Tab");
       expect(text).toMatch(language === "es" ? /Versiones/ : /Versions/);
       expect(text).toMatch(language === "es" ? /rueda/ : /wheel/);
+      expect(text).toContain("Excel");
+      expect(text).toContain(language === "es" ? "Cálculos" : "Calculations");
     }
   });
 

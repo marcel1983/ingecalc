@@ -28,7 +28,7 @@ archivo `.smj`.
 - Edición matemática con **MathLive** y renderizado con **KaTeX**.
 - Texto enriquecido con **TipTap/ProseMirror**.
 - Formato de documento JSON versionado y abierto.
-- Exportación a **LaTeX, ODT, PDF raster y PDF vectorial**.
+- Exportación a **LaTeX, ODT, Excel, PDF raster y PDF vectorial**.
 - Licencia **GPL-3.0-or-later**.
 
 ## Descargas
@@ -103,6 +103,7 @@ también ofrece accesos directos a las secciones principales.
 
 - **LaTeX** con resultados calculados.
 - **ODT** con fórmulas Math embebidas, tablas, imágenes y encabezado/pie.
+- **Excel** (`.xlsx`) con una hoja formateada y otra con fórmulas editables.
 - **PDF raster** siempre disponible.
 - **PDF vectorial** con XeLaTeX, LuaLaTeX o pdfLaTeX.
 - **SVG/PNG** para gráficos 2D.
