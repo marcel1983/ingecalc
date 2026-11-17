@@ -552,9 +552,10 @@ export default function App() {
     action();
   }, [pendingClose]);
 
-  const handleExport = async (format: "latex" | "odt") => {
+  const handleExport = async (format: "latex" | "odt" | "xlsx") => {
     try {
-      const extension = format === "latex" ? "tex" : "odt";
+      const extension =
+        format === "latex" ? "tex" : format === "odt" ? "odt" : "xlsx";
       const baseName = (doc.metadata.title || "document").replace(
         /[\\/:*?"<>|]/g,
         "_"
@@ -563,7 +564,12 @@ export default function App() {
         defaultPath: `${baseName}.${extension}`,
         filters: [
           {
-            name: format === "latex" ? "LaTeX" : "ODT",
+            name:
+              format === "latex"
+                ? "LaTeX"
+                : format === "odt"
+                  ? "ODT"
+                  : "Excel",
             extensions: [extension]
           }
         ]
@@ -583,7 +589,7 @@ export default function App() {
         format,
         path: finalPath
       });
-      setStatus(`Exportado a ${format === "latex" ? "LaTeX" : "ODT"}`);
+      setStatus(`Exportado a ${format === "latex" ? "LaTeX" : format === "odt" ? "ODT" : "Excel"}`);
     } catch (error) {
       setStatus(`Error al exportar: ${String(error)}`);
     }
@@ -1582,6 +1588,12 @@ export default function App() {
                 </button>
                 <button onClick={() => handleExport("odt")}>
                   Exportar ODT
+                </button>
+                <button
+                  onClick={() => handleExport("xlsx")}
+                  title="Libro de Excel con fórmulas editables y vista formateada"
+                >
+                  Exportar Excel
                 </button>
               </RibbonGroup>
               <RibbonGroup label={t("groups.pdf")}>

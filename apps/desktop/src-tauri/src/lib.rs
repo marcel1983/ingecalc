@@ -602,6 +602,8 @@ fn export_document(document: Document, format: String, path: String) -> Result<(
         "latex" | "tex" => export::export_latex(&document, std::path::Path::new(&path)),
         "odt" => export::export_odt(&document)
             .and_then(|bytes| std::fs::write(&path, bytes).map_err(export::ExportError::from)),
+        "xlsx" => export::export_xlsx(&document)
+            .and_then(|bytes| std::fs::write(&path, bytes).map_err(export::ExportError::from)),
         other => return Err(format!("unsupported export format: {other}")),
     };
 

@@ -6,6 +6,7 @@ mod latex_pdf;
 mod mathml;
 mod odt;
 mod results;
+mod xlsx;
 
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
@@ -34,3 +35,4 @@ pub enum ExportError {
 pub use latex::export_latex;
 pub use latex_pdf::{detect_latex_engine, export_pdf_latex, find_latex_engine};
 pub use odt::export_odt;
+pub use xlsx::export_xlsx;

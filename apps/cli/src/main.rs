@@ -36,7 +36,7 @@ enum Commands {
     Export {
         /// Path to the .smj document.
         input: String,
-        /// Output format: "latex", "odt" or "pdf".
+        /// Output format: "latex", "odt", "xlsx" or "pdf".
         format: String,
         /// Output file path.
         output: String,
@@ -192,6 +192,9 @@ fn main() {
             let result = match format.to_ascii_lowercase().as_str() {
                 "latex" | "tex" => export::export_latex(&document, std::path::Path::new(&output)),
                 "odt" => export::export_odt(&document).and_then(|bytes| {
+                    std::fs::write(&output, bytes).map_err(export::ExportError::from)
+                }),
+                "xlsx" => export::export_xlsx(&document).and_then(|bytes| {
                     std::fs::write(&output, bytes).map_err(export::ExportError::from)
                 }),
                 "pdf" | "pdf-latex" => export::export_pdf_latex(
