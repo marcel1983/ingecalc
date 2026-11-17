@@ -18,7 +18,7 @@ el orden de esta lista y se valida con `npm test`, `npm run check`, `cargo fmt`,
 | 7 | Deshacer local en fórmulas | Media | Implementado |
 | 8 | Zoom con Ctrl+rueda y restablecer con clic | Baja | Implementado |
 | 9 | Accesibilidad: aria-keyshortcuts y foco visible | Baja | Implementado parcialmente |
-| 10 | Documentación y release | Baja | En progreso (v0.1.5) |
+| 10 | Documentación y release | Baja | Implementado (v0.1.5 / v0.1.6) |
 
 ## Detalle
 
@@ -108,6 +108,8 @@ el orden de esta lista y se valida con `npm test`, `npm run check`, `cargo fmt`,
 
 ### 10. Documentación y release
 
-- Actualizar `docs/manual.md`, `docs/guia-desarrollo.md` y `CHANGELOG.md`.
+- Actualizar `docs/manual.md`, `apps/desktop/src/lib/manual.ts` (ayuda F1,
+  español e inglés) y `docs/guia-desarrollo.md` antes de cada release.
 - Ejecutar todas las validaciones.
-- Crear `v0.1.5`, esperar el workflow y publicar con `SHA256SUMS.txt`.
+- Crear el tag de la versión, esperar el workflow y publicar con
+  `SHA256SUMS.txt`.
