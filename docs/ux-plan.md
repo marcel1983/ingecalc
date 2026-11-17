@@ -18,7 +18,7 @@ el orden de esta lista y se valida con `npm test`, `npm run check`, `cargo fmt`,
 | 7 | Deshacer local en fórmulas | Media | Implementado |
 | 8 | Zoom con Ctrl+rueda y restablecer con clic | Baja | Implementado |
 | 9 | Accesibilidad: aria-keyshortcuts y foco visible | Baja | Implementado parcialmente |
-| 10 | Documentación y release | Baja | Pendiente |
+| 10 | Documentación y release | Baja | En progreso (v0.1.5) |
 
 ## Detalle
 
