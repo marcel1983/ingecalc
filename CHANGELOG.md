@@ -6,6 +6,30 @@ Todas las versiones relevantes de IngeCalc se documentan aquí.
 
 Sin cambios pendientes de publicar.
 
+## [0.1.5] - 2026-11-17
+
+### Added
+
+- Botón **▾ Archivos recientes** junto a Abrir: guarda hasta 8 documentos y
+  permite volver a abrirlos con un clic.
+- Historial de borradores: instantáneas cada 5 minutos (máximo 10) y menú
+  **Versiones** en la pancarta de recuperación.
+- Aviso **“Tienes cambios sin guardar”** con opciones Guardar / Descartar /
+  Cancelar al crear un documento nuevo, abrir otro archivo o cerrar la ventana.
+- Indicador **●** junto al nombre de IngeCalc cuando hay cambios sin guardar.
+- Botón **Errores (N)** y contador **N con error** para ir a la siguiente
+  fórmula con error.
+- Navegación con `Tab` / `Shift+Tab` entre fórmulas.
+- Deshacer y rehacer local dentro de cada fórmula con `Ctrl+Z` / `Ctrl+Y`.
+
+### Changed
+
+- `Ctrl+C` / `Ctrl+V` respetan la selección de texto dentro de párrafos; el
+  portapapeles de regiones sigue funcionando cuando no hay selección de texto.
+- `Ctrl` + rueda cambia el zoom; el porcentaje vuelve al 100 % con un clic.
+- Se añadieron `aria-keyshortcuts` y etiquetas accesibles a los botones
+  principales.
+
 ## [0.1.4] - 2026-11-16
 
 ### Changed

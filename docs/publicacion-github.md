@@ -88,7 +88,7 @@ Antes de etiquetar una versión:
 5. Crear un tag anotado:
 
 ```bash
-git tag -a v0.1.4 -m "IngeCalc 0.1.4"
+git tag -a v0.1.5 -m "IngeCalc 0.1.5"
 git push origin main --tags
 ```
 
