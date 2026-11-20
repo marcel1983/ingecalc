@@ -6,10 +6,14 @@ import {
 } from "react";
 import { useDocumentStore } from "../stores/document";
 import { useTranslation } from "react-i18next";
+import type { MathfieldElement } from "mathlive";
 import type { MathCompletion } from "../lib/mathCompletions";
 import { formatPageText, getPageSetup } from "../lib/pageSetup";
 import { GRID_SIZE } from "../lib/viewOptions";
-import { contentBounds as contentBoundsForPage } from "../lib/regionGeometry";
+import {
+  contentBounds as contentBoundsForPage,
+  MIN_REGION_HEIGHT
+} from "../lib/regionGeometry";
 import { RegionFrame } from "./RegionFrame";
 
 type Props = {
@@ -34,6 +38,41 @@ type Marquee = {
   y: number;
   additive: boolean;
 };
+
+type InsertionPoint = {
+  pageId: string;
+  x: number;
+  y: number;
+};
+
+/**
+ * Translate a printable key into LaTeX so MathLive can insert it without
+ * rejecting characters that are special in math mode.
+ */
+function latexSeed(key: string): string {
+  switch (key) {
+    case "*":
+      return "\\cdot";
+    case "%":
+      return "\\%";
+    case "#":
+      return "\\#";
+    case "&":
+      return "\\&";
+    case "$":
+      return "\\$";
+    case "{":
+      return "\\{";
+    case "}":
+      return "\\}";
+    case "\\":
+      return "\\backslash";
+    case "~":
+      return "\\sim";
+    default:
+      return key;
+  }
+}
 
 export function Worksheet({
   zoom,
@@ -65,6 +104,9 @@ export function Worksheet({
   const removeSelected = useDocumentStore((state) => state.removeSelected);
   const addPage = useDocumentStore((state) => state.addPage);
   const addMathRegionAt = useDocumentStore((state) => state.addMathRegionAt);
+  const shiftRegionsBelow = useDocumentStore(
+    (state) => state.shiftRegionsBelow
+  );
   const addMathRegionBelow = useDocumentStore(
     (state) => state.addMathRegionBelow
   );
@@ -78,6 +120,9 @@ export function Worksheet({
   );
   const endTransaction = useDocumentStore((state) => state.endTransaction);
   const [marquee, setMarquee] = useState<Marquee | null>(null);
+  const [insertionPoint, setInsertionPoint] = useState<InsertionPoint | null>(
+    null
+  );
   const workspaceRef = useRef<HTMLDivElement | null>(null);
 
   const pagePoint = (
@@ -93,13 +138,28 @@ export function Worksheet({
     };
   };
 
-  const focusMathRegion = (regionId: string) => {
+  const focusMathRegion = (regionId: string, seed?: string) => {
     window.requestAnimationFrame(() => {
-      const field = document.querySelector<HTMLElement>(
-        `[data-region-id="${regionId}"] math-field`
-      );
-      field?.focus();
-      field?.scrollIntoView({ block: "nearest" });
+      window.requestAnimationFrame(() => {
+        const field = document.querySelector<MathfieldElement>(
+          `[data-region-id="${regionId}"] math-field`
+        );
+        if (!field) {
+          return;
+        }
+        field.focus();
+        if (seed) {
+          field.insert(latexSeed(seed), {
+            mode: "math",
+            format: "latex",
+            insertionMode: "replaceSelection",
+            selectionMode: "after",
+            focus: true,
+            scrollIntoView: true
+          });
+        }
+        field.scrollIntoView({ block: "nearest" });
+      });
     });
   };
 
@@ -187,6 +247,100 @@ export function Worksheet({
   }, [selectedIds, removeSelected, doc.pages, select]);
 
   useEffect(() => {
+    if (!insertionPoint) {
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.isComposing ||
+        event.ctrlKey ||
+        event.metaKey ||
+        event.altKey
+      ) {
+        return;
+      }
+
+      const target = event.target;
+      if (
+        target instanceof HTMLElement &&
+        target.closest(
+          "input, textarea, [contenteditable='true'], math-field, .tiptap"
+        )
+      ) {
+        return;
+      }
+
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setInsertionPoint(null);
+        return;
+      }
+
+      if (event.key === "Enter") {
+        event.preventDefault();
+        shiftRegionsBelow(
+          insertionPoint.pageId,
+          insertionPoint.y,
+          MIN_REGION_HEIGHT
+        );
+        return;
+      }
+
+      if (event.key === "Backspace") {
+        event.preventDefault();
+        shiftRegionsBelow(
+          insertionPoint.pageId,
+          insertionPoint.y,
+          -MIN_REGION_HEIGHT
+        );
+        return;
+      }
+
+      if (event.key.length !== 1 || event.key === " ") {
+        return;
+      }
+
+      event.preventDefault();
+      const { pageId, x, y } = insertionPoint;
+      setInsertionPoint(null);
+      const regionId = addMathRegionAt(pageId, x, y);
+      if (regionId) {
+        focusMathRegion(regionId, event.key);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [insertionPoint, addMathRegionAt, shiftRegionsBelow]);
+
+  useEffect(() => {
+    if (!insertionPoint) {
+      return;
+    }
+
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) {
+        setInsertionPoint(null);
+        return;
+      }
+      if (
+        target.closest(".page") &&
+        !target.closest("[data-region-id]")
+      ) {
+        return;
+      }
+      setInsertionPoint(null);
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown, true);
+    return () =>
+      document.removeEventListener("pointerdown", handlePointerDown, true);
+  }, [insertionPoint]);
+
+  useEffect(() => {
     const element = workspaceRef.current;
     if (!element || !onZoom) {
       return;
@@ -216,6 +370,7 @@ export function Worksheet({
           ) {
             document.activeElement.blur();
           }
+          setInsertionPoint(null);
           clearSelection();
         }
       }}
@@ -366,6 +521,7 @@ export function Worksheet({
                       ? [...new Set([...selectedIds, ...ids])]
                       : ids
                   );
+                  setInsertionPoint(null);
                 } else if (!marquee.additive) {
                   const x = snapToGrid
                     ? Math.round(marquee.startX / GRID_SIZE) * GRID_SIZE
@@ -373,12 +529,7 @@ export function Worksheet({
                   const y = snapToGrid
                     ? Math.round(marquee.startY / GRID_SIZE) * GRID_SIZE
                     : marquee.startY;
-                  const regionId = addMathRegionAt(page.id, x, y);
-                  if (regionId) {
-                    focusMathRegion(regionId);
-                  } else {
-                    clearSelection();
-                  }
+                  setInsertionPoint({ pageId: page.id, x, y });
                 }
 
                 setMarquee(null);
@@ -398,6 +549,16 @@ export function Worksheet({
                   height: contentHeight
                 }}
               />
+
+              {insertionPoint?.pageId === page.id && (
+                <div
+                  className="page-caret"
+                  style={{
+                    left: insertionPoint.x,
+                    top: Math.max(0, insertionPoint.y - 14)
+                  }}
+                />
+              )}
 
               {setup.header && !hasHeaderRegion && (
                 <div

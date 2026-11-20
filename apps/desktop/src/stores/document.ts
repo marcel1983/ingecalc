@@ -111,6 +111,7 @@ type Store = {
   addMathRegion: () => void;
   addMathRegionWith: (source: string, ascii: string) => void;
   addMathRegionAt: (pageId: string, x: number, y: number) => string | null;
+  shiftRegionsBelow: (pageId: string, y: number, delta: number) => number;
   addMathRegionBelow: (regionId: string) => string | null;
   addTextRegion: () => void;
   addHeaderRegion: () => void;
@@ -562,6 +563,67 @@ export const useDocumentStore = create<Store>((set, get) => {
       });
 
       return created ? regionId : null;
+    },
+
+    shiftRegionsBelow: (pageId, y, delta) => {
+      const state = get();
+      const page = state.doc.pages.find((candidate) => candidate.id === pageId);
+      if (!page || delta === 0) {
+        return 0;
+      }
+
+      const setup = state.doc.settings.page;
+      const contentBottom = Math.max(
+        setup.marginTop + MIN_REGION_HEIGHT,
+        page.height - setup.marginBottom
+      );
+      const below = page.regions.filter((region) => region.y >= y);
+      if (below.length === 0) {
+        return 0;
+      }
+
+      let applied = 0;
+      if (delta > 0) {
+        const maxDown = Math.min(
+          ...below.map((region) =>
+            Math.max(0, contentBottom - region.y - region.h)
+          )
+        );
+        applied = Math.min(delta, maxDown);
+      } else {
+        const aboveBottom = page.regions
+          .filter((region) => region.y + region.h <= y)
+          .reduce(
+            (bottom, region) => Math.max(bottom, region.y + region.h),
+            setup.marginTop
+          );
+        const maxUp = Math.min(
+          ...below.map((region) =>
+            Math.max(0, Math.min(region.y - y, region.y - aboveBottom))
+          )
+        );
+        applied = -Math.min(-delta, maxUp);
+      }
+
+      if (applied === 0) {
+        return 0;
+      }
+
+      mutate(null, (draft) => {
+        const target = draft.doc.pages.find(
+          (candidate) => candidate.id === pageId
+        );
+        if (!target) {
+          return;
+        }
+        target.regions.forEach((region) => {
+          if (region.y >= y) {
+            region.y += applied;
+          }
+        });
+      });
+
+      return applied;
     },
 
     addMathRegionBelow: (regionId) => {

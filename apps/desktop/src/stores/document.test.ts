@@ -71,6 +71,57 @@ describe("document store", () => {
     ).toBeUndefined();
   });
 
+  it("shifts regions below a point and clamps upward movement", () => {
+    const page = useDocumentStore.getState().doc.pages[0];
+    const mathId = mathRegionId();
+    const textId = textRegionId();
+    const textY = useDocumentStore
+      .getState()
+      .doc.pages[0].regions.find((item) => item.id === textId)?.y;
+    const mathY = useDocumentStore
+      .getState()
+      .doc.pages[0].regions.find((item) => item.id === mathId)?.y;
+
+    const down = useDocumentStore
+      .getState()
+      .shiftRegionsBelow(page.id, 100, 48);
+    expect(down).toBe(48);
+    expect(
+      useDocumentStore
+        .getState()
+        .doc.pages[0].regions.find((item) => item.id === textId)?.y
+    ).toBe((textY ?? 0) + 48);
+    expect(
+      useDocumentStore
+        .getState()
+        .doc.pages[0].regions.find((item) => item.id === mathId)?.y
+    ).toBe(mathY);
+
+    const up = useDocumentStore
+      .getState()
+      .shiftRegionsBelow(page.id, 100, -48);
+    expect(up).toBe(-48);
+    expect(
+      useDocumentStore
+        .getState()
+        .doc.pages[0].regions.find((item) => item.id === textId)?.y
+    ).toBe(textY);
+
+    const clamped = useDocumentStore
+      .getState()
+      .shiftRegionsBelow(page.id, 100, -1000);
+    expect(clamped).toBe(-40);
+    expect(
+      useDocumentStore
+        .getState()
+        .doc.pages[0].regions.find((item) => item.id === textId)?.y
+    ).toBe(100);
+
+    expect(
+      useDocumentStore.getState().shiftRegionsBelow(page.id, 2000, 48)
+    ).toBe(0);
+  });
+
   it("creates an empty math region below another one", () => {
     const store = useDocumentStore.getState();
     const sourceId = mathRegionId();

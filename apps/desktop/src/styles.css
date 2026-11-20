@@ -1183,6 +1183,29 @@ button:disabled {
   pointer-events: none;
 }
 
+.page-caret {
+  position: absolute;
+  z-index: 3;
+  width: 2px;
+  height: 24px;
+  border-radius: 1px;
+  background: #2563eb;
+  pointer-events: none;
+  animation: page-caret-blink 1s steps(2, start) infinite;
+}
+
+@keyframes page-caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
 .page-header,
 .page-footer {
   position: absolute;
