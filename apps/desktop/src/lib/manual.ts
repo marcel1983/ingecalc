@@ -24,7 +24,7 @@ export type ManualContent = {
 const es: ManualContent = {
   title: "Manual de IngeCalc",
   subtitle: "Guía de uso y referencia rápida",
-  version: "0.1.7",
+  version: "0.1.8",
   sections: [
     {
       id: "inicio",
@@ -41,7 +41,7 @@ const es: ManualContent = {
           type: "list",
           items: [
             "Abre un documento `.smj` con **Abrir** (`Ctrl+O`) o crea uno nuevo con **Nuevo** (`Ctrl+N`).",
-            "Haz clic en una zona vacía de la página para crear una región matemática.",
+            "Haz clic en una zona vacía de la página para colocar el cursor de inserción. Al empezar a escribir se crea una región matemática en esa posición. `Enter` desplaza el contenido inferior hacia abajo y `Backspace` lo desplaza hacia arriba si hay espacio.",
             "Escribe una expresión y pulsa **Recalcular** (`F9`) para actualizar los resultados.",
             "Guarda con `Ctrl+S`. El autosave conserva un borrador recuperable."
           ]
@@ -517,7 +517,7 @@ const es: ManualContent = {
         {
           type: "note",
           title: "Versión",
-          text: "Versión 0.1.7. Repositorio: github.com/marcel1983/ingecalc."
+          text: "Versión 0.1.8. Repositorio: github.com/marcel1983/ingecalc."
         }
       ]
     }
@@ -527,7 +527,7 @@ const es: ManualContent = {
 const en: ManualContent = {
   title: "IngeCalc Manual",
   subtitle: "User guide and quick reference",
-  version: "0.1.7",
+  version: "0.1.8",
   sections: [
     {
       id: "inicio",
@@ -544,7 +544,7 @@ const en: ManualContent = {
           type: "list",
           items: [
             "Open a `.smj` document with **Open** (`Ctrl+O`) or create one with **New** (`Ctrl+N`).",
-            "Click an empty area of the page to create a math region.",
+            "Click an empty area of the page to place the insertion cursor. Start typing to create a math region there. `Enter` pushes the content below downward and `Backspace` pulls it upward when there is room.",
             "Type an expression and press **Recalculate** (`F9`) to refresh results.",
             "Save with `Ctrl+S`. Autosave keeps a recoverable draft."
           ]
@@ -1020,7 +1020,7 @@ const en: ManualContent = {
         {
           type: "note",
           title: "Version",
-          text: "Version 0.1.7. Repository: github.com/marcel1983/ingecalc."
+          text: "Version 0.1.8. Repository: github.com/marcel1983/ingecalc."
         }
       ]
     }

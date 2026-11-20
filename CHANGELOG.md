@@ -6,6 +6,17 @@ Todas las versiones relevantes de IngeCalc se documentan aquí.
 
 Sin cambios pendientes de publicar.
 
+## [0.1.8] - 2026-11-20
+
+### Changed
+
+- Un clic en una zona vacía de la hoja coloca el cursor de inserción sin crear
+  una región. La región matemática se crea al empezar a escribir.
+- Con el cursor sobre la hoja, `Enter` desplaza el contenido inferior hacia
+  abajo y `Backspace` lo desplaza hacia arriba cuando hay espacio.
+- La ayuda integrada y el manual describen el nuevo cursor y el desplazamiento
+  de contenido.
+
 ## [0.1.7] - 2026-11-17
 
 ### Added

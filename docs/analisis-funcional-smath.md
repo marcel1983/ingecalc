@@ -80,7 +80,7 @@ Se revisaron las páginas del portal en español: guía del usuario, matrices, u
 
 | Capacidad de SMath | IngeCalc | Brecha y notas | Prio | Tamaño |
 |---|---|---|---|---|
-| Hoja WYSIWYG con regiones libres de matemática, texto, gráfico e imagen | ✅ | Regiones math/text/image/plot con posicionamiento libre, cuadrícula tenue con ajuste configurable, autoajuste al contenido en math/text, creación de una nueva región matemática con Enter debajo de la actual, encabezado/pie como regiones, selección, arrastre, redimensionado, bloqueo de posición y creación de una región matemática al hacer clic en una zona vacía | — | — |
+| Hoja WYSIWYG con regiones libres de matemática, texto, gráfico e imagen | ✅ | Regiones math/text/image/plot con posicionamiento libre, cuadrícula tenue con ajuste configurable, autoajuste al contenido en math/text, creación de una nueva región matemática con Enter debajo de la actual, encabezado/pie como regiones, selección, arrastre, redimensionado, bloqueo de posición, cursor de inserción al hacer clic en una zona vacía y creación de la región matemática al empezar a escribir | — | — |
 | Recálculo en tiempo real mientras se edita | ✅ | Evaluación con debounce de 240 ms, grafo de dependencias, recálculo en cascada y F9 | — | — |
 | Regiones dentro de regiones | ❌ | SMath lo destaca como ventaja; requiere modelo recursivo y layout | P2 | L |
 | Sin solapamiento y dentro de márgenes | ✅ | Reflujo vertical al crecer, rechazo de arrastres que invaden otra caja, ancho automático limitado al área imprimible y reajuste al cambiar márgenes; el texto aún no se divide por párrafos | - | - |

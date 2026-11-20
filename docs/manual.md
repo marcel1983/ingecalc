@@ -118,8 +118,11 @@ interfaz y el acceso rápido a la ayuda.
 ## Documento y regiones
 
 - Cada documento `.smj` contiene páginas de tamaño A4 o Carta.
-- Haz clic en una zona vacía para crear una región matemática; arrastra sobre el
+- Haz clic en una zona vacía para colocar el cursor de inserción; empieza a
+  escribir para crear una región matemática en esa posición. Arrastra sobre el
   fondo para seleccionar varias regiones.
+- Con el cursor de inserción sobre la hoja, `Enter` desplaza el contenido
+  inferior hacia abajo y `Backspace` lo desplaza hacia arriba si hay espacio.
 - `Enter` dentro de una región matemática crea otra región debajo y mueve el
   cursor a ella.
 - Las regiones matemáticas y de texto se ajustan a su contenido, respetan los
