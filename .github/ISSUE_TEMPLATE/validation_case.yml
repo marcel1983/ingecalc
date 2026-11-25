@@ -1,0 +1,69 @@
+name: Caso de validación
+description: Aporta un ejemplo con resultado conocido para comprobar IngeCalc. No requiere programar.
+title: '[Validación]: '
+labels:
+- validation
+body:
+- type: markdown
+  attributes:
+    value: |
+      **Un caso de validación es un ejemplo con resultado conocido** (un ejemplo publicado, un cálculo a mano u otro programa) que permite comprobar que IngeCalc calcula bien. No hace falta programar: con los datos y la fuente, el equipo lo convierte en una prueba automática que se ejecuta en cada cambio.
+
+      Cita la fuente y copia solo los **datos numéricos**; no pegues texto, tablas ni figuras de normas o libros protegidos.
+- type: dropdown
+  id: source_type
+  attributes:
+    label: Tipo de referencia
+    options:
+    - Ejemplo publicado (libro, guía de diseño, manual)
+    - Cálculo a mano
+    - Otro programa (indicar cuál y su versión)
+    - Ensayo de laboratorio
+    - Otra
+  validations:
+    required: true
+- type: textarea
+  id: reference
+  attributes:
+    label: Fuente
+    description: Autor, título, edición, página o número de ejemplo. Si es otro programa, nombre y versión.
+    placeholder: Autor, Título, edición, ejemplo N
+  validations:
+    required: true
+- type: textarea
+  id: inputs
+  attributes:
+    label: Datos de entrada
+    description: Geometría, materiales, cargas y unidades. Basta con lo necesario para reproducir el caso.
+  validations:
+    required: true
+- type: textarea
+  id: expected
+  attributes:
+    label: Resultados de referencia
+    description: Valores con unidades, tal como los da la fuente.
+  validations:
+    required: true
+- type: textarea
+  id: obtained
+  attributes:
+    label: Resultados de IngeCalc (si ya lo probaste)
+    description: Versión usada y valores obtenidos. Si no coinciden, indica la diferencia en porcentaje.
+  validations:
+    required: false
+- type: textarea
+  id: files
+  attributes:
+    label: Archivos
+    description: Arrastra aquí el archivo .smj, una hoja de cálculo o un PDF con tu cálculo (comprímelo en .zip si GitHub no acepta la extensión).
+  validations:
+    required: false
+- type: checkboxes
+  id: consent
+  attributes:
+    label: Permisos
+    options:
+    - label: Acepto que este caso se incluya en las pruebas y la documentación del proyecto bajo su licencia.
+      required: true
+    - label: Solo incluí datos numéricos y la cita; no copié texto, tablas ni figuras protegidas.
+      required: true

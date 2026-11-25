@@ -3,6 +3,25 @@
 Gracias por tu interés. IngeCalc se distribuye bajo **GPL-3.0-or-later**; al
 enviar una contribución aceptas que se publique bajo esa licencia.
 
+## Sin programar
+
+La mayor parte de lo que el proyecto necesita no es código. Desde la pestaña
+[Issues](https://github.com/marcel1983/ingecalc/issues/new/choose), elige una
+plantilla:
+
+| Quiero… | Plantilla |
+|---|---|
+| Aportar un ejemplo con resultado conocido (libro, cálculo a mano, otro programa) | **Caso de validación** |
+| Avisar de que un resultado, una unidad o una simplificación está mal | **Error de cálculo** |
+| Avisar de que el programa se cierra o no hace lo que debería | **Reportar un error** |
+| Pedir una función nueva | **Proponer una función** |
+
+Las dudas de uso van a
+[Discussions](https://github.com/marcel1983/ingecalc/discussions). También
+ayudan las traducciones de la interfaz y del manual, los documentos de ejemplo
+para `examples/` y probar las versiones nuevas en tu sistema. Para abrir un
+issue necesitas una cuenta gratuita de GitHub.
+
 ## Entorno
 
 - Rust stable.

@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Preguntas y ayuda (Discussions)
+    url: https://github.com/marcel1983/ingecalc/discussions
+    about: ¿Dudas de uso o ideas aún sin forma? Pregunta en Discussions.
   - name: Guía de uso
     url: https://github.com/marcel1983/ingecalc/blob/main/docs/manual.md
     about: Consulta la sintaxis, las unidades, los gráficos y la exportación.

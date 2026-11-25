@@ -292,7 +292,14 @@ posiciones absolutas en LaTeX/ODT. Consulta la
 
 ## Contribuir
 
-Las contribuciones son bienvenidas. Antes de abrir un PR:
+No hace falta programar para ayudar. Desde
+[Issues](https://github.com/marcel1983/ingecalc/issues/new/choose) puedes aportar
+un **caso de validación** (un ejemplo con resultado conocido que se convierte en
+prueba automática), reportar un **error de cálculo** o un **fallo**, o **proponer
+una función**. Las preguntas de uso van a
+[Discussions](https://github.com/marcel1983/ingecalc/discussions).
+
+Para aportar código, antes de abrir un PR:
 
 1. Lee [`CONTRIBUTING.md`](CONTRIBUTING.md) y [`GOVERNANCE.md`](GOVERNANCE.md).
 2. Añade o actualiza tests.
