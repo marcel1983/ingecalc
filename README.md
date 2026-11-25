@@ -296,7 +296,8 @@ No hace falta programar para ayudar. Desde
 [Issues](https://github.com/marcel1983/ingecalc/issues/new/choose) puedes aportar
 un **caso de validación** (un ejemplo con resultado conocido que se convierte en
 prueba automática), reportar un **error de cálculo** o un **fallo**, o **proponer
-una función**. Las preguntas de uso van a
+una función**. La [guía paso a paso](https://marcel1983.github.io/#guia) explica cómo descargar,
+instalar y reportar. Las preguntas de uso van a
 [Discussions](https://github.com/marcel1983/ingecalc/discussions).
 
 Para aportar código, antes de abrir un PR:
